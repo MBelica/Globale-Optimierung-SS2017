@@ -1,0 +1,344 @@
+\documentclass[12pt]{extreport} % Schriftgröße: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt oder 20pt
+
+%% Packages
+\usepackage{scrextend}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{chngcntr}
+\usepackage{cmap}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{lmodern}
+\usepackage{makeidx}
+\usepackage{mathtools}
+\usepackage{xpatch}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.7}
+\usetikzlibrary{calc}	
+\usetikzlibrary{matrix}	
+
+% Language Setup (Deutsch)
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc} 
+\usepackage[ngerman]{babel}
+
+\usepackage{csquotes}
+% Options
+\makeatletter%%  
+  % Linkfarbe, {0,0.35,0.35} für Türkis, {0,0,0} für Schwarz, {1,0,0} für Rot, {0,0,0.85} für Blau
+  \definecolor{linkcolor}{rgb}{0,0.35,0.35}
+  % Zeilenabstand für bessere Leserlichkeit
+  \def\mystretch{1.2} 
+  % Publisher definieren
+  \newcommand\publishers[1]{\newcommand\@publishers{#1}} 
+  % Enumerate im 1. Level: \alph für a), b), ...
+  \renewcommand{\labelenumi}{\alph{enumi})} 
+  % Enumerate im 2. Level: \roman für (i), (ii), ...
+  \renewcommand{\labelenumii}{(\roman{enumii})}
+  % Zeileneinrückung am Anfang des Absatzes
+  \setlength{\parindent}{0pt} 
+  % Verweise auf Enumerate, z.B.: 3.2 a)
+  \setlist[enumerate,1]{ref={\thesatz ~ \alph*)}}
+  % Für das Proof-Environment: 'Beweis:' anstatt 'Beweis.'
+  \xpatchcmd{\proof}{\@addpunct{.}}{\@addpunct{:}}{}{} 
+  % Nummerierung der Bilder, z.B.: Abbildung 4.1
+  \@ifundefined{thechapter}{}{\def\thefigure{\thechapter.\arabic{figure}}} 
+  % Chapter-Nummerierung beginnen bei (0):
+  \setcounter{chapter}{0}
+\makeatother%
+
+% Meta Setup (Für Titelblatt und Metadaten im PDF)
+\title{Globale Optimierung}
+\author{Prof. Dr. Oliver Stein}
+\date{Sommersemester 2017}
+\publishers{Karlsruher Institut für Technologie}
+
+%% Math. Definitionen
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+%% Theorems (unnamedtheorem = Theorem ohne Namen)
+\newtheoremstyle{named}{}{}{\normalfont}{}{\bfseries}{:}{0.25em}{#2 \thmnote{#3}}
+\newtheoremstyle{nnamed}{}{}{\normalfont}{}{\bfseries}{:}{0.25em}{\thmnote{#3}}
+\newtheoremstyle{itshape}{}{}{\itshape}{}{\bfseries}{:}{ }{}
+\newtheoremstyle{normal}{}{}{\normalfont}{}{\bfseries}{:}{ }{}
+\renewcommand*{\qed}{\hfill\ensuremath{\square}}
+
+\theoremstyle{named}
+\newtheorem{unnamedtheorem}{Theorem} \counterwithin{unnamedtheorem}{chapter}
+\theoremstyle{nnamed}
+\newtheorem*{unnamedtheorem*}{Theorem} 
+
+\theoremstyle{itshape}
+\newtheorem{satz}[unnamedtheorem]{Satz} 
+\newtheorem*{definition}{Definition}
+\newtheorem{hilfssatz}[unnamedtheorem]{Hilfssatz}
+\newtheorem*{hilfssatz*}{Hilfssatz}
+
+\theoremstyle{normal}
+\newtheorem{beispiel}[unnamedtheorem]{Beispiel}
+\newtheorem{folgerung}[unnamedtheorem]{Folgerung}
+%\newtheorem{hilfssatz}[unnamedtheorem]{Hilfssatz}
+\newtheorem{anwendung}[unnamedtheorem]{Anwendung}
+\newtheorem{anwendungen}[unnamedtheorem]{Anwendungen}
+\newtheorem*{anwendung*}{Anwendung}
+\newtheorem*{beispiel*}{Beispiel}
+\newtheorem*{beispiele}{Beispiele}
+\newtheorem*{bemerkung}{Bemerkung} 
+\newtheorem*{bemerkungen}{Bemerkungen}
+\newtheorem*{bezeichnung}{Bezeichnung}
+\newtheorem*{eigenschaften}{Eigenschaften}
+\newtheorem*{folgerung*}{Folgerung}
+\newtheorem*{folgerungen}{Folgerungen}
+%\newtheorem*{hilfssatz*}{Hilfssatz}
+\newtheorem*{regeln}{Regeln}
+\newtheorem*{motivation}{Motivation}
+\newtheorem*{erinnerung}{Erinnerung}
+\newtheorem*{schreibweise}{Schreibweise}
+\newtheorem*{schreibweisen}{Schreibweisen}
+\newtheorem*{uebung}{Übung}
+\newtheorem*{vereinbarung}{Vereinbarung}
+
+%% Template
+\makeatletter%
+\DeclareUnicodeCharacter{00A0}{ } \pgfplotsset{compat=1.7} \hypersetup{colorlinks,breaklinks, urlcolor=linkcolor, linkcolor=linkcolor, pdftitle=\@title, pdfauthor=\@author, pdfsubject=\@title, pdfcreator=\@publishers}\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}} \ProcessOptions \def\baselinestretch{\mystretch} \setlength{\oddsidemargin}{0.125in} \setlength{\evensidemargin}{0.125in} \setlength{\topmargin}{0.5in} \setlength{\textwidth}{6.25in} \setlength{\textheight}{8in} \addtolength{\topmargin}{-\headheight} \addtolength{\topmargin}{-\headsep} \def\pulldownheader{ \addtolength{\topmargin}{\headheight} \addtolength{\topmargin}{\headsep} \addtolength{\textheight}{-\headheight} \addtolength{\textheight}{-\headsep} } \def\pullupfooter{ \addtolength{\textheight}{-\footskip} } \def\ps@headings{\let\@mkboth\markboth \def\@oddfoot{} \def\@evenfoot{} \def\@oddhead{\hbox {}\sl \rightmark \hfil \rm\thepage} \def\chaptermark##1{\markright {\uppercase{\ifnum \c@secnumdepth >\m@ne \@chapapp\ \thechapter. \ \fi ##1}}} \pulldownheader } \def\ps@myheadings{\let\@mkboth\@gobbletwo \def\@oddfoot{} \def\@evenfoot{} \def\sectionmark##1{} \def\subsectionmark##1{}  \def\@evenhead{\rm \thepage\hfil\sl\leftmark\hbox {}} \def\@oddhead{\hbox{}\sl\rightmark \hfil \rm\thepage} \pulldownheader }	\def\chapter{\cleardoublepage  \thispagestyle{plain} \global\@topnum\z@ \@afterindentfalse \secdef\@chapter\@schapter} \def\@makeschapterhead#1{ {\parindent \z@ \raggedright \normalfont \interlinepenalty\@M \Huge \bfseries  #1\par\nobreak \vskip 40\p@ }} \newcommand{\indexsection}{chapter} \patchcmd{\@makechapterhead}{\vspace*{50\p@}}{}{}{}\def\Xint#1{\mathchoice
+    {\XXint\displaystyle\textstyle{#1}} {\XXint\textstyle\scriptstyle{#1}} {\XXint\scriptstyle\scriptscriptstyle{#1}} {\XXint\scriptscriptstyle\scriptscriptstyle{#1}} \!\int} \def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \vcenter{\hbox{$#2#3$}}\kern-.5\wd0}} \def\dashint{\Xint-} \def\Yint#1{\mathchoice {\YYint\displaystyle\textstyle{#1}} {\YYYint\textstyle\scriptscriptstyle{#1}} {}{} \!\int} \def\YYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \lower1ex\hbox{$#2#3$}\kern-.46\wd0}} \def\YYYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}  \lower0.35ex\hbox{$#2#3$}\kern-.48\wd0}} \def\lowdashint{\Yint-} \def\Zint#1{\mathchoice {\ZZint\displaystyle\textstyle{#1}}{\ZZZint\textstyle\scriptscriptstyle{#1}} {}{} \!\int} \def\ZZint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}\raise1.15ex\hbox{$#2#3$}\kern-.57\wd0}} \def\ZZZint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \raise0.85ex\hbox{$#2#3$}\kern-.53\wd0}} \def\highdashint{\Zint-} \DeclareRobustCommand*{\onlyattoc}[1]{} \newcommand*{\activateonlyattoc}{ \DeclareRobustCommand*{\onlyattoc}[1]{##1} } \AtBeginDocument{\addtocontents{toc} {\protect\activateonlyattoc}} 
+	% Titlepage
+	\def\maketitle{ \begin{titlepage} 
+			~\vspace{3cm} 
+		\begin{center} {\Huge \@title} \end{center} 
+		\begin{center} {\LARGE Übung }\end{center}
+	 		\vspace*{1cm} 
+	 	\begin{center} {\large \@author} \end{center} 
+	 	\begin{center} \@date \end{center} 
+	 		\vspace*{7cm} 
+	 	\begin{center} \@publishers \end{center} 
+	 		\vfill 
+	\end{titlepage} }
+\makeatother%
+
+% Indexdatei erstellen
+\makeindex 
+
+\begin{document}
+
+\pagenumbering{Alph}
+\begin{titlepage}
+	\maketitle
+	\thispagestyle{empty}
+\end{titlepage}
+
+% Skript - Anfang 			
+\pagenumbering{arabic}
+	
+\subsection*{Aufgabe 1.1.}
+Es sei $V$ ein Vektorraum über $\R$. Eine Abbildung $\| \cdot \| \cdot V \rightarrow [0, \infty)$ heißt Norm, wenn für alle $x, y \in V $ und $\alpha \in \R$ die folgenden Bedingungen erfüllt sind:
+\begin{enumerate}[label=\arabic*\upshape)]
+	\item Definitheit: $\| x \| = 0 \Rightarrow x = 0$.
+	\item Absolute Homogenität: $\| \alpha x \| = |\alpha| \cdot \| x \|$
+	\item Dreiecksungleichung: $\| x + y\| \leq \| x \| + \| y \|$
+\end{enumerate}
+Es sei $n \in \N$.
+\begin{enumerate}
+	\item Zeigen Sie dass für jede Norm in Bedingung 1) auch die Rückrichtung gilt
+		\begin{proof}
+			Zu zeigen: $\| 0 \| = 0$, wobei zu beachten ist, dass die erste 0 ein Element im Vektorraum $V$ darstellt und die zweite einen Skalar im zugrunde liegendem Raum. ~\\
+
+			Es gilt für alle $x \in V$:
+			$$\| 0 \| = \| 0 \cdot x \| = 0 \cdot \| x \| = 0 $$
+		\end{proof}
+	\item Zeigen Sie, dass die folgenden Abbildungen Normen auf $\R^n$ sind:
+		\begin{enumerate}
+			\item $\| \cdot \|_{1} \colon \R^n \rightarrow \R, ~ x \mapsto \sum_{i = 1}^{n} |x_i|$
+				\begin{proof} ~\
+					\begin{itemize}
+						\item Nicht-Negativität: $\sum_{i=1}^{n} \underbrace{|x_i|}_{\geq 0} ~\Rightarrow ~\sum_{i=1}^{n} |x_i| \geq 0$
+						\item Definitheit: $\| x \|_1 = \sum_{i=1}^{n} |x_i| \xRightarrow[]{|\cdot| \geq 0} |x_i| = 0 \quad \forall i = 1, \dotsc, n$
+								$$ \qquad \xRightarrow[]{Definitheit} x_i = 0 \quad \forall i = 1, \dotsc, n $$
+						\item Absolute Homogenität: $	\| \alpha x \|_1 = \sum_{i=1}^{n} |  \alpha x_i|  = \sum_{i=1}^{n} |\alpha| |x_i|$
+							$$= |\alpha| \sum_{i=1}^{n} |x_i|  = |\alpha| \| x \|_1 $$
+						\item Dreieckunsgleichung:	$\| x + y\|_1    = \sum_{i=1}^{n} | x_i   +   y_i |  \leq \sum_{i=1}^{n} \left( | x_i | + | y_i | \right)$
+									$$\qquad  = \sum_{i=1}^{n} | x_i | + \leq \sum_{i=1}^{n} | y_i |   = \| x \|_1 + \| y \|_1 $$	
+					\end{itemize}
+				\end{proof}
+			\item  $\| \cdot \|_{2} \colon \R^n \rightarrow \R, ~ x \mapsto \sqrt{\sum_{i = 1}^{n} |x_i|^2}$
+				\begin{proof} ~\
+					\begin{itemize}
+						\item Nicht-Negativität: Wir definieren hierzu:
+							\begin{align*}
+								& f \colon \R^n \rightarrow [0, \infty)^n, ~(x_1, \dotsc, x_n) \mapsto (x_1^2, \dotsc, x_n^2) \\
+								& g \colon [0, \infty)^n \mapsto [0, \infty), ~ y \mapsto \sum_{i=1}^{n} y_i \\
+								& h \colon [0, \infty) \mapsto [0, \infty) , ~ z \mapsto \sqrt{z}
+							\end{align*}
+							Somit ist: $\|\cdot \|_2 = \left( h \circ g \circ f \right) \colon \R^n \rightarrow [0 \infty)$ 
+						\item Definitheit: $0 = \|x\|_2 \iff \| x \|_2^2 = 0 \iff \sum_{i=1}^{n} x_i^2 = 0$, wobei $x_i^2 \geq 0$
+						$$ \Rightarrow x_i = 0 ~\forall i \in \{1, \dotsc, n \} \iff x = 0$$
+						\item Absolute Homogenität: Analog zu $\| \cdot \|_1$.
+						\item Dreiecksungleichung: $\| x + y\|^2_2 = \left( x + y \right)^T \left( x + y \right) = x^T x  x^Ty + y^T x + y^T y $
+						\begin{align*} 
+							& = \| x \|^2_2 + 2 x^T y + \| y \|^2_2 \\
+							& \leq \| x \|^2_2 + 2 | x^T y | + \| y \|^2_2 \\
+							& \leq \| x \|^2_2 + 2 \| x\|_2 \|y \|_2 + \| y \|^2_2 \\
+							& = \left( \|x\|_2 + \| y \|_2 \right)^2
+						\end{align*}
+							
+					\end{itemize}
+				\end{proof}
+			\item $\| \cdot \|_{\infty} \colon \R^n \rightarrow \R, ~x \mapsto \max_{i =1}^{n} |x_i|$
+				\begin{proof} ~\
+					\begin{itemize}
+						\item Nicht-Nevativität: Analog zu $\| \cdot \|_1$ oder $\| \cdot \|_2$
+						\item Definitheit: $0 = \| x \|_{\infty}$$\iff\max_{i = 1}^{n} |x_i| = 0$$\iff|x_i| = 0 ~\forall i \in \{1, \dotsc, n \}$
+							$$ \iff x_i = 0 ~\forall i \in \{1, \dotsc, n \} \iff x = 0. $$
+						\item Absolute Homogenität: Analog zu $\| \cdot \|_1$ oder $\| \cdot \|_2$
+						\item Dreiecksungleichung: $\| x + y\|_{\infty} = \max_{i=1}^{n} \left( \left| x_i + y_i \right| \right) = \max_{i=1}^{n} \left( |x_i| + |y_i| \right) $
+							$$ \leq \max_{i = 1, \dotsc, n} \left( \max_{j=1}^{n} |x_j| + \max_{k=1}^{n} |y_k| \right) \leq \max_{j=1}^{n} |x_j| + \max_{k=1}^{n} |y_k|  = \| x \|_{\infty} + \| y \|_{\infty} $$ 
+					\end{itemize}
+				\end{proof}
+		\end{enumerate}
+\end{enumerate} ~\newline
+
+\subsection*{Aufgabe 1.2.}
+
+\begin{figure*}[h!] \centering
+	\begin{tikzpicture}
+		\begin{axis}[colormap/cool, scale=0.9]
+			\addplot3[mesh, samples=50, domain=-1:1]{abs(x)+abs(y))};
+			\addlegendentry{$\|x+y\|_{1}$}
+		\end{axis}
+	\end{tikzpicture}
+\end{figure*}
+
+\begin{figure*}[h!] \centering
+	\begin{tikzpicture}
+		\begin{axis}[colormap/cool, scale=0.9]
+			\addplot3[mesh, samples=50, domain=-1:1]{x^2+y^2)};
+			\addlegendentry{$\|x+y\|_{2}$}
+		\end{axis}
+	\end{tikzpicture}
+\end{figure*}
+
+\begin{figure*}[h!] \centering
+	\begin{tikzpicture}
+		\begin{axis}[colormap/cool, scale=0.9]
+			\addplot3[mesh, samples=50, domain=-1:1]{max(abs(x),abs(y))};
+			\addlegendentry{$\|x+y\|_{\infty}$}
+		\end{axis}
+	\end{tikzpicture}
+\end{figure*}
+
+\subsection*{Aufgabe 1.3.}
+
+Gegeben seien eine Menge von zulässigen punkten $M \subseteq \R^n$ und eine Zielfunktion $f \colon M \rightarrow \R$. Zeigen Sie: 
+
+\begin{enumerate}
+	\item Die globalen Maximalpunkte von $f$ auf $M$ sind genau die globalen Minimalpunkte von $-f$ auf $M$.
+		\begin{proof}
+			Es gilt: $x^*$ ist globaler Maximalpunkt von $f$ auf $M$:
+			\begin{align*}
+				& \iff f(x^*) \geq f(x) \quad \forall x \in M \\ 
+				& \iff - f(x^*) \leq -f(x) \quad \forall x \in M \\
+				& \iff x^* \text{ ist globaler Minimalpunkt von } -f \text{ auf } M
+			\end{align*}
+		\end{proof}
+	\item Sofern $f$ globale Maximalpunkte besitzt, gilt für den globalen Maximalwert
+	$$ \max_{x \in M} f(x) = - \min_{x \in M} \left( - f(x) \right). $$
+		\begin{proof}
+		todo
+		\end{proof}
+\end{enumerate}
+
+\newpage
+
+\subsection*{Aufgabe 2.1}
+
+\begin{enumerate}
+	\item Es seien $n \in \N$, $g \colon \R^n \rightarrow \R$ eine stetige Abbildung und $M \coloneqq \{ x \in R^{n} | (x) \leq 0 \}$. Zeigen Sie, dass $M$ abgeschlossen ist.
+		\begin{proof}
+			$M = \{ x \in R^n | g(x) \leq 0 \}$, sei $(x_n)_n \subseteq M$, $\lim x_n = x^*$. Zu zeigen ist $x^* \in M$ bzw. $g(x^*) \leq 0$. Wir nutzen hierfür die Stetigkeit von $g$ aus, denn damit ist:
+			
+			$$ g(x^*) = g(\lim x_n ) = \lim \underbrace{g(x_n)}_{\leq 0} \leq 0 $$
+		\end{proof}
+	\item Zeigen Sie, dass die Menge $M$ aus Aufgabenteil a) nicht beschränkt sein muss.
+		\begin{proof}
+			Als Gegenbeispiel sei $g(x) = -x^2$. Damit ist $M = \R$, was nicht beschränkt ist.
+		\end{proof}
+	\item Es seien $I$ eine beliebige Indexmenge, $n \in \N$, $g_i \colon \R^n \rightarrow \R$, $i \in I$, stetige Abbildungen und $M_i \coloneqq \{ x \in \R^n | g_i(x) \leq 0 \}$. Zeigen Sie, dass 
+		$$ M \coloneqq \bigcap_{i \in I} M_i $$
+		abgeschlossen ist.
+		\begin{proof}
+			Sei $(x_n)_n \subseteq M$ mit $\lim x_n = x*^*$. ZU zeigen ist $x^* \in M$. Da 
+				$$(x_n)_n \subseteq M= \bigcap M_i$$
+				folgt $(x_n)_n \subseteq M_i$ für alle $i \in I$. Da $M_i$ für alle $i \in I$ abgeschlossen ist, folgt somit:
+			$$ x^* \in M_i ~\forall i \in I \iff x^* \in \bigcap_{i \in I} M_i \iff x^* \in M $$
+		\end{proof}
+\end{enumerate}
+
+
+\subsection*{Aufgabe 2.2}
+
+Zeigen oder widerlegen Sie die Koerzivität der folgenden Funktionen auf $\R^2$
+
+\begin{enumerate}
+	\item $f(x_1, x_2) = x_1^3 - x_2$,
+		\begin{proof}
+			Sei $(x_n)_n = (0, \nu)$. Damit ist $\| x_\nu \| = \nu \xrightarrow[\nu \rightarrow \infty]{} \infty$, allerdings
+			$$ f(x_n) = - \nu \rightarrow - \infty $$
+			für $\nu \rightarrow \infty$. Ein anderes Beispiel wäre $(y_n)_n = (n, n^3)$, denn damit ist $\| y_n \| \rightarrow \infty$ und $f(y_n) = 0$ für alle $n \in \N$.
+		\end{proof}
+	\item $f(x_1, x_2) = \left(x_1^4 + x_2^4 \right) e^{x_1^2 + x_2^2}$
+		\begin{proof}
+			Wir können die Funktion nach unten hin abschätzen:
+			$$ f(x) = \left( x_1^4 + x_2^4 \right) \underbrace{e^{x_1^2 + x_2^2}}_{\geq 1} \geq \left( x_1^4 + x_2^4 \right) = \| x \|_4^4 $$
+			Damit ist für $(x_n)_n \subseteq \R^2$ mit $\| x \|_4 \rightarrow \infty$:
+			$$ \lim_{n \rightarrow \infty} f(x_n) \geq \lim_{n \rightarrow \infty} \| x_n \|_4^4 \rightarrow \infty $$
+		\end{proof}
+\end{enumerate}
+bzw. der folgenden Funktion auf $\R^n$
+\begin{enumerate}   \setcounter{enumi}{2}
+	\item $f(x) = x^T A x$, mit $n \in \N$ und $A \in \R^{n\times n}$ positiv definit aber \textit{nicht notwendigerweise symmetrisch}.
+		\begin{proof}
+			Es ist $f(x) = \langle x, Ax \rangle$ und damit
+			\begin{align*}
+				f(x) & = \frac{1}{2} \langle x, Ax \rangle + \frac{1}{2} \langle   x, A x \rangle \\
+					 & = \frac{1}{2} \langle x, Ax \rangle + \frac{1}{2} \langle A x, x   \rangle \\
+					 & = \frac{1}{2} x^T A x + \frac{1}{2} x^T A^T x \\
+					 & = x^T \underbrace{\left( \frac{A + A^T}{2} \right)}_{\eqqcolon \tilde{A}} x
+			\end{align*}
+			Da aber $\tilde{A}$ symmetrisch ist per Konstruktion, so folgt mit dem Hinweis die Behauptung da:
+			$$ f(x) = x^T \tilde{A} x = \| x \|_{\tilde{A}}^2 $$
+		\end{proof}
+\end{enumerate}
+
+\textbf{Hinweis}: Eine positiv definite \textit{und symmetrische Matrix} $A \in \R^{n \times n}$ induziert mit $\langle x y \rangle_A \coloneqq x^TAy$ ein Skalarprodukt, welches wiederum durch $\| x \|_A \coloneqq \sqrt{\langle x, x \rangle_A}$ eine Norm induziert.
+
+
+\subsection*{Aufgabe 2.3}
+
+Sei $p \colon \R^2 \rightarrow \R$ definiert durch
+$$ p(x) = - \frac{1 + 4 x^2_1}{1 + 2 x_1^2} + 2 x_2^2 $$
+Bestimmen Sie das Infimum von $p$ auf der Menge $D = \{ x \in \R^2 | x_1 \geq 1, x_2 > 0 \}$ und zeigen Sie, dass das Infimum nicht als Minimalwert angenommen wird.
+
+\begin{proof}
+	Zu zeigen: $\forall x \in D: p(x) \geq -2$, $\inf_{x \in D} f(x) = - 2$, $\not\exists x \in D: f(x) = -2$
+	
+	\begin{align*}
+		f(x) & = - \frac{1 + 4x_1^2}{1 + 2x_1^2} + 2 x_2^2 \\
+			& = - \frac{2 + 4 x_1^2 - 1}{1 + 2x_1^2	} + 2 x_2^2 \\
+			& = - \frac{2 ( 1+ 2 x_1^2) - 1}{1 + 2 x_1^2} + 2x_2^2 \\
+			& = - 2 + \underbrace{\frac{1}{1 + 2 x_1^2}}_{\geq 0} + \underbrace{2 x_2^2}_{> 0} \geq -2
+	\end{align*}
+ 	Wählen wir nun $(x_n)_n \subseteq M$ mit $x_n = \left( n , \frac{1}{n} \right)$
+ 	$$ f(x_n) = - 2  \frac{1}{1 + 2 n ^2} + 2 \frac{1}{n^2} \rightarrow  $$
+\end{proof}
+
+% Skript - Ende 			
+
+\end{document}
