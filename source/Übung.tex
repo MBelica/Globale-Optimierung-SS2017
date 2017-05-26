@@ -138,7 +138,7 @@
 % Skript - Anfang 			
 \pagenumbering{arabic}
 	
-\subsection*{Aufgabe 1.1.}
+\subsection*{Aufgabe 1.1}
 Es sei $V$ ein Vektorraum über $\R$. Eine Abbildung $\| \cdot \| \cdot V \rightarrow [0, \infty)$ heißt Norm, wenn für alle $x, y \in V $ und $\alpha \in \R$ die folgenden Bedingungen erfüllt sind:
 \begin{enumerate}[label=\arabic*\upshape)]
 	\item Definitheit: $\| x \| = 0 \Rightarrow x = 0$.
@@ -205,7 +205,7 @@ Es sei $n \in \N$.
 		\end{enumerate}
 \end{enumerate} ~\newline
 
-\subsection*{Aufgabe 1.2.}
+\subsection*{Aufgabe 1.2}
 
 \begin{figure*}[h!] \centering
 	\begin{tikzpicture}
@@ -234,7 +234,7 @@ Es sei $n \in \N$.
 	\end{tikzpicture}
 \end{figure*}
 
-\subsection*{Aufgabe 1.3.}
+\subsection*{Aufgabe 1.3}
 
 Gegeben seien eine Menge von zulässigen punkten $M \subseteq \R^n$ und eine Zielfunktion $f \colon M \rightarrow \R$. Zeigen Sie: 
 
@@ -338,6 +338,112 @@ Bestimmen Sie das Infimum von $p$ auf der Menge $D = \{ x \in \R^2 | x_1 \geq 1,
  	Wählen wir nun $(x_n)_n \subseteq M$ mit $x_n = \left( n , \frac{1}{n} \right)$
  	$$ f(x_n) = - 2  \frac{1}{1 + 2 n ^2} + 2 \frac{1}{n^2} \rightarrow  $$
 \end{proof}
+
+Im folgenden sind die Themen:
+\begin{itemize}
+	\item \enquote{Rechenregeln} für Optimierungsprobleme
+	\item Konvexität
+\end{itemize}
+
+\subsection*{Aufgabe 3.1}
+\begin{enumerate}
+	\item $\alpha \geq 0, \beta \in \R$, zu zeigen: 
+		$$ \min_{x \in M} \left( \alpha f(x) + \beta \right) = \alpha \left( \min_{x \in M} f(x) \right) + \beta $$
+		$\overline{x} \in M$ globaler Minimalpunkt von $f$ auf $M$
+		$$ f(\overline{x}) \leq f(x) \quad \forall x \in M $$
+		\begin{align*}
+			& \overset{\alpha > 0}{\iff} \alpha f(\overline{x}) \leq \alpha f(x) \quad x \in M \\
+			& \overset{\beta \in \R}{\iff} \alpha f(\overline{x}) + \beta \leq \alpha f(x) + \beta \quad \forall x \in M \\
+			& \iff \overline{x} \text{ ist globales Minimum von $f$ in $M$} \\
+			& \Rightarrow \min_{x \in M} \left( \alpha f(x) + \beta \right) = \alpha f(\overline{x}) + \beta = \alpha \left( \min_{x \in M} f(x) \right) + \beta
+		\end{align*}
+	\item Zu zeigen: $\min_{x \in M} \left( \alpha f(x) + \beta \right) = \alpha \left( \max_{x \in M} f(x) \right) + \beta$ ~\\
+		$\overline{x} \in M$ ist globaler Maximalpunkt von $f$ auf $M$
+		\begin{align*}
+			& \iff f(\overline{x}) \geq f(x) \quad \forall x \in M \\
+			& \overset{\alpha < 0}{\iff} \alpha f(\overline{x}) \leq \alpha f(x) \quad \forall x \in M \\
+			& \iff \alpha f(\overline{x}) + \beta \leq \alpha f(x) + \beta \quad \forall x \in M \\
+			& \iff \overline{x} \text{ globaler Minimalpunkt } \alpha f(x) + \beta \text{ auf } M \\
+			& \Rightarrow \min_{x \in M} \left( \alpha f(x) + \beta \right) = \alpha f(\overline{x}) + \beta = \alpha \left( \max_{ x \in M} f(x) \right) + \beta
+		\end{align*}
+	\item $\min_{x \in M} \left( f(x) + g(x) \right) \geq \min_{x \in M} f(x) + \min_{x \in M} g(x)$
+		\begin{description}
+			\item $\overline{x}$ globaler Minimalpunkt von $f$ auf $M$
+			\item $\hat{x}$ globaler Minimalpunkt von $g$ auf $M$
+		\end{description}
+		Und damit gilt:
+			\begin{align*}
+				& f(\overline{x}) \leq f(x) \quad \forall x \in M \\
+				& g(\hat{x}) \leq g(x) \quad \forall x \in M
+			\end{align*}
+		Angewandt auf die Summe heißt das:
+		$$ f(\overline{x}) + g(\hat{x}) \leq f(x) + g(x) \quad \forall x \in M $$
+		Da diese Ungleichung für alle Elemente in $M$ gilt, gilt sie auch für das Minimum:
+		$$ \Rightarrow f(\overline{x}) + g(\hat{x}) \leq \min_{x \in M} \left( f(x) + g(x) \right) $$
+	\item Zeigen Sie, dass in c) auch \enquote{$>$} auftreten kann.
+		\begin{proof}
+			Sei $f(x) = (x - 1)^2$, $g(x) = (x +1)^2$, $M = \R$
+			$$ \min_{x \in \R} f(x) = f(1) = 0 = g(-1) = \min_{x \in \R} g(x) $$
+			$$ \min_{x \in \R} \left( f(x) + g(x) \right) = \min_{x \in \R} \left( (x - 1)^2 + (x + 1)^2 \right) = \min_{x \in \R} 2 x^2 + 2 = 2 $$
+		\end{proof}
+\end{enumerate}
+
+\subsection*{Aufgabe 3.2}
+
+Es seien $M \subseteq \R^n$ und $f \colon M \rightarrow Y$ mit $Y \subseteq \R$
+\begin{enumerate}
+	\item Zeigen Sie für eine monoton wachsende Funktion $\psi \colon Y \rightarrow \R$ die Aussage
+					$$ \min_{x \in M} \psi \left( f(x) \right) = \psi \left( \min_{x \in M} f(x) \right) $$
+		\begin{proof}
+			Sei $\overline{x}$ globaler Minimalpunkt von $f$ auf $M$, d.h.
+			$$\min_{x \in M} f(x) = f(\overline{x}) \leq f(x) \quad \forall x \in M$$
+				$$ \Rightarrow \psi(f(\overline{x})) \leq \psi(f(x)) \quad \forall x \in M $$
+			$\Rightarrow \overline{x}$ globaler Minimalpunkt von $\psi \circ f$ auf $M$
+			$$ \min_{x \in M} \psi(f(x)) = \psi(f(\overline{x})) = \psi(\min_{x \in M} f(x)) $$
+		\end{proof}
+	\item Zeigen Sie für eine \textit{streng} monoton wachsende Funktion $\psi \colon Y \rightarrow \R$ die Aussage, dass die Menge der globalen Minimalpunkte von $F$ auf $M$ gleich der Menge der globalen Minimalpunkte von $\psi \circ f$ auf $M$ ist.
+		\begin{proof}
+			$\psi^{-1} \circ \psi(y) \mapsto y$ streng monoton wachsend. $\overline{x}$ globaler Minimalpunkt von $\psi(f(x)) auf M$
+			$$ \psi(f(\overline{x})) \leq \psi(f(x)) \forall x \in M $$
+			$$ \iff \psi^{-1} \left( \psi( f(x) ) \right) \leq \psi^{-1}\left(\psi(f(x)) \right) \quad \forall x \in M$$
+			$$ f(\overline{x}) \leq f(x) \quad \forall x \in M  $$
+		\end{proof}
+\end{enumerate}
+
+\subsection*{Aufgabe 3.3}
+
+Gegeben sei das unrestringierte Optimierungsproblem
+	$$ P: \quad \min_{x \in \R^2} \exp \left( \max \left\{ x_1 + 7, \left| x_2 -4 \right|,-x_1 - x_2 \right\} \right)  $$
+Geben Sie eine äquivalente glatte Umformulierung $P_{glatt}$ von $P$ an (Hinweis: Nutzen Sie die verallgemeinerte Epigraph-Umformulierung aus Übung 1.3.9 im Skript).
+
+	\begin{proof}
+		$$ P: \quad \min_{x \in \R^n} F(f(x)) \text{ s.t. } G(g(x)) \leq 0 \quad x \in M $$
+		$$ P_{epi}: \quad \min_{x, \alpha \in \R^n \times \R^k \times \R^l} F(\alpha) \text{ s.t. } G(\beta) \leq 0, f(x) \leq \alpha g(x) \leq \beta, x \in X $$
+		Nun unser Problem ist damit:
+		$$ f \colon \R^2 \rightarrow \R, f(x) = \max \left\{ x_1 + 7, \left| x_2 - 4 \right|, x_1 - x_2 \right\}, ~F \colon \R \rightarrow \R, F(y) = e^y $$
+		Damit lautet die Epigraph-Formulierung unseres Problems:
+		$$ P_{epi}: \quad \min_{(x, \alpha) \in \R^2 \times \R} e^\alpha \text{ s.t. } \max \left\{ x_1 + 7, \left| x_2 - 4 \right|, - x_1 - x_2 \right\} \leq \alpha $$
+		Damit das Maximum kleiner als $\alpha$ ist, muss jede Komponente bereits diese Bedingung erfüllen:
+		$$ \iff \min_{(x , \alpha) \in \R^2 \times \R} e^{\alpha} \text{ s.t. } \begin{cases}
+ 	 ~x_1 + 7 \leq \alpha \\ |x_2 - 4| \leq \alpha \\ ~-x_1 - x_2 \leq \alpha \end{cases} $$
+	\end{proof}
+
+\subsection*{Aufgabe 3.4}
+
+\begin{enumerate}
+	\item Es seien $n \in \N$ und $g \colon X \rightarrow \R$ konvex auf der konvexen Menge $X \subseteq \R^n$. Es seien $I \subseteq \R$ ein Intervall mit $f(x) \subseteq I$ sowie $f \colon I \rightarrow \R$ eine konvexe und monoton wachsende Funktion. Beweisen Sie, dass die Komposition $f \circ g \colon X \rightarrow \R$ konvex ist!
+
+		\begin{proof}
+			Für $x, y \in X$, $\lambda \in [0, 1]$:
+				$$ g \left( \lambda x + (1 - \lambda) y \right) \leq \lambda g(x) + (1 - \lambda) g(y) $$
+			$f$ ist monoton wachsend auf $g(X) \subseteq I$
+			\begin{align*}
+				\left( g \left( \lambda x + (1 - \lambda) y \right) \right) & \leq f \left( \lambda g(x) + (1 - \lambda) g(y) \right)  \\
+					& \leq \lambda f(g(x)) + (1 - \lambda) f(g(y))
+			\end{align*} 
+			$$ \Rightarrow f \left( \lambda a + (1 - \lambda) b \right) \leq \lambda f(a) + (1 - \lambda) f(b) $$
+		\end{proof}
+\end{enumerate}
 
 % Skript - Ende 			
 

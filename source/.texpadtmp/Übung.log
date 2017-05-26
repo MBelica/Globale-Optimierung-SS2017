@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.20)  16 MAY 2017 15:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.20)  26 MAY 2017 18:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"Globale Optimierung.tex"
-(./Globale Optimierung.tex
+**Übung.tex
+(./Übung.tex
 LaTeX2e <2016/03/31>
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/extsizes/extreport.cls
@@ -1261,16 +1261,16 @@ File: csquotes.cfg
 Package hyperref Info: Option `colorlinks' set `true' on input line 111.
 Package hyperref Info: Option `breaklinks' set `true' on input line 111.
 \@indexfile=\write4
-\openout4 = `"Globale Optimierung.idx"'.
+\openout4 = `Übung.idx'.
 
 
-Writing index file "Globale Optimierung".idx
+Writing index file Übung.idx
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'ngerman'.
-(/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Globale Optimierung.aux)
-\openout1 = `"Globale Optimierung.aux"'.
+(/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Übung.aux)
+\openout1 = `Übung.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 130.
 LaTeX Font Info:    ... okay on input line 130.
@@ -1315,9 +1315,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 130.
 LaTeX Info: Redefining \pageref on input line 130.
 LaTeX Info: Redefining \nameref on input line 130.
- (/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Globale Optimierung.out) (/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Globale Optimierung.out)
+ (/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Übung.out) (/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Übung.out)
 \@outlinefile=\write5
-\openout5 = `"Globale Optimierung.out"'.
+\openout5 = `Übung.out'.
 
  ABD: EveryShipout initializing macros (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -1395,23 +1395,23 @@ Overfull \hbox (0.31136pt too wide) in paragraph at lines 320--321
 [7] [8] [9] [10] [11]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 450.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 450.
- (/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Globale Optimierung.aux)
+ (/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Übung.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 450.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 450.
-Package rerunfilecheck Info: File `"Globale Optimierung".out' has not changed.
+Package rerunfilecheck Info: File `Übung.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 450.
  ) 
 Here is how much of TeX's memory you used:
  37120 strings out of 493014
- 843408 string characters out of 6133351
- 3304738 words of memory out of 5000000
+ 843208 string characters out of 6133351
+ 3304668 words of memory out of 5000000
  40015 multiletter control sequences out of 15000+600000
  49333 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,19n,81p,10418b,2387s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 73i,19n,81p,10404b,2387s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Globale Optimierung.pdf" (12 pages, 382292 bytes).
+Output written on /Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Übung.pdf (12 pages, 382292 bytes).
 PDF statistics:
  174 PDF objects out of 1000 (max. 8388607)
  139 compressed objects within 2 object streams
