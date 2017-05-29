@@ -143,23 +143,71 @@ mit
 	\item $f(x) = - x^5$, $M =(- \infty, 1)$.
 	\item $f(x) = 9 x_1^2 - 6 x_1 x_2^2 + x_2^4$, $M = \R^2$
 	\item $f(x) = \frac{x^T A x}{\| x - b\|_2 + 1}$, mit $A \in \R^{n \times n}$ positiv definit, $b \in \R^n$ und $M = \R^n$.
+\end{enumerate}
 	Begründen Sie jeweils: ist $f$ koerziv auf $M$? Ist $P$ lösbar? ~\\
-	\textbf{Hinweis}: Nutzen Sie für Aufgabenteil c) die Äquivalenz der Normen im $\R^n$
-\end{enumerate} ~\smallskip
+	\textbf{Hinweis}: Nutzen Sie für Aufgabenteil c) die Äquivalenz der Normen im $\R^n$ ~\bigskip
 
-\begin{proof} ~\\ ~\\ 
-	Nach Vorlesung (Definition 1.2.37) gilt: ~\\ ~\medskip
+\begin{proof} Nach Vorlesung (Definition 1.2.37) gilt: ~\\ ~\medskip
 	\textit{Gegeben seien eine (nicht notwendigerweise abgeschlossene) Menge $M \subseteq \R^n$ und eine Funktion $f \colon M \rightarrow \R$. Falls für alle Folgen $(x^\nu) \subseteq M$ mit $\lim_{\nu} \| x^\nu \| \rightarrow \infty$ und alle konvergenten Folgen $(x^\nu) \subseteq M$ mit $\lim_{\nu} x^\nu \notin M$ die Bedingung}
 	$$ \lim_{\nu} f(x^\nu) = + \infty $$
-	\textit{gilt, dann heißt $f$ koerziv auf $M$.}
+	\textit{gilt, dann heißt $f$ koerziv auf $M$.} ~\\
 	
-	\begin{enumerate}
-		\item Es gilt $\overline{M} = (-\infty, 1]$, d.h. $\partial M = \{ 1 \}$. Für die Koerzivität sind demnach alle Folgen $\left( x^\nu \right) \subseteq M$, wobei $M \subseteq \R$, zu betrachten für die entweder
+	\begin{enumerate} % todo Lösbar
+		\item $f(x) = - x^5$, $M =(- \infty, 1)$: ~\medskip
+		
+			Beachte $M \subseteq \R$. Es gilt $\overline{M} = (-\infty, 1]$, d.h. $\partial M = \{ 1 \}$. Für die Koerzivität sind demnach alle Folgen $\left( x^\nu \right) \subseteq M$ zu betrachten für die entweder
 			$$ x^\nu \longrightarrow \infty \quad \text{oder} \quad x^\nu \longrightarrow 1 $$
-			gilt.
-		\item Es gilt
-			$$ f(x) = 9 x_1^2 - 6 x_1 x_2^2 + x_2^4 = (3 x_1 - x_2^2)^2 $$
+			gilt. Sei nun $(x^\nu)$ eine Folge für die gilt $x^\nu \rightarrow 1$. Für alle $\epsilon > 0$ existiert demnach ein $m$, sodass:
+			$$ \| x^{\nu_m} - 1 \| < \epsilon, \quad \forall \nu_m > m. $$
+			Daraus ergibt sich:
+			\begin{align*}
+				 \lim_\nu f(x^\nu) = \lim_\nu \left( - \left(x^\nu \right)^5 \right) & = -  \lim_\nu \left( \left(x^\nu - 1 + 1 \right)^5 \right) \\
+				 	& \leq - \lim_\nu  \left( - \left( \| x^\nu -1 \| + 1 \right)^5 \right) \\
+				 	& < \lim_\nu  \left( \epsilon + 1 \right)^5.  
+			\end{align*}
+			Da diese Ungleichung im Grenzwert für alle $\epsilon > 0$ gilt, ist $f$ nicht koerziv. ~\\ 
+		\item  $f(x) = 9 x_1^2 - 6 x_1 x_2^2 + x_2^4$, $M = \R^2$: ~\medskip
+		
+			Es gilt
+			$$ f(x) = 9 x_1^2 - 6 x_1 x_2^2 + x_2^4 = (3 x_1 - x_2^2)^2. $$
+			Demnach ist für jede Folge für die gilt $\sqrt{3 x^\nu_1} = x^\nu_2$ für alle $\nu \in \N$:
+			$$ f(x^\nu) = 0. $$
+			Da wir eine Menge von Folgen gefunden haben für die $\| x^\nu \| \rightarrow \infty$ gilt, allerdings gleichzeitig $\lim_{\nu} f(x^\nu) = f(x^{\tilde{\nu}}) = 0$, ist die Funktion nicht koerziv. ~\\ 
+		\item $f(x) = \frac{x^T A x}{\| x - b\|_2 + 1}$, mit $A \in \R^{n \times n}$ positiv definit, $b \in \R^n$ und $M = \R^n$: ~\medskip
+		
+			Da $\R^{n \times n}$ unbeschränkt ist, betrachten wir lediglich eine beliebige divergente Folge $(x^\nu)$. Aufgrund der positiven Definitheit von $A$ ist $ x^T A x > 0$ und damit ist
+			$$ f(x) = \frac{x^T A x}{\| x - b\|_2 + 1} > 0.$$ 
+			In der Übung wurde die Norm
+			$$ \| x \|_{\tilde{A}} = \sqrt{\langle x, x \rangle_{\tilde{A}}} = \sqrt{x^T \tilde{A} x} $$
+			eingeführte, mit einer positiv definite, symmetrische Matrix $\tilde{A}$. Wir können o.B.d.A. annehmen, dass die positiv definite Matrix $A$ aus der Aufgabe auch symmetrisch ist, denn es gilt
+			$$ x^T A x = x^T \left( \frac{A^T + A}{2} \right) x, $$
+			und $\frac{A^T + A}{2}$ ist symmetrisch (ansonsten ersetze $A$ durch $\frac{A^T + A}{2}$). Damit folgt:
+			$$ \left| f(x^\nu) \right| =  \left| \frac{\left(x^\nu \right)^T A x^\nu }{\| x^\nu - b\|_2 + 1} \right| = \frac{\left\| x^\nu \right\|_{A}^2}{\| x^\nu - b\|_2 + 1}. $$
+			Aufgrund der Divergenz der Folge $(x^\nu)$ gilt für $\nu$ groß genug unter Verwendung der Dreiecksungleichung die Abschätzung
+			\begin{align*}
+				 \left| f(x^\nu) \right| =  \frac{\left\| x^\nu \right\|_{A}^2}{\| x^\nu - b\|_2 + 1} & \geq \frac{\left\| x^\nu \right\|_{A}^2}{2 \| x^\nu - b\|_2 } \\
+				 	& \geq \frac{\left\| x^\nu \right\|_{A}^2}{2 \left( \| x^\nu \|_2 + \| b\|_2 \right)}   \\
+				 	& \geq \frac{\left\| x^\nu \right\|_{A}^2}{2 \left( \| x^\nu \|_2 + \| x^\nu \|_2 \right)}  
+			\end{align*}
+			Durch die Äquivalenz der Normen im $\R^n$ existiert nun eine Konstante $c$ so, dass
+			$$ 		\left| f(x^\nu) \right|  \geq \frac{c}{2} \cdot \frac{\left\| x^\nu \right\|_{A}^2}{2 \left( \| x^\nu \|_A + \| x^\nu \|_A \right)} = \frac{c}{4} \cdot \frac{\left\| x^\nu \right\|_{A}^2}{ \| x^\nu \|_A} = \frac{c}{4} \cdot \| x^\nu \|_A \rightarrow \infty, $$
+			wobei wir im letzten Schritt wieder die Äquivalenz der Normen verwendet haben, da somit $x^\nu$ in allen Normen divergiert. Das heißt, für alle divergenten Folgen $(x^\nu)$, ist $f(x^\nu) > 0$ und
+			$$ \left| f(x^\nu) \right| \rightarrow \infty, $$
+			d.h. $f$ ist koerziv.
 	\end{enumerate}
 \end{proof}
+
+\newpage
+
+\subsubsection{Aufgabe S.3} ~\\
+Gegeben sei das unrestringierte Optimierungsproblem
+$$ P : \quad \min_{x \in \R^2} \exp \left(- \min{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20} \right).$$
+\begin{enumerate}
+	\item Geben Sie die verallgemeinerte Epigraph-Umformulierung $P_{epi}$ von $P$ an (siehe Übung 1.3.9. im Skript). Begründen Sie, welche Funktionen $f$, $g$, $F$ und $G$ Sie für die Umformulierung verwenden.
+	\item Formulieren Sie, aufbauend auf Aufgabenteil a), ein lineares Optimierungsproblem $P_{lin}$, welches die selben Optimalpunkte wie $P_{epi}$ besitzt.
+	\item Zeigen Sie, mit Hilfe des verschärften Satz von Weierstraß, dass das Problem $P_lin$ lösbar ist.
+	\item Modellieren Sie das Problem in Matlab/ Jupyter Notebook und geben Sie den globalen Minimalpunkt von $P_{lin}$ aus.
+	\item Bestimmen Sie einen globalen Optimalpunkt und den Optimalwert von P.
+\end{enumerate}
 
 \end{document}
