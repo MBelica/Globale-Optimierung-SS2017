@@ -208,27 +208,30 @@ $$ P : \quad \min_{x \in \R^2} \exp \left(- \min{- x_1 - 3, -\left|x_2 - 4\right
 			Da es sich um ein unrestringiertes Problem handelt, ist $X = \R^2$, $G \equiv 0, g \equiv 0$. Definiere
 			\begin{align*}
 				& F: \R \rightarrow \R, x \mapsto e^{-x}, \\
-				&f: R^2 \rightarrow R, x \mapsto \min\{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20\}. \\
+				&f: R^2 \rightarrow R, x \mapsto \min\big\{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20\big\}. \\
 			\end{align*}
 			Damit ist das unrestringierte Optimierungsproblem äquivalent zu
 			$$ P : \quad \min_{x \in \R^2} F(f(x)) \text{ s.t. } G(g(x)) \leq 0, x \in X $$
 			Nach Übung 1.3.9 (Verallgemeinerte Epigraph-Umformulierung) ist somit folgende Epigraph-Umformulierung äquivalent zu $P$:
 			$$ P_{epi}: \min_{(x, \alpha, \beta) \in \R^2 \times R \times \R} F(\alpha) \text{ s.t. } G(\beta) \leq 0, f(x) \leq \alpha, g(x) \leq \beta, x \in X $$
-			$$ \iff \min_{(x, \alpha) \in \R^2 \times R} e^{-\alpha} \text{ s.t. } \min\{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20\} \leq \alpha, x \in X $$
+			$$ \iff \min_{(x, \alpha) \in \R^2 \times R} e^{-\alpha} \text{ s.t. } \min\big\{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20\big\} \leq \alpha, x \in X $$
 		\end{proof}
 	\item Formulieren Sie, aufbauend auf Aufgabenteil a), ein lineares Optimierungsproblem $P_{lin}$, welches die selben Optimalpunkte wie $P_{epi}$ besitzt.
 		\begin{proof}
 			Sei
 			\begin{align*}
 				& \tilde{F}: \R \rightarrow \R, x \mapsto e^{x}, \\
-				&\tilde{f}: R^2 \rightarrow R, x \mapsto -\min\{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20\}. \\
+				&\tilde{f}: R^2 \rightarrow R, x \mapsto -\min\big\{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20\big\}. \\
 			\end{align*}
 			Dann ist $F(f(x)) = \tilde{F}(\tilde{f}(x))$ für alle $x \in X$. D.h. $\tilde{F}$, $\tilde{f}$ beschreiben das gleiche Optimierungsproblem und es gilt
-			$$ \tilde{f}(x) = -\min\{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20\} =  \max\{ x_1 + 3, \left|x_2 - 4\right|, -(x_1 + x_2) + 20\}.  $$
-			Die Bedingung $\tilde{f}(x) \leq \alpha$ der Epigraph-Formulierung bedeutet für $\tilde{f}$, dass jede Komponente des Maximums kleiner gleich $\alpha$ sein muss, d.h.
+			\begin{align*}
+				\tilde{f}(x) & = -\min\big\{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20\big\} \\
+				& = ~~ \max\big\{ x_1 + 3, \left|x_2 - 4\right|, -(x_1 + x_2) + 20\big\}.  
+			\end{align*} 
+			Aus der Epigraph-Formulierung bedeutet die  Bedingung $\tilde{f}(x) \leq \alpha$, dass jede Komponente des Maximums kleiner gleich $\alpha$ sein muss, d.h. das folgende Problem besitzt die selben Optimalpunkte wie $P_{epi}$:
 			$$  \tilde{P}_{epi}: \min_{(x, \alpha) \in \R^2 \times R} e^{\alpha} \text{ s.t. } x \in X, \begin{cases} x_1 + 3 \leq \alpha \\
 			 x_2 - 4 \leq \alpha, ~ - x_2 + 4 \geq - \alpha \\ -(x_1 + x_2) + 20 \leq \alpha \end{cases} $$
-			 Da die Exponentialfunktion zudem streng monoton ist, ist jedes Minimum der Identität auf dieser Menge gleich dem Minimum der Exponentialfunktion, d.h. ein lineares Optimierungsproblem $P_{lin}$, welches die selben Optimalpunkte wie $P_{epi}$ besitzt, lautet
+			 Da die Exponentialfunktion streng monoton ist, ist jedes Minimum der Identität auf dieser Menge gleich dem Minimum der Exponentialfunktion. D.h. ein lineares Optimierungsproblem $P_{lin}$, welches die selben Optimalpunkte wie $P_{epi}$ besitzt, lautet
 			$$  \tilde{P}_{epi}: \min_{(x, \alpha) \in \R^2 \times R} \alpha \text{ s.t. } x \in X, \begin{cases} x_1 + 3 \leq \alpha \\
 			 x_2 - 4 \leq \alpha, ~ - x_2 + 4 \geq - \alpha \\ -(x_1 + x_2) + 20 \leq \alpha \end{cases} $$			 
 		\end{proof}
