@@ -125,12 +125,13 @@
 % Lecture Notes - Start 			
 \pagenumbering{arabic}
 
-\section{ToDo}
+\section*{ToDo}
 
 \begin{itemize}
 	\item Aufgabe 2: Lösbarkeit bei allen 3 ( a), b), c) )
 	\item Aufgabe 3: c) d) e)
-	\item Aufgabe 4
+	\item Aufgabe 4: Scheint mir nicht genügend zu sein!
+	\item Aufgabe 5: Konvexität zeigen
 \end{itemize}
 
 \newpage
@@ -182,6 +183,9 @@ mit
 				 	& < \lim_\nu  \left( \epsilon + 1 \right)^5.  
 			\end{align*}
 			Da diese Ungleichung im Grenzwert für alle $\epsilon > 0$ gilt, ist $f$ nicht koerziv. ~\\ 
+			
+			$P$ ist nicht lösbar. Die Funktion $f$ ist streng monoton fallend (mit Ausnahme des Punktes 0 der allerdings keinen Optimalpunkt darstellt):
+			$$ f'(x) = -5 x^4 < 0, ~ x \in \R \setminus \{ 0 \} $$
 		\item  $f(x) = 9 x_1^2 - 6 x_1 x_2^2 + x_2^4$, $M = \R^2$: ~\medskip
 		
 			Es gilt
@@ -224,7 +228,7 @@ $$ P : \quad \min_{x \in \R^2} \exp \left(- \min{- x_1 - 3, -\left|x_2 - 4\right
 			Da es sich um ein unrestringiertes Problem handelt, ist $X = \R^2$, $G \equiv 0, g \equiv 0$. Definiere
 			\begin{align*}
 				& F: \R \rightarrow \R, x \mapsto e^{-x}, \\
-				&f: R^2 \rightarrow R, x \mapsto \min\big\{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20\big\}. \\
+				& f: \R^2 \rightarrow \R, x \mapsto \min\big\{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20\big\}. \\
 			\end{align*}
 			Damit ist das unrestringierte Optimierungsproblem äquivalent zu
 			$$ P : \quad \min_{x \in \R^2} F(f(x)) \text{ s.t. } G(g(x)) \leq 0, x \in X $$
@@ -270,7 +274,20 @@ Optimierungsproblem formulieren als
 $$ FP \colon \quad \min_{x \in \R^n} \sum_{j=1}^{n} \left| x_j - a_j \right| \text{ s.t. } Ax \leq b. $$
 Bestimmen Sie ein äquivalentes lineares Optimierungsproblem $FP_{lin}$, indem Sie die verallgemeinerte Epigraph Umformulierung (vgl. Übung 1.3.9 im Skript) anwenden. Begründen Sie, welche Funktionen $f$, $g$, $F$ und $G$ Sie für die Umformulierung verwenden.
 \begin{proof}
-	todo
+	Wir definieren
+	\begin{align*}
+		& f \colon \R^n \rightarrow \R^n, x \mapsto x - a \\
+		& F \colon \R^n \rightarrow \R, x \mapsto \| x \|_1 \\
+		& g \colon \R^n \rightarrow \R^n, x \mapsto Ax - b \\
+		& G \colon \R^n \rightarrow \R, x \mapsto \max \{ x_1, \dotsc, x_n \}	
+	\end{align*}
+	Es gilt damit für $X = \R^n$, dass obiges Optimierungsproblem dargestellt werden kann durch
+	$$ P: \quad \min_{x \in \R^n} F(f(x)) \text{ s.t. } G(g(x)) \leq 0, x \in X $$
+	$$ \iff \min_{x \in \R^n} \| x - a \|_1 \text{ s.t. } \max_i \{ (Ax - b)_i \} \leq 0, x \in \R^n, $$
+	wobei wir ausnutzen, dass $Ax \leq b \iff Ax -b \leq 0 \iff  \max_i \{ (Ax - b)_i \} \leq 0$. Damit sind die Voraussetzungen der verallgemeinerten Epigraph-Formulierung gegeben und folgendes Problem ist äquivalent:
+	$$ P_{epi}: \min_{(x, \alpha, \beta) \in \R^n \times \R^n \times \R^l} F(\alpha) ~ \text{ s.t. } ~ G(\beta) \leq 0, ~ f(x) \leq \alpha, ~ g(x) \leq \beta, ~ x \in X $$ 
+	$$ \iff \min_{(x, \alpha, \beta) \in \R^n \times \R^n \times \R^l} \sum_{i=1}^n |\alpha_i| ~ \text{ s.t. } ~ \beta_i \leq 0, ~ (x - a)_i \leq \alpha_i, ~ (Ax - b)_i \leq \beta_i, ~\forall i \in \{1, \dotsc, n \}, ~ x \in X, $$
+	was ein lineares Problem darstellt.
 \end{proof}
 
 \newpage
@@ -296,7 +313,7 @@ Skizzieren Sie folgende Mengen $M \subseteq \R^2$und zeigen oder widerlegen Sie 
 				& = \lambda^2 \left( (x_1 - 1)^2  + (x_2 - 1)^2 \right) + (1 - \lambda)^2 \left( (y_1 - 1)^2 +  (y_2 - 1)^2 \right) \\
 				& ~\qquad + 2 \lambda (1 - \lambda) (y_1 - 1) (x_1 - 1) + 2 \lambda (x_2 - 1) (1 - \lambda) (y_2 - 1) \\
 				& \leq \lambda^2 4 + (1 - \lambda)^2 4 + 2 \lambda (1 - \lambda)  \left( (y_1 - 1) (x_1 - 1) + (x_2 - 1) (y_2 - 1) \right) \\
-				& \leq \lambda^2 4 + (1 - \lambda)^2 4 + 2 \lambda (1 - \lambda)  \left( x_1y_1 - y_1 - x_1 -x_2 - y_2 + x_2 y_2 + 4 \right)
+				& \leq \lambda^2 4 + (1 - \lambda)^2 4 + 2 \lambda (1 - \lambda)  \left( x_1y_1 - y_1 - x_1 -x_2 - y_2 + x_2 y_2 +2 \right)  
 			\end{align*} 
 				\begin{figure}[h!] \centering
   					\includegraphics[scale=0.75]{img/suv-i}

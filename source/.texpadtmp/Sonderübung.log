@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.20)  29 MAY 2017 21:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.20)  29 MAY 2017 22:51
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1374,150 +1374,155 @@ LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
 <<oms.cmap>> [1
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 138--139
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
 
  []
 
-<img/sui-i.png, id=21, 622.325pt x 553.06625pt>
+<img/sui-i.png, id=18, 622.325pt x 553.06625pt>
 File: img/sui-i.png Graphic file (type png)
  <use img/sui-i.png>
-Package pdftex.def Info: img/sui-i.png used on input line 142.
+Package pdftex.def Info: img/sui-i.png used on input line 143.
 (pdftex.def)             Requested size: 202.25322pt x 179.7444pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--145
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
 
  []
 
-<img/sui-ii.png, id=23, 666.49pt x 734.745pt>
+<img/sui-ii.png, id=20, 666.49pt x 734.745pt>
 File: img/sui-ii.png Graphic file (type png)
  <use img/sui-ii.png>
-Package pdftex.def Info: img/sui-ii.png used on input line 148.
+Package pdftex.def Info: img/sui-ii.png used on input line 149.
 (pdftex.def)             Requested size: 233.275pt x 257.1646pt.
  [2 <./img/sui-i.png> <./img/sui-ii.png>]
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 156.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 157.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )<<ot1.cmap>>
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 156.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 157.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )<<oml.cmap>>
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 156.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 157.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 156.
+(Font)              <12> on input line 157.
 <<omx.cmap>>
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 156.
+(Font)              <8> on input line 157.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 156.
-LaTeX Font Info:    Try loading font information for U+msa on input line 156.
+(Font)              <6> on input line 157.
+LaTeX Font Info:    Try loading font information for U+msa on input line 157.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 156.
+LaTeX Font Info:    Try loading font information for U+msb on input line 157.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 168--170
+Underfull \hbox (badness 10000) in paragraph at lines 169--171
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 183--185
+Underfull \hbox (badness 10000) in paragraph at lines 184--186
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--192
+Underfull \hbox (badness 10000) in paragraph at lines 194--196
 
  []
 
 
-Overfull \hbox (0.78928pt too wide) in paragraph at lines 197--199
+Overfull \hbox (0.78928pt too wide) in paragraph at lines 201--203
 \T1/lmr/m/n/12 eingef�hrte, mit einer pos-i-tiv def-i-nite, sym-metrische Ma-trix $[]$. Wir k�n-nen o.B.d.A.
  []
 
 [4] [5] [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 261--262
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 278--280
+Underfull \hbox (badness 10000) in paragraph at lines 265--266
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 278--280
+Overfull \hbox (27.06418pt too wide) detected at line 289
+ \OMS/lmsy/m/n/12 ([])  [] [] j\OML/lmm/m/it/12 []\OMS/lmsy/m/n/12 j [] \OML/lmm/m/it/12 ^^L[] \OMS/lmsy/m/n/12 ^^T \OT1/lmr/m/n/12 0\OML/lmm/m/it/12 ;  \OT1/lmr/m/n/12 (\OML/lmm/m/it/12 x \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/12 a\OT1/lmr/m/n/12 )[] \OMS/lmsy/m/n/12 ^^T \OML/lmm/m/it/12 [];  \OT1/lmr/m/n/12 (\OML/lmm/m/it/12 Ax \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/12 b\OT1/lmr/m/n/12 )[] \OMS/lmsy/m/n/12 ^^T \OML/lmm/m/it/12 ^^L[];  \OMS/lmsy/m/n/12 8\OML/lmm/m/it/12 i \OMS/lmsy/m/n/12 2 f\OT1/lmr/m/n/12 1\OML/lmm/m/it/12 ; [] ; n\OMS/lmsy/m/n/12 g\OML/lmm/m/it/12 ;  x \OMS/lmsy/m/n/12 2 \OML/lmm/m/it/12 X;
+ []
+
+[8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 295--297
 
  []
 
 
-Overfull \hbox (3.15727pt too wide) in paragraph at lines 302--302
+Underfull \hbox (badness 10000) in paragraph at lines 295--297
+
+ []
+
+
+Overfull \hbox (3.15727pt too wide) in paragraph at lines 319--319
 [] 
  []
 
-<img/suv-i.png, id=86, 200.75pt x 202.7575pt>
+<img/suv-i.png, id=87, 200.75pt x 202.7575pt>
 File: img/suv-i.png Graphic file (type png)
  <use img/suv-i.png>
-Package pdftex.def Info: img/suv-i.png used on input line 304.
+Package pdftex.def Info: img/suv-i.png used on input line 321.
 (pdftex.def)             Requested size: 150.56212pt x 152.06775pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--308
+Underfull \hbox (badness 10000) in paragraph at lines 324--325
 
  []
 
-<img/suv-ii.png, id=87, 200.75pt x 202.7575pt>
+<img/suv-ii.png, id=88, 200.75pt x 202.7575pt>
 File: img/suv-ii.png Graphic file (type png)
  <use img/suv-ii.png>
-Package pdftex.def Info: img/suv-ii.png used on input line 312.
+Package pdftex.def Info: img/suv-ii.png used on input line 329.
 (pdftex.def)             Requested size: 150.56212pt x 152.06775pt.
- [9] <img/suv-iii.png, id=94, 200.75pt x 202.7575pt>
+ [10] <img/suv-iii.png, id=95, 200.75pt x 202.7575pt>
 File: img/suv-iii.png Graphic file (type png)
  <use img/suv-iii.png>
-Package pdftex.def Info: img/suv-iii.png used on input line 320.
+Package pdftex.def Info: img/suv-iii.png used on input line 337.
 (pdftex.def)             Requested size: 15056.21223pt x 15206.77528pt.
 
-Overfull \hbox (14604.52473pt too wide) in paragraph at lines 320--322
+Overfull \hbox (14604.52473pt too wide) in paragraph at lines 337--339
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 14646.01524pt on input line 322.
+LaTeX Warning: Float too large for page by 14646.01524pt on input line 339.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[10 <./img/suv-i.png> <./img/suv-ii.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 326.
- [11 <./img/suv-iii.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 326.
+[11 <./img/suv-i.png> <./img/suv-ii.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 343.
+ [12 <./img/suv-iii.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 343.
  (/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Sonderübung.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 326.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 326.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 343.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 343.
 Package rerunfilecheck Info: File `Sonderübung.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 37923 strings out of 493014
- 858925 string characters out of 6133351
+ 37922 strings out of 493014
+ 858914 string characters out of 6133351
  1028749 words of memory out of 5000000
- 40802 multiletter control sequences out of 15000+600000
+ 40800 multiletter control sequences out of 15000+600000
  45317 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,12n,84p,10410b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Sonderübung.pdf (11 pages, 647132 bytes).
+Output written on /Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Sonderübung.pdf (12 pages, 649901 bytes).
 PDF statistics:
  169 PDF objects out of 1000 (max. 8388607)
- 129 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 128 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 
