@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.20)  29 MAY 2017 18:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.20)  29 MAY 2017 19:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1430,28 +1430,33 @@ Overfull \hbox (0.78928pt too wide) in paragraph at lines 181--183
 \T1/lmr/m/n/12 eingef�hrte, mit einer pos-i-tiv def-i-nite, sym-metrische Ma-trix $[]$. Wir k�n-nen o.B.d.A.
  []
 
-[3] [4] [5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 213.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 213.
+[3] [4]
+Overfull \hbox (12.99736pt too wide) detected at line 227
+[]\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 x\OT1/lmr/m/n/12 ) = \OMS/lmsy/m/n/12 ^^@ []f^^@\OML/lmm/m/it/12 x[] \OMS/lmsy/m/n/12 ^^@ \OT1/lmr/m/n/12 3\OML/lmm/m/it/12 ; \OMS/lmsy/m/n/12 ^^@ [] \OML/lmm/m/it/12 ; x[] \OT1/lmr/m/n/12 + \OML/lmm/m/it/12 x[] \OMS/lmsy/m/n/12 ^^@ \OT1/lmr/m/n/12 20\OMS/lmsy/m/n/12 g \OT1/lmr/m/n/12 = []\OMS/lmsy/m/n/12 f\OML/lmm/m/it/12 x[] \OT1/lmr/m/n/12 + 3\OML/lmm/m/it/12 ; [] ; \OMS/lmsy/m/n/12 ^^@\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 x[] \OT1/lmr/m/n/12 + \OML/lmm/m/it/12 x[]\OT1/lmr/m/n/12 ) + 20\OMS/lmsy/m/n/12 g\OML/lmm/m/it/12 :
+ []
+
+[5] [6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 240.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 240.
  (/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Sonderübung.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 213.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 213.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 240.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 240.
 Package rerunfilecheck Info: File `Sonderübung.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 37357 strings out of 493014
- 842042 string characters out of 6133351
+ 37359 strings out of 493014
+ 842063 string characters out of 6133351
  1027749 words of memory out of 5000000
- 40284 multiletter control sequences out of 15000+600000
+ 40285 multiletter control sequences out of 15000+600000
  39304 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,9n,81p,10410b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Sonderübung.pdf (5 pages, 620677 bytes).
+Output written on /Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Sonderübung.pdf (6 pages, 627614 bytes).
 PDF statistics:
- 121 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
- 22 named destinations out of 1000 (max. 500000)
+ 125 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
+ 23 named destinations out of 1000 (max. 500000)
  43 words of extra memory for PDF output out of 10000 (max. 10000000)
 
