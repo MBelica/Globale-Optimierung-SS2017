@@ -333,12 +333,12 @@ Skizzieren Sie folgende Mengen $M \subseteq \R^2$und zeigen oder widerlegen Sie 
 		\begin{proof}
 			Sei $f(x) \coloneqq \left( x_1 - 1 \right)^2 + \left( x_2 - 1 \right)^2 - 4$, dann ist 
 			$$ M = f_{\leq}^{0}. $$
-			Da $f$ als Polynom zweimal stetig differenzierbar ist, können wir die Hesse-Matrix aufstellen:
+			Da $f$ als Polynom zweimal stetig differenzierbar ist, ist die Hesse-Matrix wohldefiniert:
 			$$ \nabla f(x) = \left(\begin{array}{c} 2x_1 - 2 \\ 2 x_2 -2 \end{array}\right) \Rightarrow D^2 f(x) =\left(\begin{array}{rr} 2 &  0 \\
      0 & 2 \end{array}\right) . $$
-     Die Eigenwerte erhalten wir durch die charakteristische Gleichung 
+     Die charakteristische Gleichung für $D^2 f(x)$ lautet somit:
      	$$\det (D^2 f(x) -  \lambda I) = (2-\lambda)^2 \overset{!}{=} 0.$$
-     Das heißt $\lambda = 2$ ist zweifacher Eigenwert und $f$ ist somit konvex. Nach Übung 4.4 ist $M$ damit eine konvexe Menge.
+     Damit ist $\lambda = 2$ zweifacher Eigenwert, womit $f$ konvex ist. Nach Übung 4.4 ist damit $M$ eine konvexe Menge.
 			\begin{figure}[h!] \centering
   					\includegraphics[scale=0.55]{img/suv-i}
  					 \label{fig:fig1}
