@@ -237,8 +237,8 @@ $$ P : \quad \min_{x \in \R^2} \exp \left(- \min{- x_1 - 3, -\left|x_2 - 4\right
 			Damit ist das unrestringierte Optimierungsproblem äquivalent zu
 			$$ P : \quad \min_{x \in \R^2} F(f(x)) \text{ s.t. } G(g(x)) \leq 0, x \in X $$
 			Nach Übung 1.3.9 (Verallgemeinerte Epigraph-Umformulierung) ist somit folgende Epigraph-Umformulierung äquivalent zu $P$:
-			$$ P_{epi}: \min_{(x,Â \alpha, \beta) \in \R^2 \times R \times \R} F(\alpha) \text{ s.t. } G(\beta) \leq 0, f(x) \leq \alpha, g(x) \leq \beta, x \in X $$
-			$$ \iff \min_{(x,Â \alpha) \in \R^2 \times R} e^{\alpha} \text{ s.t. } -\min\big\{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20\big\} \leq \alpha, ~ x \in X $$
+			$$ P_{epi}: \min_{(x, \alpha, \beta) \in \R^2 \times \R \times \R} F(\alpha) \text{ s.t. } G(\beta) \leq 0, f(x) \leq \alpha, g(x) \leq \beta, x \in X $$
+			$$ \iff \min_{(x, \alpha) \in \R^2 \times \R} e^{\alpha} \text{ s.t. } -\min\big\{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20\big\} \leq \alpha, ~ x \in X $$
 		\end{proof}
 	\item Formulieren Sie, aufbauend auf Aufgabenteil a), ein lineares Optimierungsproblem $P_{lin}$, welches die selben Optimalpunkte wie $P_{epi}$ besitzt.
 		\begin{proof}
@@ -248,19 +248,19 @@ $$ P : \quad \min_{x \in \R^2} \exp \left(- \min{- x_1 - 3, -\left|x_2 - 4\right
 				& = ~~ \max\big\{ x_1 + 3, \left|x_2 - 4\right|, -(x_1 + x_2) + 20\big\}.  
 			\end{align*} 
 			Die Bedingung $f(x) \leq \alpha$ aus der Epigraph-Formulierung bedeutet, dass jede Komponente des Maximums kleiner gleich $\alpha$ sein muss, d.h. das folgende Problem ist äquivalent zu $P_{epi}$:
-			$$  \tilde{P}_{epi}: \min_{(x,Â \alpha) \in \R^2 \times R} e^{\alpha} \text{ s.t. } x \in X, \begin{cases} x_1 + 3 \leq \alpha \\
+			$$  \tilde{P}_{epi}: \min_{(x, \alpha) \in \R^2 \times \R} e^{\alpha} \text{ s.t. } x \in X, \begin{cases} x_1 + 3 \leq \alpha \\
 			 x_2 - 4 \leq \alpha, ~ x_2 - 4 \geq - \alpha \\ -(x_1 + x_2) + 20 \leq \alpha \end{cases} $$
 			 Da die Exponentialfunktion streng monoton ist, ist jedes Minimum der Identität auf dieser Menge gleich dem Minimum der Exponentialfunktion. Ein lineares Optimierungsproblem $P_{lin}$, welches die selben Optimalpunkte wie $P_{epi}$ besitzt, lautet somit
-			$$  {P}_{lin}: \min_{(x,Â \alpha) \in \R^2 \times R} \alpha \text{ s.t. } x \in X, \begin{cases} x_1 + 3 \leq \alpha \\
+			$$  {P}_{lin}: \min_{(x, \alpha) \in \R^2 \times \R} \alpha \text{ s.t. } x \in X, \begin{cases} x_1 + 3 \leq \alpha \\
 			 x_2 - 4 \leq \alpha, ~ x_2 - 4 \geq - \alpha \\ -(x_1 + x_2) + 20 \leq \alpha \end{cases} $$			 
 		\end{proof}
 	\item Zeigen Sie, mit Hilfe des verschärften Satz von Weierstraß, dass das Problem $P_{lin}$ lösbar ist.
 		\begin{proof}
-			Das Problem $P_{lin}$ ist auf der Menge $$M \subseteq \big\{ (\alpha, x) = (\alpha, (x_1, x_2)) : \alpha \in \R, x \in R^2 \big\}$$ definiert, die die folgenden Nebenbedingungen hält:
+			Das Problem $P_{lin}$ ist auf der Menge $$M \subseteq \big\{ (\alpha, x) = (\alpha, (x_1, x_2)) : \alpha \in \R, x \in \R^2 \big\}$$ definiert, die die folgenden Nebenbedingungen hält:
 			$$\begin{cases} x_1 + 3 \leq \alpha \\
 			 x_2 - 4 \leq \alpha, ~ x_2 - 4 \geq - \alpha \\ -(x_1 + x_2) + 20 \leq \alpha \end{cases} $$	
 			 Die Funktion $f(\alpha) = \alpha$ ist als Identität stetig. Für den verschärften Satz von Weierstraß bleibt zu zeigen, dass für ein $\beta \in \R$ die Menge
-			  $$ \operatorname{lev}_{\leq}^{\beta}(f, M)= \big\{ (\alpha, x) \in M | f(\alpha) = \alpha \leq \beta \}  $$
+			  $$ \operatorname{lev}_{\leq}^{\beta}(f, M)= \big\{ (\alpha, x) \in M | f(\alpha) = \alpha \leq \beta \big\}  $$
 			  nicht-leer und kompakt ist. Für $\alpha < 0$ existiert kein $x_2$, sodass $x_2 - 4 \leq \alpha \text{ und } x_2 -4 \geq - \alpha$. Für $\alpha = 0$, ist $x_2 = 4$ und damit $\not\exists x_1$: $x_1 + 3 \leq 0 \text{ und } - (x_1 + 4) + 20 \leq 0$ Für $\alpha > 0$ ist 
 			 \begin{align}
 				 x_2 \in [4 - \alpha, 4 + \alpha], ~  \tag*{$(*)$}
@@ -271,8 +271,8 @@ $$ P : \quad \min_{x \in \R^2} \exp \left(- \min{- x_1 - 3, -\left|x_2 - 4\right
 			\end{align}
 			Diese Menge ist für $\alpha > \frac{19}{3}$ nicht leer und abgeschlossen, da für $x_2 = 4 + \alpha$:
 			 $$ 20 - x_2 - \alpha < \alpha - 3 \iff 23 - ( 4 + \alpha ) < 2 \alpha \iff \alpha > \frac{19}{3}. $$
-			Somit liefert ein $\beta > \frac{19}{3}$, dass $f(\alpha) = \alpha \in \left[\frac{19}{3}, \beta \right]$ beschränkt ist. Das in Kombination mit $(*)$ bzw. $(**)$ liefert die Beschränktheit von $x_1, x_2$. Zusammengefasst ist für ein $\beta > \frac{19}{3}$
-				$$ \big\{ (\alpha, x) \in M | f(\alpha) = \alpha \leq \beta \} $$
+			Somit liefert ein $\beta > \frac{19}{3}$, dass $f(\alpha) = \alpha \in \left[\frac{19}{3}, \beta \right]$ beschränkt ist. Das in Kombination mit $(*)$ bzw. $(**)$ liefert die Beschränktheit von $x_1, x_2$. Zusammengefasst ist für ein $\beta > \frac{19}{3}$ die Menge
+				$$ \big\{ (\alpha, x) \in M | f(\alpha) = \alpha \leq \beta \big\} $$
 				nicht-leer und kompakt und der  verschärfte Satz von Weierstraß garantiert die Lösbarkeit des Problems.
 		\end{proof} ~\newpage
 	\item Modellieren Sie das Problem in Matlab/ Jupyter Notebook und geben Sie den globalen Minimalpunkt von $P_{lin}$ aus.

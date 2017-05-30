@@ -1,7 +1,7 @@
-Funktionalanalysis
+Global Optimierung I & II
 ===========
-Dieses Skript zur Vorlesung "Funktionalanalysis" am KIT bei
-Herrn Prof. Dr. Lutz Weis (WS 2015/2016) wurde von Studenten erstellt, es ist somit 
+Diese Dateien stell zur Vorlesung "Global Optimierung I & II" am KIT bei
+Herrn Prof. Dr. Lutz Stein (SS 2017) eine Zusammenfassung der Übung und Sonderübung dar, und wurde von Studenten erstellt, es ist somit 
 inoffiziell, in Bearbeitung und enthält sehr wahrscheinlich einige
 Fehler (Übertragungsfehler, Tippfehler oder
 Verständnisprobleme) - ich bitte deswegen um Verständnis.
