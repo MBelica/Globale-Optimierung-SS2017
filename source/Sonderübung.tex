@@ -173,7 +173,7 @@ mit
 			Daraus ergibt sich:
 			\begin{align*}
 				 \lim_\nu f(x^\nu) = \lim_{\nu \rightarrow \infty} \left( - \left(x^\nu \right)^5 \right) & = -  \lim_\nu \left( \left(x^\nu - 1 + 1 \right)^5 \right) \\
-				 	& \leq \left| - \lim_{\nu \rightarrow \infty}  \left( - \left( \| x^\nu -1 \| + 1 \right)^5 \right) \right| \\
+				 	& \leq \left| - \lim_{\nu \rightarrow \infty}  \left( \left( \| x^\nu -1 \| + 1 \right)^5 \right) \right| \\
 				 	& < \lim_{\nu \rightarrow \infty}  \left( \epsilon + 1 \right)^5.  
 			\end{align*}
 			Da diese Ungleichung im Grenzwert für alle $\epsilon > 0$ gilt, ist $f$ nicht koerziv. ~\\ 
@@ -214,7 +214,7 @@ mit
 			\begin{align*}
 				 \left| f(x^\nu) \right| =  \frac{\left\| x^\nu \right\|_{B}^2}{\| x^\nu - b\|_2 + 1} & \geq \frac{\left\| x^\nu \right\|_{B}^2}{2 \| x^\nu - b\|_2 } \\
 				 	& \geq \frac{\left\| x^\nu \right\|_{B}^2}{2 \left( \| x^\nu \|_2 + \| b\|_2 \right)}   \\
-				 	& \geq \frac{\left\| x^\nu \right\|_{BB}^2}{2 \left( \| x^\nu \|_2 + \| x^\nu \|_2 \right)}  
+				 	& \geq \frac{\left\| x^\nu \right\|_{B}^2}{2 \left( \| x^\nu \|_2 + \| x^\nu \|_2 \right)}  
 			\end{align*}
 			Durch die Äquivalenz der Normen im $\R^n$ existiert nun eine Konstante $c$ so, dass
 			\begin{align}
@@ -232,7 +232,7 @@ mit
 
 \subsubsection{Aufgabe S.3} ~\\
 Gegeben sei das unrestringierte Optimierungsproblem
-$$ P : \quad \min_{x \in \R^2} \exp \left(- \min{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20} \right).$$
+$$ P : \quad \min_{x \in \R^2} \exp \left(- \min \big\{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20 \big\} \right).$$
 \begin{enumerate}
 	\item Geben Sie die verallgemeinerte Epigraph-Umformulierung $P_{epi}$ von $P$ an (siehe Übung 1.3.9. im Skript). Begründen Sie, welche Funktionen $f$, $g$, $F$ und $G$ Sie für die Umformulierung verwenden.
 		\begin{proof}
