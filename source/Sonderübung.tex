@@ -239,6 +239,7 @@ $$ P : \quad \min_{x \in \R^2} \exp \left(- \min{- x_1 - 3, -\left|x_2 - 4\right
 			Nach Übung 1.3.9 (Verallgemeinerte Epigraph-Umformulierung) ist somit folgende Epigraph-Umformulierung äquivalent zu $P$:
 			$$ P_{epi}: \min_{(x, \alpha, \beta) \in \R^2 \times \R \times \R} F(\alpha) \text{ s.t. } G(\beta) \leq 0, f(x) \leq \alpha, g(x) \leq \beta, x \in X $$
 			$$ \iff \min_{(x, \alpha) \in \R^2 \times \R} e^{\alpha} \text{ s.t. } -\min\big\{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20\big\} \leq \alpha, ~ x \in X $$
+			Wobei wir im letzten Schritt $\beta$ aufgrund der trivialen Bedingung $G(\beta) \equiv 0 \overset{!}{=} 0$ zur Vereinfachung fallen gelassen haben.
 		\end{proof}
 	\item Formulieren Sie, aufbauend auf Aufgabenteil a), ein lineares Optimierungsproblem $P_{lin}$, welches die selben Optimalpunkte wie $P_{epi}$ besitzt.
 		\begin{proof}
@@ -330,28 +331,18 @@ Skizzieren Sie folgende Mengen $M \subseteq \R^2$und zeigen oder widerlegen Sie 
 \begin{enumerate}
 	\item $M \colon \big\{ x \in \R^2 \colon \left( x_1 - 1 \right)^2 + \left( x_2 - 1 \right)^2 \leq 4 \big\}$
 		\begin{proof}
-			Seien $x, y \in M$. Definiere für $\lambda \in (0, 1)$:
-			$$ z \coloneqq \lambda x + (1 - \lambda) y . $$
-			Somit gilt
-			\begin{align*}
-				(z_1 - 1)^2 = (\lambda x_1 + (1 - \lambda) y_1 - 1)^2 = (\lambda (x_1 - 1) + (1 - \lambda) (y_1 - 1))^2 \\
-				(z_2 - 1)^2 = (\lambda x_2 + (1 - \lambda) y_2 - 1)^2 = (\lambda (x_2 - 1) + (1 - \lambda) (y_2 - 1))^2		 
-			\end{align*}
-			Damit ist unter Verwendung von Cauchy-Schwartz
-			\begin{align*}
-				(z_1 - 1)^2 + (z_2 - 1)^2 & = (\lambda (x_1 - 1) + (1 - \lambda) (y_1 - 1))^2 + (\lambda (x_2 - 1) + (1 - \lambda) (y_2 - 1))^2 \\
-				& \leq 2 (\lambda^2 (x_1 - 1)^2 + (1 - \lambda)^2 (y_1 - 1)^2) + 2 (\lambda^2 (x_2 - 1)^2 + (1 - \lambda)^2 (y_2 - 1)^2) \\
-				& = 2 \left( \lambda^2 \left( (x_1 - 1)^2 + (x_2 - 1)^2  \right) + (1 - \lambda)^2 \left( (y_1 - 1)^2 + (y_2 - 1)^2 \right) \right) \\
-				& \leq 2 \left( \lambda^2 4 + (1 - \lambda)^2 4 \right) \\
-				& = 8 \left( \lambda^2 + (1 - \lambda)^2 \right) \overset{(*)}{\leq} 8 \left( \left( \frac{1}{2} \right)^2 + \left( 1 - \frac{1}{2} \right)^2 \right) = 4
-			\end{align*} 
-			$(*)$: hier haben wir ausgenutzt, dass die Funktion $g(x) =  x^2 + \left( 1 - x \right)^2$ ihr Maximum bei $\frac{1}{2}$ annimmt. Dazu die FOC:
-			$$ g'(x) = 2 x - 2 (1-x) \overset{!}{=} 0 \iff x = \frac{1}{2} $$
-			und $g''(x) = 2 + 2 > 0$. Das heißt $z \in M$.
-				\begin{figure}[h!] \centering
+			Sei $f(x) \coloneqq \left( x_1 - 1 \right)^2 + \left( x_2 - 1 \right)^2 - 4$, dann ist 
+			$$ M = f_{\leq}^{0}. $$
+			Da $f$ als Polynom zweimal stetig differenzierbar ist, können wir die Hesse-Matrix aufstellen:
+			$$ \nabla f(x) = \left(\begin{array}{c} 2x_1 - 2 \\ 2 x_2 -2 \end{array}\right) \Rightarrow D^2 f(x) =\left(\begin{array}{rr} 2 &  0 \\
+     0 & 2 \end{array}\right) . $$
+     Die Eigenwerte erhalten wir durch die charakteristische Gleichung 
+     	$$\det (D^2 f(x) -  \lambda I) = (2-\lambda)^2 \overset{!}{=} 0.$$
+     Das heißt $\lambda = 2$ ist zweifacher Eigenwert und $f$ ist somit konvex. Nach Übung 4.4 ist $M$ damit eine konvexe Menge.
+			\begin{figure}[h!] \centering
   					\includegraphics[scale=0.55]{img/suv-i}
  					 \label{fig:fig1}
-				\end{figure}
+			\end{figure}
 		\end{proof} 
 	\item $M \colon \big\{ x \in \R^2 \colon \left( x_1 - 1 \right)^2 + \left( x_2 - 1 \right)^2 \leq 4, \left( x_1 - 3 \right)^2 + \left( x_2 - 1 \right)^2 \geq 1 \big\}$
 		\begin{proof}

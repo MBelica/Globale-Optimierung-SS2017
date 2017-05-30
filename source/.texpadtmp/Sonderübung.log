@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.20)  30 MAY 2017 17:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.20)  30 MAY 2017 19:20
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1446,67 +1446,58 @@ Underfull \hbox (badness 10000) in paragraph at lines 217--219
 [4] [5] [6] [7] [8] <img/suiii-vi.png, id=78, 837.1275pt x 628.3475pt>
 File: img/suiii-vi.png Graphic file (type png)
  <use img/suiii-vi.png>
-Package pdftex.def Info: img/suiii-vi.png used on input line 281.
+Package pdftex.def Info: img/suiii-vi.png used on input line 282.
 (pdftex.def)             Requested size: 418.56273pt x 314.17297pt.
  [9 <./img/suiii-vi.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 295--296
+Underfull \hbox (badness 10000) in paragraph at lines 296--297
 
  []
 
 [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 325--327
+Underfull \hbox (badness 10000) in paragraph at lines 326--328
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 325--327
+Underfull \hbox (badness 10000) in paragraph at lines 326--328
 
- []
-
-
-Overfull \hbox (28.81612pt too wide) in paragraph at lines 349--349
-[] 
  []
 
 <img/suv-i.png, id=96, 200.75pt x 202.7575pt>
 File: img/suv-i.png Graphic file (type png)
  <use img/suv-i.png>
-Package pdftex.def Info: img/suv-i.png used on input line 354.
+Package pdftex.def Info: img/suv-i.png used on input line 345.
 (pdftex.def)             Requested size: 110.41283pt x 111.51697pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 360--361
+Underfull \hbox (badness 10000) in paragraph at lines 351--352
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 368--369
+Underfull \hbox (badness 10000) in paragraph at lines 359--360
 
  []
 
-<img/suv-ii.png, id=103, 200.75pt x 202.7575pt>
+<img/suv-ii.png, id=104, 200.75pt x 202.7575pt>
 File: img/suv-ii.png Graphic file (type png)
  <use img/suv-ii.png>
-Package pdftex.def Info: img/suv-ii.png used on input line 376.
+Package pdftex.def Info: img/suv-ii.png used on input line 367.
 (pdftex.def)             Requested size: 110.41283pt x 111.51697pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[13 <./img/suv-i.png>] <img/suv-iii.png, id=111, 301.125pt x 308.15125pt>
+ [13 <./img/suv-i.png> <./img/suv-ii.png>] <img/suv-iii.png, id=112, 301.125pt x 308.15125pt>
 File: img/suv-iii.png Graphic file (type png)
  <use img/suv-iii.png>
-Package pdftex.def Info: img/suv-iii.png used on input line 394.
+Package pdftex.def Info: img/suv-iii.png used on input line 385.
 (pdftex.def)             Requested size: 123.46204pt x 126.34282pt.
- [14 <./img/suv-ii.png> <./img/suv-iii.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 400.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 400.
+ [14 <./img/suv-iii.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 391.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 391.
  (/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Sonderübung.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 400.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 400.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 391.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 391.
 Package rerunfilecheck Info: File `Sonderübung.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
 
@@ -1523,7 +1514,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  73i,12n,84p,10410b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Sonderübung.pdf (14 pages, 645745 bytes).
+Output written on /Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Sonderübung.pdf (14 pages, 645631 bytes).
 PDF statistics:
  179 PDF objects out of 1000 (max. 8388607)
  134 compressed objects within 2 object streams
