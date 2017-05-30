@@ -128,10 +128,9 @@
 \section*{ToDo}
 
 \begin{itemize}
-	\item Aufgabe 2: Lösbarkeit bei allen 3 ( a), b), c) )
-	\item Aufgabe 3: c) d) e)
+	\item Aufgabe 3: d)
 	\item Aufgabe 4: Scheint mir nicht genügend zu sein! Ist das echt ein lineares Problem?
-	\item Aufgabe 5: Konvexität zeigen
+	\item Aufgabe 5: Konvexität zeigen, f'' > 0 ?
 \end{itemize}
 
 \newpage
@@ -163,26 +162,32 @@ mit
 \end{enumerate}
 	Begründen Sie jeweils: ist $f$ koerziv auf $M$? Ist $P$ lösbar? ~\\
 	\textbf{Hinweis}: Nutzen Sie für Aufgabenteil c) die Äquivalenz der Normen im $\R^n$ ~\bigskip
-
+	
 \begin{proof} Nach Vorlesung (Definition 1.2.37) gilt: ~\\ ~\medskip
 	\textit{Gegeben seien eine (nicht notwendigerweise abgeschlossene) Menge $M \subseteq \R^n$ und eine Funktion $f \colon M \rightarrow \R$. Falls für alle Folgen $(x^\nu) \subseteq M$ mit $\lim_{\nu} \| x^\nu \| \rightarrow \infty$ und alle konvergenten Folgen $(x^\nu) \subseteq M$ mit $\lim_{\nu} x^\nu \notin M$ die Bedingung}
 	$$ \lim_{\nu} f(x^\nu) = + \infty $$
 	\textit{gilt, dann heißt $f$ koerziv auf $M$.} ~\\
 	
-	\begin{enumerate} % todo Lösbar
+	\begin{enumerate}
 		\item $f(x) = - x^5$, $M =(- \infty, 1)$: ~\medskip
 		
 			Beachte $M \subseteq \R$. Es gilt $\overline{M} = (-\infty, 1]$, d.h. $\partial M = \{ 1 \}$. Für die Koerzivität sind demnach alle Folgen $\left( x^\nu \right) \subseteq M$ zu betrachten für die entweder
 			$$ x^\nu \longrightarrow \infty \quad \text{oder} \quad x^\nu \longrightarrow 1 $$
-			gilt. Sei nun $(x^\nu)$ eine Folge für die gilt $x^\nu \rightarrow 1$. Für alle $\epsilon > 0$ existiert demnach ein $m$, sodass:
+			gilt. Sei nun $(x^\nu)$ eine Folge für die gilt $x^\nuÂ \rightarrow 1$. Für alle $\epsilon > 0$ existiert demnach ein $m$, sodass:
 			$$ \| x^{\nu_m} - 1 \| < \epsilon, \quad \forall \nu_m > m. $$
 			Daraus ergibt sich:
 			\begin{align*}
-				 \lim_\nu f(x^\nu) = \lim_\nu \left( - \left(x^\nu \right)^5 \right) & = -  \lim_\nu \left( \left(x^\nu - 1 + 1 \right)^5 \right) \\
+				 \lim_\nu f(x^\nu) = \lim_\nu \left( - \left(x^\nuÂ \right)^5 \right) & = -  \lim_\nu \left( \left(x^\nuÂ - 1 + 1 \right)^5 \right) \\
 				 	& \leq - \lim_\nu  \left( - \left( \| x^\nu -1 \| + 1 \right)^5 \right) \\
 				 	& < \lim_\nu  \left( \epsilon + 1 \right)^5.  
 			\end{align*}
 			Da diese Ungleichung im Grenzwert für alle $\epsilon > 0$ gilt, ist $f$ nicht koerziv. ~\\ 
+			
+			Die Funktion $f$ ist monoton Fallend auf $M$ und streng monoton fallend auf $(0, 1)$, da
+			$$ f'(x) = - 5 x^4 \leq 0 $$
+			mit strikter Ungleichung für $x \neq 0$. Damit ist 
+			$$ \inf_{x \in M} f(x) = \lim_{x \rightarrow 1} f(x) = -1. $$
+			Da das Infimum aber nicht in der Menge angenommen wird ($f(x) > -1$ für alle $x \in M$), ist das Problem nach Definition 1.2.3 nicht lösbar. ~\\
 		\item  $f(x) = 9 x_1^2 - 6 x_1 x_2^2 + x_2^4$, $M = \R^2$: ~\medskip
 		
 			Es gilt
@@ -190,6 +195,10 @@ mit
 			Für jede Folge für die für alle $\nu \in \N$ gilt dass $\sqrt{3 x^\nu_1} = x^\nu_2$ folgt:
 			$$ f(x^\nu) = 0. $$
 			Da wir eine Menge von Folgen gefunden haben für die $\| x^\nu \| \rightarrow \infty$ gilt, allerdings gleichzeitig $\lim_{\nu} f(x^\nu) = f(x^{\tilde{\nu}}) = 0$, ist die Funktion nicht koerziv. ~\\ 
+			
+			Es gilt $f(x) = (3 x_1 - x_2^2)^2 \geq 0 = \inf_{x \in M} f(x)$, wobei 
+			$$ f(x) = 0 \iff (3 x_1 - x_2^2)^2 = 0 \iff x_1 = \frac{x_2^2}{3} $$
+			Da es $(x_1, x_2) \in M$ gibt, die die obige Bedingung erfüllen, nimmt $f$ auf $M$ sein Infimum an, und das Problem ist nach Definition 1.2.3. lösbar.
 		\item $f(x) = \frac{x^T A x}{\| x - b\|_2 + 1}$, mit $A \in \R^{n \times n}$ positiv definit, $b \in \R^n$ und $M = \R^n$: ~\medskip
 		
 			Da $\R^{n \times n}$ unbeschränkt ist, betrachten wir lediglich eine beliebige divergente Folge $(x^\nu)$. Aufgrund der positiven Definitheit von $A$ ist $ x^T A x > 0$ und damit ist
@@ -210,7 +219,9 @@ mit
 			$$ 		\left| f(x^\nu) \right|  \geq \frac{c}{2} \cdot \frac{\left\| x^\nu \right\|_{A}^2}{2 \left( \| x^\nu \|_A + \| x^\nu \|_A \right)} = \frac{c}{4} \cdot \frac{\left\| x^\nu \right\|_{A}^2}{ \| x^\nu \|_A} = \frac{c}{4} \cdot \| x^\nu \|_A \rightarrow \infty, $$
 			wobei wir im letzten Schritt wieder die Äquivalenz der Normen verwendet haben, da somit $x^\nu$ in allen Normen divergiert. Das heißt, für alle divergenten Folgen $(x^\nu)$, ist $f(x^\nu) > 0$ und
 			$$ \left| f(x^\nu) \right| \rightarrow \infty, $$
-			d.h. $f$ ist koerziv.
+			d.h. $f$ ist koerziv. ~\\
+			
+			Da $M$ nicht-leer und abegschlossen, $f$ stetig und koerziv ist, ist das Problem nach Korollar 1.2.30 lösbar.
 	\end{enumerate}
 \end{proof}
 
@@ -230,8 +241,8 @@ $$ P : \quad \min_{x \in \R^2} \exp \left(- \min{- x_1 - 3, -\left|x_2 - 4\right
 			Damit ist das unrestringierte Optimierungsproblem äquivalent zu
 			$$ P : \quad \min_{x \in \R^2} F(f(x)) \text{ s.t. } G(g(x)) \leq 0, x \in X $$
 			Nach Übung 1.3.9 (Verallgemeinerte Epigraph-Umformulierung) ist somit folgende Epigraph-Umformulierung äquivalent zu $P$:
-			$$ P_{epi}: \min_{(x, \alpha, \beta) \in \R^2 \times R \times \R} F(\alpha) \text{ s.t. } G(\beta) \leq 0, f(x) \leq \alpha, g(x) \leq \beta, x \in X $$
-			$$ \iff \min_{(x, \alpha) \in \R^2 \times R} e^{-\alpha} \text{ s.t. } \min\big\{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20\big\} \leq \alpha, x \in X $$
+			$$ P_{epi}: \min_{(x,Â \alpha, \beta) \in \R^2 \times R \times \R} F(\alpha) \text{ s.t. } G(\beta) \leq 0, f(x) \leq \alpha, g(x) \leq \beta, x \in X $$
+			$$ \iff \min_{(x,Â \alpha) \in \R^2 \times R} e^{-\alpha} \text{ s.t. } \min\big\{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20\big\} \leq \alpha, x \in X $$
 		\end{proof}
 	\item Formulieren Sie, aufbauend auf Aufgabenteil a), ein lineares Optimierungsproblem $P_{lin}$, welches die selben Optimalpunkte wie $P_{epi}$ besitzt.
 		\begin{proof}
@@ -239,22 +250,48 @@ $$ P : \quad \min_{x \in \R^2} \exp \left(- \min{- x_1 - 3, -\left|x_2 - 4\right
 			\begin{align*}
 				& \tilde{F}: \R \rightarrow \R, x \mapsto e^{x}, \\
 				&\tilde{f}: R^2 \rightarrow R, x \mapsto -\min\big\{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20\big\}. \\
-			\end{align*}
+			\end{align*} % todo F oben umformulieren
 			Dann ist $F(f(x)) = \tilde{F}(\tilde{f}(x))$ für alle $x \in X$. D.h. $\tilde{F}$, $\tilde{f}$ beschreiben das gleiche Optimierungsproblem und es gilt
 			\begin{align*}
 				\tilde{f}(x) & = -\min\big\{- x_1 - 3, -\left|x_2 - 4\right|, x_1 + x_2 - 20\big\} \\
 				& = ~~ \max\big\{ x_1 + 3, \left|x_2 - 4\right|, -(x_1 + x_2) + 20\big\}.  
 			\end{align*} 
 			Aus der Epigraph-Formulierung bedeutet die  Bedingung $\tilde{f}(x) \leq \alpha$, dass jede Komponente des Maximums kleiner gleich $\alpha$ sein muss, d.h. das folgende Problem besitzt die selben Optimalpunkte wie $P_{epi}$:
-			$$  \tilde{P}_{epi}: \min_{(x, \alpha) \in \R^2 \times R} e^{\alpha} \text{ s.t. } x \in X, \begin{cases} x_1 + 3 \leq \alpha \\
-			 x_2 - 4 \leq \alpha, ~ - x_2 + 4 \geq - \alpha \\ -(x_1 + x_2) + 20 \leq \alpha \end{cases} $$
+			$$  \tilde{P}_{epi}: \min_{(x,Â \alpha) \in \R^2 \times R} e^{\alpha} \text{ s.t. } x \in X, \begin{cases} x_1 + 3 \leq \alpha \\
+			 x_2 - 4 \leq \alpha, ~ x_2 - 4 \geq - \alpha \\ -(x_1 + x_2) + 20 \leq \alpha \end{cases} $$
 			 Da die Exponentialfunktion streng monoton ist, ist jedes Minimum der Identität auf dieser Menge gleich dem Minimum der Exponentialfunktion. D.h. ein lineares Optimierungsproblem $P_{lin}$, welches die selben Optimalpunkte wie $P_{epi}$ besitzt, lautet
-			$$  \tilde{P}_{epi}: \min_{(x, \alpha) \in \R^2 \times R} \alpha \text{ s.t. } x \in X, \begin{cases} x_1 + 3 \leq \alpha \\
-			 x_2 - 4 \leq \alpha, ~ - x_2 + 4 \geq - \alpha \\ -(x_1 + x_2) + 20 \leq \alpha \end{cases} $$			 
+			$$  {P}_{lin}: \min_{(x,Â \alpha) \in \R^2 \times R} \alpha \text{ s.t. } x \in X, \begin{cases} x_1 + 3 \leq \alpha \\
+			 x_2 - 4 \leq \alpha, ~ x_2 - 4 \geq - \alpha \\ -(x_1 + x_2) + 20 \leq \alpha \end{cases} $$			 
 		\end{proof}
-	\item Zeigen Sie, mit Hilfe des verschärften Satz von Weierstraß, dass das Problem $P_lin$ lösbar ist.
+	\item Zeigen Sie, mit Hilfe des verschärften Satz von Weierstraß, dass das Problem $P_{lin}$ lösbar ist.
+		\begin{proof}
+			Das Problem $P_{lin}$ ist auf der Menge $$M \subseteq \big\{ (\alpha, x) = (\alpha, (x_1, x_2)) : \alpha \in \R, x \in R^2 \big\}$$ definiert, die die folgenden Nebenbedingungen hält:
+			$$\begin{cases} x_1 + 3 \leq \alpha \\
+			 x_2 - 4 \leq \alpha, ~ x_2 - 4 \geq - \alpha \\ -(x_1 + x_2) + 20 \leq \alpha \end{cases} $$	
+			 Die Funktion $f(\alpha) = \alpha$ ist als Identität stetig. Für den verschärften Satz von Weierstraß bleibt zu zeigen, dass für ein $\beta \in \R$ die Menge
+			  $$ \operatorname{lev}_{\leq}^{\beta}(f, M)= \big\{ (\alpha, x) \in M | f(\alpha) = \alpha \leq \beta \}  $$
+			  nicht-leer und kompakt ist. Für $\alpha < 0$ existiert kein $x_2$, sodass $x_2 - 4 \leq \alpha \text{ und } x_2 -4 \geq - \alpha$. Für $\alpha = 0$, ist $x_2 = 4$ und damit $\not\exists x_1$: $x_1 + 3 \leq 0 \text{ und } - (x_1 + 4) + 20 \leq 0$ Für $\alpha > 0$ ist 
+			 \begin{align}
+				 x_2 \in [4 - \alpha, 4 + \alpha], ~  \tag*{$(*)$}
+			\end{align}
+			d.h. $x_2$ liegt in einer nicht-leeren, abgeschlossennen Menge. Aus den Restriktionen erhalten wir außerdem
+			\begin{align}
+				 x_1 \in  [20 - x_2 - \alpha, \alpha - 3], ~  \tag*{$(**)$}
+			\end{align}
+			Diese Menge ist für $\alpha > \frac{19}{3}$ nicht leer und abgeschlossen, da für $x_2 = 4 + \alpha$:
+			 $$ 20 - x_2 - \alpha < \alpha - 3 \iff 23 - ( 4 + \alpha ) < 2 \alpha \iff \alpha > \frac{19}{3}. $$
+			Somit liefert ein $\beta > \frac{19}{3}$, dass $f(\alpha) = \alpha \in \left[\frac{19}{3}, \beta \right]$ beschränkt ist. Das in Kombination mit $(*)$ bzw. $(**)$ liefert die Beschränktheit von $x_1, x_2$. Zusammengefasst ist für ein $\beta > \frac{19}{3}$
+				$$ \big\{ (\alpha, x) \in M | f(\alpha) = \alpha \leq \beta \} $$
+				nicht-leer und kompakt und der  verschärfte Satz von Weierstraß garantiert die Lösbarkeit des Problems.
+		\end{proof}
 	\item Modellieren Sie das Problem in Matlab/ Jupyter Notebook und geben Sie den globalen Minimalpunkt von $P_{lin}$ aus.
 	\item Bestimmen Sie einen globalen Optimalpunkt und den Optimalwert von P.
+		\begin{proof}
+			Die Minimalpunkte von $P$ und $P_{lin}$ stimmen nach Konstruktion überein (siehe 3b), also folgt aus d) für die Optimalpunkte $x^*=(\frac{10}{3}, \frac{31}{3})$.\\
+			Einsetzten in das Ursprungsproblem ergibt: 
+			$$f(x^*)= \exp (-\min\left\{ -x_1-3, -|x_2-4|, x_1+x_2-20\right\}) $$
+			$\iff \exp(-\min\left\{ \frac{1}{3}, -\frac{19}{3}, -\frac{19}{3} \right\}) = \exp( \frac{19}{3}) =  563.0302$
+		\end{proof}
 \end{enumerate}
 
 \newpage
@@ -304,28 +341,42 @@ Skizzieren Sie folgende Mengen $M \subseteq \R^2$und zeigen oder widerlegen Sie 
 				(z_1 - 1)^2 = (\lambda x_1 + (1 - \lambda) y_1 - 1)^2 = (\lambda (x_1 - 1) + (1 - \lambda) (y_1 - 1))^2 \\
 				(z_2 - 1)^2 = (\lambda x_2 + (1 - \lambda) y_2 - 1)^2 = (\lambda (x_2 - 1) + (1 - \lambda) (y_2 - 1))^2		 
 			\end{align*}
-			Damit ist
+			Damit ist unter Verwendung von Cauchy-Schwartz
 			\begin{align*}
 				(z_1 - 1)^2 + (z_2 - 1)^2 & = (\lambda (x_1 - 1) + (1 - \lambda) (y_1 - 1))^2 + (\lambda (x_2 - 1) + (1 - \lambda) (y_2 - 1))^2 \\
-				& = \lambda^2 \left( (x_1 - 1)^2  + (x_2 - 1)^2 \right) + (1 - \lambda)^2 \left( (y_1 - 1)^2 +  (y_2 - 1)^2 \right) \\
-				& ~\qquad + 2 \lambda (1 - \lambda) (y_1 - 1) (x_1 - 1) + 2 \lambda (x_2 - 1) (1 - \lambda) (y_2 - 1) \\
-				& \leq \lambda^2 4 + (1 - \lambda)^2 4 + 2 \lambda (1 - \lambda)  \left( (y_1 - 1) (x_1 - 1) + (x_2 - 1) (y_2 - 1) \right) \\
-				& \leq \lambda^2 4 + (1 - \lambda)^2 4 + 2 \lambda (1 - \lambda)  \left( x_1y_1 - y_1 - x_1 -x_2 - y_2 + x_2 y_2 +2 \right)   \\
-				& ... Falscher Ansatz?
+				& \leq 2 (\lambda^2 (x_1 - 1)^2 + (1 - \lambda)^2 (y_1 - 1)^2) + 2 (\lambda^2 (x_2 - 1)^2 + (1 - \lambda)^2 (y_2 - 1)^2) \\
+				& = 2 \left( \lambda^2 \left( (x_1 - 1)^2 + (x_2 - 1)^2  \right) + (1 - \lambda)^2 \left( (y_1 - 1)^2 + (y_2 - 1)^2 \right) \right) \\
+				& \leq 2 \left( \lambda^2 4 + (1 - \lambda)^2 4 \right) \\
+				& = 8 \left( \lambda^2 + (1 - \lambda)^2 \right) \overset{(*)}{\leq} 8 \left( \left( \frac{1}{2} \right)^2 + \left( 1 - \frac{1}{2} \right)^2 \right) = 4
 			\end{align*} 
+			$(*)$: hier haben wir ausgenutzt, dass die Funktion $g(x) =  x^2 + \left( 1 - x \right)^2$ ihr Maximum bei $\frac{1}{2}$ annimmt. Dazu die FOC:
+			$$ g'(x) = 2 x - 2 (1-x) \overset{!}{=} 0 \iff x = \frac{1}{2} $$
+			und $g''(x) = 2 + 2 > 0$. Das heißt $z \in M$.
 				\begin{figure}[h!] \centering
-  					\includegraphics[scale=0.75]{img/suv-i}
+  					\includegraphics[scale=0.55]{img/suv-i}
  					 \label{fig:fig1}
 				\end{figure}
-		\end{proof} ~\\
+		\end{proof} 
 	\item $M \colon \big\{ x \in \R^2 \colon \left( x_1 - 1 \right)^2 + \left( x_2 - 1 \right)^2 \leq 4, \left( x_1 - 3 \right)^2 + \left( x_2 - 1 \right)^2 \geq 1 \big\}$
 		\begin{proof}
-			Seien $x, y \in M$, dann gilt ~\\
+		Behauptung: $M$ ist nicht konvex, da $x,y \in M$ existieren, deren konvexe Verbindungsstrecke nicht komplett in der Menge liegt. Sei hierfür $x=(\frac{11}{4}, 1-\frac{\sqrt{15}}{4})$ und $y=(\frac{11}{4}, 1+\frac{\sqrt{15}}{4})$, dann gilt $x,y\in M$. Wähle konkret $\lambda=0,5$ und definiere $z \coloneqq (1-\lambda)x+\lambda y$. Wäre $M$ konvex, so müsste folgen $z \in M$. Einsetzen der obigen Werte ergibt:
+\begin{align*}
+	z_1 & = 0,5*\frac{11}{4}+(1-0.5)\frac{11}{4}= \frac{11}{4} \\
+	z_2 & = (0,5*(1-\frac{\sqrt{15}}{4})+(1-0.5)(1+\frac{\sqrt{15}}{4})= 1
+\end{align*}
+
+Einsetzen der Werte in die Ungleichungen ergibt: \\
+\begin{align*}
+	(z_1-1)^2+(z_2-1)^2 & = \frac{49}{16} \leq 4 \\
+	(z_1-3)^2+(z_2-1)^2 & = \frac{1}{16} \leq 1 
+\end{align*}
+
+Aufgrund der 2. Ungleichung gilt $z \notin M $ und damit ist $M$ nicht konvex.  ~\\
 				\begin{figure}[h!] \centering
-  					\includegraphics[scale=0.75]{img/suv-ii}
+  					\includegraphics[scale=0.55]{img/suv-ii}
  					 \label{fig:fig2}
 				\end{figure}
-		\end{proof}
+		\end{proof} ~\newpage
 	\item $M \colon \big\{ x \in \R^2 \colon \left( x_1 - 1 \right)^2 + \left( x_2 - 1 \right)^2 \leq 4, \left( x_1 - 3 \right)^2 + \left( x_2 - 1 \right)^2 \geq 16  \big\}$
 		\begin{proof}
 			Behauptung: Die Menge $M$ enthält nur den Punkt $(-1, 1)$ und ist damit trivialerweise konvex. Betrachte hierfür die Randbedingungen
@@ -338,7 +389,7 @@ Skizzieren Sie folgende Mengen $M \subseteq \R^2$und zeigen oder widerlegen Sie 
 			$$  0 \geq + \left( x_2 - 1 \right)^2 \geq 0 \iff x_2 = 1 $$
 			und damit die Behauptung.
 				\begin{figure}[h!] \centering
-  					\includegraphics[scale=0.5]{img/suv-iii}
+  					\includegraphics[scale=0.4]{img/suv-iii}
  					 \label{fig:fig3}
 				\end{figure}
 		\end{proof}
