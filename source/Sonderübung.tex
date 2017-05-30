@@ -152,8 +152,8 @@ mit
 	\textbf{Hinweis}: Nutzen Sie für Aufgabenteil c) die Äquivalenz der Normen im $\R^n$ ~\bigskip
 	
 	\textit{Nach Vorlesung (Definition 1.2.37) gilt:} ~\\
-	\textit{Gegeben seien eine (nicht notwendigerweise abgeschlossene) Menge $M \subseteq \R^n$ und eine Funktion $f \colon M \rightarrow \R$. Falls für alle Folgen $(x^\nu) \subseteq M$ mit $\lim_{\nu} \| x^\nu \| \rightarrow \infty$ und alle konvergenten Folgen $(x^\nu) \subseteq M$ mit $\lim_{\nu} x^\nu \notin M$ die Bedingung}
-	$$ \lim_{\nu} f(x^\nu) = + \infty $$
+	\textit{Gegeben seien eine (nicht notwendigerweise abgeschlossene) Menge $M \subseteq \R^n$ und eine Funktion $f \colon M \rightarrow \R$. Falls für alle Folgen $(x^\nu) \subseteq M$ mit $\lim_{\nu \rightarrow \infty} \| x^\nu \| \rightarrow \infty$ und alle konvergenten Folgen $(x^\nu) \subseteq M$ mit $\lim_{\nu} x^\nu \notin M$ die Bedingung}
+	$$ \lim_{\nu \rightarrow \infty} f(x^\nu) = + \infty $$
 	\textit{gilt, dann heißt $f$ koerziv auf $M$.} ~\\
 	
 	\begin{enumerate}
@@ -165,9 +165,9 @@ mit
 			$$ \| x^{\nu_m} - 1 \| < \epsilon, \quad \forall \nu_m > m. $$
 			Daraus ergibt sich:
 			\begin{align*}
-				 \lim_\nu f(x^\nu) = \lim_\nu \left( - \left(x^\nuÂ \right)^5 \right) & = -  \lim_\nu \left( \left(x^\nuÂ - 1 + 1 \right)^5 \right) \\
-				 	& \leq - \lim_\nu  \left( - \left( \| x^\nu -1 \| + 1 \right)^5 \right) \\
-				 	& < \lim_\nu  \left( \epsilon + 1 \right)^5.  
+				 \lim_\nu f(x^\nu) = \lim_{\nu \rightarrow \infty} \left( - \left(x^\nuÂ \right)^5 \right) & = -  \lim_\nu \left( \left(x^\nuÂ - 1 + 1 \right)^5 \right) \\
+				 	& \leq \left| - \lim_{\nu \rightarrow \infty}  \left( - \left( \| x^\nu -1 \| + 1 \right)^5 \right) \right| \\
+				 	& < \lim_{\nu \rightarrow \infty}  \left( \epsilon + 1 \right)^5.  
 			\end{align*}
 			Da diese Ungleichung im Grenzwert für alle $\epsilon > 0$ gilt, ist $f$ nicht koerziv. ~\\ 
 			
@@ -183,7 +183,7 @@ mit
 			$$ f(x) = 9 x_1^2 - 6 x_1 x_2^2 + x_2^4 = (3 x_1 - x_2^2)^2. $$
 			Für jede Folge für die für alle $\nu \in \N$ gilt dass $\sqrt{3 x^\nu_1} = x^\nu_2$ folgt:
 			$$ f(x^\nu) = 0 \quad \forall \nu \in \N, $$
-			z.B. $x^\nu = (\nu, \sqrt{3\nu}) ~\forall \nu \in \N \Rightarrow \lim_\nu f(x^\nu) = 0$. Da wir eine Folgen gefunden haben für die $\| x^\nu \| \rightarrow \infty$ und $\lim_{\nu} f(x^\nu) = 0$ gilt, ist die Funktion nicht koerziv. ~\\ 
+			z.B. $x^\nu = (\nu, \sqrt{3\nu}) ~\forall \nu \in \N \Rightarrow \lim_{\nu \rightarrow \infty} f(x^\nu) = 0$. Da wir eine Folgen gefunden haben für die $\| x^\nu \| \rightarrow \infty$ aber $\lim_{\nu \rightarrow \infty} f(x^\nu) = 0$ gilt, ist die Funktion $f$ nicht koerziv. ~\\ 
 			
 			Es gilt $f(x) = (3 x_1 - x_2^2)^2 \geq 0 = \inf_{x \in M} f(x)$, wobei 
 			$$ f(x) = 0 \iff (3 x_1 - x_2^2)^2 = 0 \iff x_1 = \frac{x_2^2}{3} $$
