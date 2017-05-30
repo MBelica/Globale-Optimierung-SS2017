@@ -27,7 +27,7 @@
 \usepackage{amsfonts}
 \usetikzlibrary{calc}	
 \usetikzlibrary{matrix}	
-
+\usepackage{fancyhdr}
 \usepackage{epstopdf}
 
 
@@ -97,6 +97,13 @@
 \newtheorem*{satz}{Satz}
 \newtheorem*{bemerkung}{Bemerkung}
 
+
+
+\fancypagestyle{firststyle}
+{
+   \fancyhf[C]{\small Globale Optimierung - Sonderübung 1 - Nadine Kostorz (1972005), Martin Belica (1775706)}
+   \fancyfoot[C]{}
+}
 %% Template
 \makeatletter%
 \DeclareUnicodeCharacter{00A0}{ } \pgfplotsset{compat=1.7} \hypersetup{colorlinks,breaklinks, urlcolor=linkcolor, linkcolor=linkcolor, pdftitle=\@title, pdfauthor=\@author, pdfsubject=\@title, pdfcreator=\@publishers}\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}} \ProcessOptions \def\baselinestretch{\mystretch} \setlength{\oddsidemargin}{0.125in} \setlength{\evensidemargin}{0.125in} \setlength{\topmargin}{0.5in} \setlength{\textwidth}{6.25in} \setlength{\textheight}{8in} \addtolength{\topmargin}{-\headheight} \addtolength{\topmargin}{-\headsep} \def\pulldownheader{ \addtolength{\topmargin}{\headheight} \addtolength{\topmargin}{\headsep} \addtolength{\textheight}{-\headheight} \addtolength{\textheight}{-\headsep} } \def\pullupfooter{ \addtolength{\textheight}{-\footskip} } \def\ps@headings{\let\@mkboth\markboth \def\@oddfoot{} \def\@evenfoot{} \def\@oddhead{\hbox {}\sl \rightmark \hfil \rm\thepage} \def\chaptermark##1{\markright {\uppercase{\ifnum \c@secnumdepth >\m@ne \@chapapp\ \thechapter. \ \fi ##1}}} \pulldownheader } \def\ps@myheadings{\let\@mkboth\@gobbletwo \def\@oddfoot{} \def\@evenfoot{} \def\sectionmark##1{} \def\subsectionmark##1{}  \def\@evenhead{\rm \thepage\hfil\sl\leftmark\hbox {}} \def\@oddhead{\hbox{}\sl\rightmark \hfil \rm\thepage} \pulldownheader }	\def\chapter{\cleardoublepage  \thispagestyle{plain} \global\@topnum\z@ \@afterindentfalse \secdef\@chapter\@schapter} \def\@makeschapterhead#1{ {\parindent \z@ \raggedright \normalfont \interlinepenalty\@M \Huge \bfseries  #1\par\nobreak \vskip 40\p@ }} \newcommand{\indexsection}{chapter} \patchcmd{\@makechapterhead}{\vspace*{50\p@}}{}{}{}\def\Xint#1{\mathchoice
@@ -124,7 +131,7 @@
 
 % Lecture Notes - Start 			
 \pagenumbering{arabic}
-
+\thispagestyle{firststyle}
 \begin{figure}[h!]
   \centering
   \includegraphics[scale=0.55]{img/sui-i}
@@ -161,11 +168,11 @@ mit
 			\begin{proof}
 			Beachte $M \subseteq \R$. Es gilt $\overline{M} = (-\infty, 1]$, d.h. $\partial M = \{ 1 \}$. Für die Koerzivität sind demnach alle Folgen $\left( x^\nu \right) \subseteq M$ zu betrachten für die entweder
 			$$ x^\nu \longrightarrow \infty \quad \text{oder} \quad x^\nu \longrightarrow 1 $$
-			gilt. Sei nun $(x^\nu)$ eine Folge für die gilt $x^\nuÂ \rightarrow 1$. Für alle $\epsilon > 0$ existiert demnach ein $m$, sodass:
+			gilt. Sei nun $(x^\nu)$ eine Folge für die gilt $x^\nu \rightarrow 1$. Für alle $\epsilon > 0$ existiert demnach ein $m$, sodass:
 			$$ \| x^{\nu_m} - 1 \| < \epsilon, \quad \forall \nu_m > m. $$
 			Daraus ergibt sich:
 			\begin{align*}
-				 \lim_\nu f(x^\nu) = \lim_{\nu \rightarrow \infty} \left( - \left(x^\nuÂ \right)^5 \right) & = -  \lim_\nu \left( \left(x^\nuÂ - 1 + 1 \right)^5 \right) \\
+				 \lim_\nu f(x^\nu) = \lim_{\nu \rightarrow \infty} \left( - \left(x^\nu \right)^5 \right) & = -  \lim_\nu \left( \left(x^\nu - 1 + 1 \right)^5 \right) \\
 				 	& \leq \left| - \lim_{\nu \rightarrow \infty}  \left( - \left( \| x^\nu -1 \| + 1 \right)^5 \right) \right| \\
 				 	& < \lim_{\nu \rightarrow \infty}  \left( \epsilon + 1 \right)^5.  
 			\end{align*}

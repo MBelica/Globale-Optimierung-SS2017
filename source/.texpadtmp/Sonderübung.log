@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.20)  30 MAY 2017 19:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.20)  30 MAY 2017 22:53
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -946,6 +946,16 @@ File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
 File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.1a (rcs-revision 1.9)
 ) (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
 File: tikzlibrarymatrix.code.tex 2013/07/12 v3.0.1a (rcs-revision 1.4)
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip62
+\f@ncyO@elh=\skip63
+\f@ncyO@erh=\skip64
+\f@ncyO@olh=\skip65
+\f@ncyO@orh=\skip66
+\f@ncyO@elf=\skip67
+\f@ncyO@erf=\skip68
+\f@ncyO@olf=\skip69
+\f@ncyO@orf=\skip70
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf.sty
 Package: epstopdf 2016/05/15 v2.6 Conversion with epstopdf on the fly (HO)
  (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
@@ -1289,15 +1299,15 @@ File: babel.def 2016/04/23 3.9r Babel common definitions
 ))
 \c@unnamedtheorem=\count189
    defining Unicode char U+00A0 (decimal 160)
-Package hyperref Info: Option `colorlinks' set `true' on input line 102.
-Package hyperref Info: Option `breaklinks' set `true' on input line 102.
+Package hyperref Info: Option `colorlinks' set `true' on input line 109.
+Package hyperref Info: Option `breaklinks' set `true' on input line 109.
 \@indexfile=\write4
 \openout4 = `Sonderübung.idx'.
 
 
 Writing index file Sonderübung.idx
 
-Package csquotes Warning: Load 'inputenc' before 'csquotes' on input line 121.
+Package csquotes Warning: Load 'inputenc' before 'csquotes' on input line 128.
 
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -1310,21 +1320,21 @@ LaTeX Warning: Label `fig:fig3' multiply defined.
 )
 \openout1 = `Sonderübung.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 121.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 128.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1347,7 +1357,7 @@ Package caption Info: End \AtBeginDocument code.
 \everyMPtoPDFconversion=\toks51
 )
 \AtBeginShipoutBox=\box63
-Package hyperref Info: Link coloring ON on input line 121.
+Package hyperref Info: Link coloring ON on input line 128.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
  (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -1355,9 +1365,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count196
 )
-LaTeX Info: Redefining \ref on input line 121.
-LaTeX Info: Redefining \pageref on input line 121.
-LaTeX Info: Redefining \nameref on input line 121.
+LaTeX Info: Redefining \ref on input line 128.
+LaTeX Info: Redefining \pageref on input line 128.
+LaTeX Info: Redefining \nameref on input line 128.
  (/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Sonderübung.out) (/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Sonderübung.out)
 \@outlinefile=\write5
 \openout5 = `Sonderübung.out'.
@@ -1368,141 +1378,133 @@ Package pgfplots notification 'compat/show suggested version=true': you might be
 <img/sui-i.png, id=8, 440.64626pt x 405.515pt>
 File: img/sui-i.png Graphic file (type png)
  <use img/sui-i.png>
-Package pdftex.def Info: img/sui-i.png used on input line 130.
+Package pdftex.def Info: img/sui-i.png used on input line 137.
 (pdftex.def)             Requested size: 242.35619pt x 223.03392pt.
  <img/sui-ii.png, id=10, 666.49pt x 734.745pt>
 File: img/sui-ii.png Graphic file (type png)
  <use img/sui-ii.png>
-Package pdftex.def Info: img/sui-ii.png used on input line 136.
+Package pdftex.def Info: img/sui-ii.png used on input line 143.
 (pdftex.def)             Requested size: 273.26266pt x 301.24739pt.
- [1
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
  <./img/sui-i.png> <./img/sui-ii.png>]
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 144.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 151.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )<<ot1.cmap>>
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 144.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 151.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )<<oml.cmap>>
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 144.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 151.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )<<oms.cmap>>
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 144.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 151.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 144.
+(Font)              <12> on input line 151.
 <<omx.cmap>>
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 144.
+(Font)              <8> on input line 151.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 144.
-LaTeX Font Info:    Try loading font information for U+msa on input line 144.
+(Font)              <6> on input line 151.
+LaTeX Font Info:    Try loading font information for U+msa on input line 151.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 144.
+LaTeX Font Info:    Try loading font information for U+msb on input line 151.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 156--158
+Underfull \hbox (badness 10000) in paragraph at lines 163--165
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 178--180
 
  []
 
 
-LaTeX Warning: Command \^ invalid in math mode on input line 164.
-
-
-LaTeX Warning: Command \^ invalid in math mode on input line 171.
-
-
-LaTeX Warning: Command \^ invalid in math mode on input line 171.
-
-
-LaTeX Warning: Command \^ invalid in math mode on input line 171.
-
-
-LaTeX Warning: Command \^ invalid in math mode on input line 171.
-
-[2{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 171--173
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 185--187
+Underfull \hbox (badness 10000) in paragraph at lines 192--194
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 217--219
+Underfull \hbox (badness 10000) in paragraph at lines 224--226
 
  []
 
-[4] [5] [6] [7] [8] <img/suiii-vi.png, id=78, 837.1275pt x 628.3475pt>
+[4] [5] [6] [7] [8] <img/suiii-vi.png, id=79, 837.1275pt x 628.3475pt>
 File: img/suiii-vi.png Graphic file (type png)
  <use img/suiii-vi.png>
-Package pdftex.def Info: img/suiii-vi.png used on input line 282.
+Package pdftex.def Info: img/suiii-vi.png used on input line 289.
 (pdftex.def)             Requested size: 418.56273pt x 314.17297pt.
  [9 <./img/suiii-vi.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 296--297
+Underfull \hbox (badness 10000) in paragraph at lines 303--304
 
  []
 
 [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 326--328
+Underfull \hbox (badness 10000) in paragraph at lines 333--335
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 326--328
+Underfull \hbox (badness 10000) in paragraph at lines 333--335
 
  []
 
 
-Overfull \hbox (10.35805pt too wide) in paragraph at lines 337--339
+Overfull \hbox (10.35805pt too wide) in paragraph at lines 344--346
 \T1/lmr/m/n/12 Da $\OML/lmm/m/it/12 f$ \T1/lmr/m/n/12 als Poly-nom zweimal stetig dif-feren-zier-bar ist, ist die Hesse-Matrix wohldefiniert: 
  []
 
-<img/suv-i.png, id=96, 200.75pt x 202.7575pt>
+<img/suv-i.png, id=97, 200.75pt x 202.7575pt>
 File: img/suv-i.png Graphic file (type png)
  <use img/suv-i.png>
-Package pdftex.def Info: img/suv-i.png used on input line 345.
+Package pdftex.def Info: img/suv-i.png used on input line 352.
 (pdftex.def)             Requested size: 110.41283pt x 111.51697pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--352
+Underfull \hbox (badness 10000) in paragraph at lines 358--359
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 359--360
+Underfull \hbox (badness 10000) in paragraph at lines 366--367
 
  []
 
-<img/suv-ii.png, id=104, 200.75pt x 202.7575pt>
+<img/suv-ii.png, id=105, 200.75pt x 202.7575pt>
 File: img/suv-ii.png Graphic file (type png)
  <use img/suv-ii.png>
-Package pdftex.def Info: img/suv-ii.png used on input line 367.
+Package pdftex.def Info: img/suv-ii.png used on input line 374.
 (pdftex.def)             Requested size: 110.41283pt x 111.51697pt.
- [13 <./img/suv-i.png> <./img/suv-ii.png>] <img/suv-iii.png, id=112, 301.125pt x 308.15125pt>
+ [13 <./img/suv-i.png> <./img/suv-ii.png>] <img/suv-iii.png, id=113, 301.125pt x 308.15125pt>
 File: img/suv-iii.png Graphic file (type png)
  <use img/suv-iii.png>
-Package pdftex.def Info: img/suv-iii.png used on input line 385.
+Package pdftex.def Info: img/suv-iii.png used on input line 392.
 (pdftex.def)             Requested size: 123.46204pt x 126.34282pt.
  [14 <./img/suv-iii.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 391.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 391.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 398.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 398.
  (/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Sonderübung.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 391.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 391.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 398.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 398.
 Package rerunfilecheck Info: File `Sonderübung.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
 
@@ -1511,18 +1513,18 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 37896 strings out of 493014
- 858495 string characters out of 6133351
+ 38031 strings out of 493014
+ 860015 string characters out of 6133351
  1028749 words of memory out of 5000000
- 40780 multiletter control sequences out of 15000+600000
- 33307 words of font info for 38 fonts, out of 8000000 for 9000
+ 40907 multiletter control sequences out of 15000+600000
+ 39327 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,12n,84p,10410b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Sonderübung.pdf (14 pages, 645916 bytes).
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on /Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Sonderübung.pdf (14 pages, 673849 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
- 134 compressed objects within 2 object streams
+ 183 PDF objects out of 1000 (max. 8388607)
+ 137 compressed objects within 2 object streams
  39 named destinations out of 1000 (max. 500000)
  63 words of extra memory for PDF output out of 10000 (max. 10000000)
 
