@@ -62,8 +62,8 @@
 \makeatother%
 
 % Meta Setup 
-\title{Asset Pricing}
-\author{Prof. Marliese Uhrig-Homburg}
+\title{Globale Optimierung - Sonderübung I}
+\author{Kostorz, Belica}
 \date{Sommersemester 2017}
 \publishers{Karlsruher Institut für Technologie}
 
@@ -101,7 +101,7 @@
 
 \fancypagestyle{firststyle}
 {
-   \fancyhf[C]{\small Globale Optimierung - Sonderübung 1 - Nadine Kostorz (1972005), Martin Belica (1775706)}
+   \fancyhf[C]{\small Globale Optimierung - Sonderübung I - Nadine Kostorz (1972005), Martin Belica (1775706)}
    \fancyfoot[C]{}
 }
 %% Template
@@ -190,7 +190,7 @@ mit
 			$$ f(x) = 9 x_1^2 - 6 x_1 x_2^2 + x_2^4 = (3 x_1 - x_2^2)^2. $$
 			Für jede Folge für die für alle $\nu \in \N$ gilt dass $\sqrt{3 x^\nu_1} = x^\nu_2$ folgt:
 			$$ f(x^\nu) = 0 \quad \forall \nu \in \N, $$
-			z.B. $x^\nu = (\nu, \sqrt{3\nu}) ~\forall \nu \in \N \Rightarrow \lim_{\nu \rightarrow \infty} f(x^\nu) = 0$. Da wir eine Folgen gefunden haben für die $\| x^\nu \| \rightarrow \infty$ aber $\lim_{\nu \rightarrow \infty} f(x^\nu) = 0$ gilt, ist die Funktion $f$ nicht koerziv. ~\\ 
+			z.B. $x^\nu = (\nu, \sqrt{3\nu}) ~\forall \nu \in \N \Rightarrow \lim_{\nu \rightarrow \infty} f(x^\nu) = 0$. Da wir eine Folge gefunden haben für die $\| x^\nu \| \rightarrow \infty$ aber $\lim_{\nu \rightarrow \infty} f(x^\nu) = 0$ gilt, ist $f$ nicht koerziv. ~\\ 
 			
 			Es gilt $f(x) = (3 x_1 - x_2^2)^2 \geq 0 = \inf_{x \in M} f(x)$, wobei 
 			$$ f(x) = 0 \iff (3 x_1 - x_2^2)^2 = 0 \iff x_1 = \frac{x_2^2}{3} $$
@@ -294,7 +294,7 @@ $$ P : \quad \min_{x \in \R^2} \exp \left(- \min \big\{- x_1 - 3, -\left|x_2 - 4
 			Die Minimalpunkte von $P$ und $P_{lin}$ stimmen nach Konstruktion überein (siehe 3b), also folgt aus d) für die Optimalpunkte $x^*=(\frac{10}{3}, \frac{31}{3})$.\\
 			Einsetzten in das Ursprungsproblem ergibt: 
 			$$f(x^*)= \exp (-\min\left\{ -x_1-3, -|x_2-4|, x_1+x_2-20\right\}) $$
-			$\iff \exp(-\min\left\{ \frac{1}{3}, -\frac{19}{3}, -\frac{19}{3} \right\}) = \exp( \frac{19}{3}) =  563.0302$
+			$\iff \exp\left(-\min\left\{ \frac{1}{3}, -\frac{19}{3}, -\frac{19}{3} \right\}\right) = \exp( \frac{19}{3}) =  563.0302$
 		\end{proof}
 \end{enumerate}
 
