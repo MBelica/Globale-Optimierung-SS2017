@@ -132,11 +132,12 @@
 % Lecture Notes - Start 			
 \pagenumbering{arabic}
 \thispagestyle{firststyle}
+\subsubsection{Aufgabe S.1} 
 \begin{figure}[h!]
   \centering
-  \includegraphics[scale=0.55]{img/sui-i}
+  \includegraphics[scale=0.51]{img/sui-i}
   \label{fig:sub1}
-\end{figure} ~\smallskip
+\end{figure} 
 
 \begin{figure}[h!]
   \centering
@@ -182,7 +183,7 @@ mit
 			$$ f'(x) = - 5 x^4 \leq 0 $$
 			mit strikter Ungleichung für $x \neq 0$. Damit ist 
 			$$ \inf_{x \in M} f(x) = \lim_{x \rightarrow 1} f(x) = -1. $$
-			Da das Infimum aber nicht in der Menge angenommen wird ($M$ offen, damit wg. strenger Monotonie ist $f(x) > -1$ für alle $x \in M$), ist das Problem nach Definition 1.2.3 nicht lösbar. 
+			Da das Infimum aber nicht in der Menge angenommen wird ($M$ offen, damit ist aufgrund strenger Monotonie $f(x) > -1$ für alle $x \in M$), ist das Problem nach Definition 1.2.3 nicht lösbar. 
 			\end{proof}
 		\item  $f(x) = 9 x_1^2 - 6 x_1 x_2^2 + x_2^4$, $M = \R^2$:
 			\begin{proof}
@@ -194,7 +195,7 @@ mit
 			
 			Es gilt $f(x) = (3 x_1 - x_2^2)^2 \geq 0 = \inf_{x \in M} f(x)$, wobei 
 			$$ f(x) = 0 \iff (3 x_1 - x_2^2)^2 = 0 \iff x_1 = \frac{x_2^2}{3} $$
-			Da es $(x_1, x_2) \in M$ gibt, die die obige Bedingung erfüllen, z.B. $x = (1/3, 1)$, nimmt $f$ auf $M$ sein Infimum an, und das Problem ist nach Definition 1.2.3. lösbar.
+			Da es $(x_1, x_2) \in M$ gibt, die die obige Bedingung erfüllen (z.B. $x = \left(\frac{1}{3}, 1\right)$), nimmt $f$ auf $M$ sein Infimum an, und das Problem ist nach Definition 1.2.3. lösbar.
 			\end{proof}
 		\item $f(x) = \frac{x^T A x}{\| x - b\|_2 + 1}$, mit $A \in \R^{n \times n}$ positiv definit, $b \in \R^n$ und $M = \R^n$:
 					\begin{proof}
@@ -273,7 +274,7 @@ $$ P : \quad \min_{x \in \R^2} \exp \left(- \min \big\{- x_1 - 3, -\left|x_2 - 4
 			 \begin{align}
 				 x_2 \in [4 - \alpha, 4 + \alpha], ~  \tag*{$(*)$}
 			\end{align}
-			d.h. $x_2$ liegt in einer nicht-leeren, abgeschlossennen Menge. Aus den Restriktionen erhalten wir außerdem
+			d.h. $x_2$ liegt in einer nicht-leeren, abgeschlossenen Menge. Aus den Restriktionen erhalten wir außerdem
 			\begin{align}
 				 x_1 \in  [20 - x_2 - \alpha, \alpha - 3], ~  \tag*{$(**)$}
 			\end{align}
@@ -286,7 +287,7 @@ $$ P : \quad \min_{x \in \R^2} \exp \left(- \min \big\{- x_1 - 3, -\left|x_2 - 4
 	\item Modellieren Sie das Problem in Matlab/ Jupyter Notebook und geben Sie den globalen Minimalpunkt von $P_{lin}$ aus.
 
 		\begin{figure}[h!] 	\centering
-  			\includegraphics[scale=0.5]{img/suiii-vi}
+  			\includegraphics[scale=0.55]{img/suiii-vi}
   			\label{fig:fig3}
 		\end{figure}
 	\item Bestimmen Sie einen globalen Optimalpunkt und den Optimalwert von P.
@@ -385,9 +386,9 @@ Aufgrund der 2. Ungleichung gilt $z \notin M $ und damit ist $M$ nicht konvex.  
 				$$ 4 \geq \left( x_1 - 1 \right)^2 + \left( x_2 - 1 \right)^2 \geq (x_1 - 1)^2, $$ 
 			die zwei Möglichkeiten $x_1 \leq 3$ und $-1 \geq x_1$ liefert, erfüllt nur $x_1 = -1$ die Bedingung. Aus $(*)$ folgt damit direkt 
 			$$  4 - (x_1 - 1)^2 = 0 \geq \left( x_2 - 1 \right)^2 \geq 0 \iff x_2 = 1 $$
-			und somit die Behauptung.
+			und somit die Behauptung. ~\\
 				\begin{figure}[h!] \centering
-  					\includegraphics[scale=0.41]{img/suv-iii}
+  					\includegraphics[scale=0.45]{img/suv-iii}
  					 \label{fig:fig3}
 				\end{figure}
 		\end{proof}
