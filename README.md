@@ -1,7 +1,7 @@
 Global Optimierung I & II
 ===========
-Diese Dateien stell zur Vorlesung "Global Optimierung I & II" am KIT bei
-Herrn Prof. Dr. Lutz Stein (SS 2017) eine Zusammenfassung der Übung und Sonderübung dar, und wurde von Studenten erstellt, es ist somit 
+Diese Dateien stellen eine Zusammenfassung der Übungen zur Vorlesung "Global Optimierung I & II" am KIT bei
+Herrn Prof. Dr. Lutz Stein (SS 2017) dar, und wurde von Studenten erstellt, es ist somit 
 inoffiziell, in Bearbeitung und enthält sehr wahrscheinlich einige
 Fehler (Übertragungsfehler, Tippfehler oder
 Verständnisprobleme) - ich bitte deswegen um Verständnis.
@@ -11,7 +11,7 @@ Bis zum Ende des Semesters werde ich wohl auch nicht die Zeit finden, das Skript
 Den Verbesserungsvorschlag (wenn auch nur
 Rechtschreibfehler) kann man
 * entweder direkt selbst umsetzen via oder
-* mir per Email (ProxiStyx@hmamail.com) schicken.
+* mir per Email (MBelica@hmamail.com) schicken.
 
 Ich werde dann versuchen sowohl die Vorlesung, als auch eure Verbesserungsvorschläge zeitnah einzuarbeiten.
 
