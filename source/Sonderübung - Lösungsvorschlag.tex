@@ -194,11 +194,10 @@ $$ A \tilde{w} \geq e. $$
 		\begin{proof}
 			Aus der Forderung aus c):
 			$$ \left(\begin{array}{c} w_1 -\sum_{i=1,\dotsc,d}  \lambda_i A_{i1}  \\ \vdots \\ w_m -\sum_{i=1,\dotsc,d}  \lambda_i A_{im} \end{array}\right)  = 0 $$
-			folgt
-			$$ w_1 -\sum_{i=1,\dotsc,d}  \lambda_i A_{i1} = 0, ~ \dotsc, ~ w_m -\sum_{i=1,\dotsc,d}  \lambda_i A_{im}	= 0 $$
-			und damit ist $w_1 = \sum_{i=1,\dotsc,d}  \lambda_i A_{i1}, ~ \dotsc, ~ w_m = \sum_{i=1,\dotsc,d}  \lambda_i A_{im}$.
+			folgt $w_1 -\sum_{i=1,\dotsc,d}  \lambda_i A_{i1} = 0, ~ \dotsc, ~ w_m -\sum_{i=1,\dotsc,d}  \lambda_i A_{im} = 0$ und damit ist $$w_1 = \sum_{i=1,\dotsc,d}  \lambda_i A_{i1}, ~ \dotsc, ~ w_m = \sum_{i=1,\dotsc,d}  \lambda_i A_{im}. $$
 			Somit reduziert sich das Dualproblem zu
-		 	$$ D_{w_{red}}: \quad \max_{\lambda \in \R^m} \sum_{i=1, \dotsc,m } \left( \sum_{j=1, \dotsc, d} \lambda_i A_{ji} \right)^2 + \sum_{i = 1, \dotsc, m} \lambda_i \left( 1 - \left(\sum_{k = 1, \dotsc, d} A_{ik} \sum_{l=1,\dotsc,d}  \lambda_l A_{lk} \right) \right) $$
+		 	$$ D_{w_{red}}: \quad \max_{\lambda \in \R^d} \sum_{i=1, \dotsc,m } \left( \sum_{j=1, \dotsc, d} \lambda_j A_{ji} \right)^2 + \sum_{i = 1, \dotsc, d} \lambda_i \left( 1 - \left(\sum_{k = 1, \dotsc, m} A_{ik}  \sum_{j=1, \dotsc, d} \lambda_j A_{jk} \right) \right) $$
+		 	$$ \iff \max_{\lambda \in \R^d}\| \lambda^T A \|_2^2 +  \lambda^T \left( e - A A^T \lambda  \right)$$
 		\end{proof}
 \end{enumerate}
 
