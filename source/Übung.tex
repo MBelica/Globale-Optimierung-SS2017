@@ -445,6 +445,154 @@ Geben Sie eine äquivalente glatte Umformulierung $P_{glatt}$ von $P$ an (Hinwei
 		\end{proof}
 \end{enumerate}
 
+\newpage
+
+\subsection*{Aufgabe 6.1}
+
+\begin{enumerate}
+	\item Skizzieren Sie $M$.
+		\begin{proof} ~\\
+					\begin{figure*}[h!] \centering
+				\begin{tikzpicture}[scale=0.75,
+  					declare function={ funcA(\x)= 
+  							(\x<=100)      * (1 + (\x)));
+  					},
+  					declare function={ funcB(\x)= 
+  							(\x<=100)      * (-1 + (\x));
+  					},
+   					declare function={ funcC(\x)= 
+  							(\x<=100)      * (3 - (\x));
+  					},
+				]
+				  ]
+				\begin{axis}[
+  						 	  axis x line=middle, axis y line=middle,
+  						 	  xmin=-0.5, xmax=5, 
+  						 	  ytick={1,2,3,4}, ylabel=$$,
+  						 	  ymin=-1, ymax=5, 
+  						 	  xtick={1,2,3,4}, xlabel=$$,
+							]
+				\addplot[black, domain=0:5]{funcA(x)};
+				\addplot[black, domain=0:5]{funcB(x)};			
+				\addplot[black, domain=0:5]{funcC(x)};
+			\end{axis}
+		\end{tikzpicture} 
+		\end{figure*}
+			$$g_1(x) = -x_1 + x_2 - 1, ~ g_2(x) = x_1 - x_2 - 1, ~ h(x) = x_1 + x_2 - 3$$
+			$$ M = \big\{ x \in \R^2 ~|~ h(x) = 0, ~ g_1(x) \leq 0, ~ g_2(x) \leq 0 \big\} $$
+		\end{proof}
+	\item Erfüllt $M$ die Slater-Bedinung? Was bedeut dies für die Menge der globalen Minimalpunkte?
+		\begin{proof}
+			Es ist zu überprüfen, dass
+			$$ \overline{x} ~ |  ~ g_i(\overline{x}) < 0 ~\forall i \in I, h(\overline{x}) = 0, \nabla h $$
+			linear unabhängig sind. Demnach:
+			$$ \nabla h = \left( 1, 1 \right)^T $$
+			ist trivialerweise uanabhängig; für $\overline{x} = \left( \frac{3}{2}, \frac{3}{2} \right)$ gilt $g_i(\overline{x}) = -1$ mit $i \in \{1, 2\}$, $h(\overline{x}) = 0$. 
+			$$ \Rightarrow \text{ Menge der KKT-Punkte = Menge der globalen Minimalpunkte }. $$
+			Beachte: jeder KKT-Punkt ist globaler Minimalpunkt, gilt die Slater-Bedinungung, so gilt auch die Umkehrung.
+		\end{proof}
+	\item Bestimmen Sie $I_0(x) \subseteq \{1, 2 \}$ für alle $x \in M$.
+		\begin{proof} ~\\
+			\begin{itemize}
+				\item Angenommen $I_0(\overline{x}) = \{1, 2 \}$, dann muss gelte dass $g_1(x) = 0 = g_2(x)$. Daraus folgt:
+					$$ \iff - x_1 + x_2 - 1 = 0, x_1 - x_2 - 1 = 0 $$
+					$$ \Longrightarrow -2 = 0, $$
+					was einen Widerspruch darstellt. 
+				\item Angenommen $I_0(\overline{x}) = \{ 1 \}$.
+					$$ \iff - x_1 + x_2 = 1, x_1 + x_2 = 3 $$
+					$$ \Longrightarrow x = \left( 1, 2 \right)^T $$
+					weiter gilt $g_2(x) = -2 < 0$ $\Rightarrow x \in M \text{ mit } I_0(\overline{x} = \{ 1 \}$. ~\\
+				\item Angenommen $I_0(\overline{x}) = \{ 2 \}$.
+					$$ \iff x_1 - x_2 = 1, x_1 + x_2 = 3 $$
+					$$\Longrightarrow x_ = \left( 2, 1 \right)^T $$
+					weiter gilt $g_1(x) = - 2 < 0$ $\Rightarrow x \in M \text{ mit } I_0(x) = \{ 2 \}$. ~\\
+				\item Es gilt $I_0(x) = \emptyset$ für alle $x \in M \setminus \left\{ (1, 2)^T, (2, 1)^T \right\}$
+			\end{itemize}						
+		\end{proof}
+	\item Zeichnen Sie
+		$$ K(x) \coloneqq \left\{ \sum_{i \in I_0(x)} \lambda_i \nabla g_i(x) + \mu \nabla h(x) ~|~\lambda \geq 0, \mu \in \R \right\} $$
+		und $- \nabla f(x)$ für $x \in \left\{ (1, 2)^T, (2, 1)^T \right\}$ in Ihre Skizze von $M$. Ist einer der $x$ KKT-Punkt? Begründen Sie.
+		\begin{proof}
+			Es ist
+			$$ \nabla f(x) = (2x_1, 8 x_2)^T, ~\nabla g_1(x) =(-1, 1)^T, ~\nabla g_2(x) = (1, -1)^T, ~\nabla h(x) = (1, 1)^T $$
+			\begin{figure*}[h!] \centering
+				\begin{tikzpicture}[scale=0.75,
+  					declare function={ funcA(\x)= 
+  							(\x<=100)      * (1 + (\x)));
+  					},
+  					declare function={ funcB(\x)= 
+  							(\x<=100)      * (-1 + (\x));
+  					},
+   					declare function={ funcC(\x)= 
+  							(\x<=100)      * (3 - (\x));
+  					},
+				]
+				  ]
+				\begin{axis}[
+  						 	  axis x line=middle, axis y line=middle,
+  						 	  xmin=-0.5, xmax=5, 
+  						 	  ytick={1,2,3,4}, ylabel=$$,
+  						 	  ymin=-1, ymax=5, 
+  						 	  xtick={1,2,3,4}, xlabel=$$,
+							]
+					\addplot[black, domain=0:5]{funcA(x)};
+					\addplot[black, domain=0:5]{funcB(x)};			
+					\addplot[black, domain=0:5]{funcC(x)};
+				\end{axis}
+			\end{tikzpicture} 
+		\end{figure*}
+		$$ \textit{ Zeichnung im Block } $$
+		Es ist weiter
+		$$ \Rightarrow - \nabla f(x^1) = (-2 , -16)^T, ~ -\nabla f(x^2) = (-4, - 8) $$
+		Da $-\nabla f(x^1)$ nicht in die Menge $\left\{ x^1 + K(x^1) \right\}$ ragt, so ist $x^1$ kein KKT Punkt und da $-\nabla f(x^2)$  in die Menge $\left\{ x^2 + K(x^2) \right\} $ ragt, so ist $x^2$ ein KKT Punkt.
+		\end{proof}
+	\item Berechnen Sie alle KKT-Punkt von $P$.
+		\begin{proof}
+			$\overline{x}$ ist KKT-Punkt mit Multiplikatoren $\overline{\lambda}$, $\overline{\mu}$, wenn folgendes System erfüllt ist:
+			 $$	\left( 2 \overline{x}_1, 8 \overline{x}_2 \right)^T + \overline{\lambda}_1 \left( -1, 1 \right)^T  + \overline{\lambda}_2 \left( 1, -1 \right)^T + \mu \left(1, 1 \right)  = 0 $$
+			\begin{align*}
+				\overline{\lambda}_1 \left( - \overline{x}_1 + \overline{x}_2 - 1 \right) & = 0 \\
+				\overline{\lambda}_2 \left( \overline{x}_1 - \overline{x}_2 - 1 \right) & = 0 \\
+				\overline{x}_1 + \overline{x}_2 - 3 & = 0 \\
+				- \overline{x}_1 - \overline{x}_2 - 1& \leq 0 \\
+				\overline{x}_1 - \overline{x}_2 - 1 & \leq 0 \\
+				\lambda_1, \lambda_2 & \geq 0
+			\end{align*}
+			\begin{itemize}
+				\item Für $I_0(\overline{x}) = \emptyset$:
+					$$ \left( 2 x_1, 8 x_2 \right)^T + \mu \left( 1, 1 \right)^T = 0 $$
+					$$ x_1 + x_2 - 3 = 0, ~ - x_1 + x_2 - 1 < 0, ~ x_1 - x_2 - 1 < 0 $$
+					$x = \left(\frac{12}{5}, \frac{3}{5} \right)^T $ erfüllt (1)-(3), aber $g_2(x) = \frac{4}{5} \geq 0$ 
+					$$\Rightarrow \text{ es existiert kein KKT-Punkt für } I_0(x) =\emptyset$$
+				\item Für $I_0(x) = \{ 1 \}$ weiß man aus c) $x = (1, 2)^T$, woraus aus der d) folgt, dass dies kein KKT-Punkt ist.
+				\item Für $I_0(x) = \{ 2 \}$ weiß man aus c) $x = (2, 1)^T$, woraus mit der d) folgt, dass die ein KKT-Punkt ist; äquivalent kann man auch das folgende Gleichungssystem lösen:
+					$$ (4, 8)^T + \mu (1, 1) + \lambda_2 (1, -1)^T = 0, \lambda_2 \geq 0 $$
+					Beachte: hier gehört eigentlich noch $h(x) = 0$, $g_2(x) 0$ und $g_1(x)  < 0$ allerdings haben wir dies in der c) bereits genutzt, um den Punkt zu ermitteln.
+					$$ \Rightarrow \lambda_2 = 2, ~ \mu = -6 \Rightarrow \lambda_2 \geq 0 $$
+					$\Rightarrow x = (2, 1)^T$ ist KKT-Punkt und nach c) ist dies der einzige Punkt dessen Aktive-Indexmenge $I_0(x) = \{ 2 \}$ und damit ist $x$ einziger KKT-Punkt
+					$$ \Rightarrow x \text{ ist einziger globaler Minimalpunkt } $$
+			\end{itemize}
+		\end{proof}
+\end{enumerate}
+
+\subsection*{Aufgabe 6.2}
+
+Gegeben sei das Optimierungsproblem 
+$$ P: \quad \min_{x \in \R^2} c^T x \text{ s.t.} g(x) \leq 0, Ax \leq b $$
+mit $c = (-1, -1)$, $g(x) = x_1^2+ x_2^2 - 1$, $A(-1, 0,, 0, -1)$, $b = (0, 0)$.
+
+\begin{enumerate}
+	\item Prüfen Sie , ob die Voraussetzungen des Schnittebenenverfahrens von Kelley erfüllt sind.
+		\begin{proof}
+			Es ist
+			$$ D^2 g(x) = (2, 0,,0, 2) > ,0 $$
+			alle anderen in $P$ auftretenden Funktionen linear 
+			$$\Rightarrow P \text{ ist ein konvexes Optimierungsproblem } $$
+			.... siehe Musterlösun
+		\end{proof}
+	\item 
+\end{enumerate}
+
 % Skript - Ende 			
 
 \end{document}
