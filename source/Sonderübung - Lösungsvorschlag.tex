@@ -146,7 +146,9 @@ $$ A \tilde{w} \geq e. $$
 			Nach Korollar 1.2.40 gilt:
 				$$ \textit{Es sei } M \textit{ nicht-leer, und } f \colon M \rightarrow R \textit{ sei stetig und koerziv auf } M. $$
 				$$ \textit{ Dann ist } S \textit{ nicht-leer und kompakt.} $$ ~\\
-			Nach Aufgabenstellung ist mit $f(w) = \frac{1}{2} \| w \|_2^2$ und $g(w) = e - Aw$, sodass $M = \{ w \in \R^m \colon  g(w) \leq 0 \}$:
+			Nach Aufgabenstellung ist mit $f(w) = \frac{1}{2} \| w \|_2^2$ und $g(w) = e - Aw$, sodass 
+				$$ M = \{ w \in \R^m \colon  g(w) \leq 0 \} $$ 
+			und damit:
 				$$ P: \quad \min_{w \in \R^m} f(w) \text{ s.t. } w \in M. $$
 			Nach Voraussetzung existiert ein $\tilde{w} \in M$, sodass $M$ nicht-leer ist. Weiter ist die Funktion $f$ stetig, da für $\| x - y \|_2 < \delta$ und $\epsilon \coloneqq \frac{\delta^2}{2}$ mit der umgekehrten Dreiecksungleichung gilt:	
 			$$ \left| f(x) - f(y) \right| = \frac{1}{2} \left| \| x \|^2_2 - \| y \|_2^2 \right| \leq \frac{1}{2} \| x - y \|_2^2 \leq \epsilon. $$
@@ -169,17 +171,35 @@ $$ A \tilde{w} \geq e. $$
 			$$P: \quad \min f(x) \text{ s.t. } g_i (x) \leq 0, ~ i \in I $$
 			\textit{ein konvexes Optimierungsproblem.} ~\\
 			
-			Beim gegebenen Problem ist $g_i(w) = - (A w)_i + 1$ für alle $i \in \{1, \dotsc, d \}$ eine lineare und somit konvexe Funktion. Da $f \in C^2(\R^m)$ und 
+			Beim gegebenen Problem ist $g_i(w) = - (A w)_i + 1$ für alle $i \in \{1, \dotsc, d \}$ eine lineare und somit konvexe Funktion. Da $f \in C^2(\R^m)$, $f(w) = \frac{1}{2} \sum_{i=1,\dotsc, m} w_i^2$ folgt $\nabla_w f(w) = w$ und 
 			$$ D^2 f =  \left(\begin{array}{rrrrr} 1 & 0 & \dotsc & 0 \\ 0 & 1 & 0 & \vdots \\ \vdots & 0 & \ddots & 0\\ 0 &  \dotsc & 0 & 1 \end{array}\right) \succ 0, $$
 			ist $f$ insbesondere konvex und damit $P$ ein konvexes Optimierungsproblem.
 		\end{proof}
 	\item Stellen Sei das Wolfe-Dual $D$ zu $P$ auf.
 		\begin{proof}
-			Die Lagrange Funktion zu $P$ lautet:
-			$$ L(w, \lambda, \mu) = f(w) + \sum_{i \in I} \lambda_i g_i(w) = \frac{1}{2} \| w \|_2^2 + \sum_{i \in I} \lambda_i g_i(w) $$
-			mit $\lambda = \left( \lambda_1, \dotsc, \lambda_d \right)^T$ heißt.
+			Die Lagrange Funktion zum (nach b)) restringierten, konvexen Optimierungsproblem $P$ lautet:
+			$$ L(w, \lambda) = f(w) + \sum_{i \in I} \lambda_i g_i(w) = \frac{1}{2} \| w \|_2^2 + \lambda^T \left( e - Aw \right) $$
+			mit $\lambda = \left( \lambda_1, \dotsc, \lambda_d \right)^T$ heißt. Das Dualproblem lässt sich dadurch folgendermaßen umformulieren:
+			$$ D: \quad \max_{w,\lambda} L(w, \lambda) \text{ s.t. } \nabla_w L(w, \lambda) = 0, ~\lambda \geq 0, $$
+			mit der zulässigen Menge
+			$$ M_D = \left\{ (w, \lambda) \in \R^m \times \R^d \colon \nabla_w L(w, \lambda) = 0, \lambda \geq 0 \right\}. $$
+			Dabei ist 
+			\begin{align*}
+			 \nabla_w L(w, \lambda) & = w - \nabla_w \left( \sum_{i=1,\dotsc,d} \lambda_i \sum_{k=1, \dotsc, m} A_{ik}w_{k} \right) \\
+			& = w - \nabla_w \left( \sum_{k=1, \dotsc, m}  \sum_{i=1,\dotsc,d}  \lambda_i A_{ik}w_{k} \right) \\
+			& = \left(\begin{array}{c} w_1 -\sum_{i=1,\dotsc,d}  \lambda_i A_{i1}  \\ \vdots \\ w_m -\sum_{i=1,\dotsc,d}  \lambda_i A_{im} \end{array}\right) 
+			\end{align*}
 		\end{proof}
 	\item Formulieren Sie, ausgehend von Aufgabenteil b), ein duales Optimierungsproblem, das nur von der Dualvariabel $\lambda$ abhängt.
+		\begin{proof}
+			Aus der Forderung aus c):
+			$$ \left(\begin{array}{c} w_1 -\sum_{i=1,\dotsc,d}  \lambda_i A_{i1}  \\ \vdots \\ w_m -\sum_{i=1,\dotsc,d}  \lambda_i A_{im} \end{array}\right)  = 0 $$
+			folgt
+			$$ w_1 -\sum_{i=1,\dotsc,d}  \lambda_i A_{i1} = 0, ~ \dotsc, ~ w_m -\sum_{i=1,\dotsc,d}  \lambda_i A_{im}	= 0 $$
+			und damit ist $w_1 = \sum_{i=1,\dotsc,d}  \lambda_i A_{i1}, ~ \dotsc, ~ w_m = \sum_{i=1,\dotsc,d}  \lambda_i A_{im}$.
+			Somit reduziert sich das Dualproblem zu
+		 	$$ D_{w_{red}}: \quad \max_{\lambda \in \R^m} $$
+		\end{proof}
 \end{enumerate}
 
 \end{document} 
