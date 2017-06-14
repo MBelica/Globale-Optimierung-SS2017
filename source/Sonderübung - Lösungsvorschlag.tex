@@ -149,16 +149,16 @@ $$ A \tilde{w} \geq e. $$
 			Nach Aufgabenstellung ist mit $f(w) = \frac{1}{2} \| w \|_2^2$ und $g(w) = e - Aw$, sodass $M = \{ w \in \R^m \colon  g(w) \leq 0 \}$:
 				$$ P: \quad \min_{w \in \R^m} f(w) \text{ s.t. } w \in M. $$
 			Nach Voraussetzung existiert ein $\tilde{w} \in M$, sodass $M$ nicht-leer ist. Weiter ist die Funktion $f$ stetig, da für $\| x - y \|_2 < \delta$ und $\epsilon \coloneqq \frac{\delta^2}{2}$ mit der umgekehrten Dreiecksungleichung gilt:	
-			$$ \left\| f(x) - f(y) \right\|_2 = \frac{1}{2} \left\| \| x \|^2_2 - \| y \|_2^2 \right\|_2 \leq \frac{1}{2} \| x - y \|_2^2 \leq \epsilon. $$
+			$$ \left| f(x) - f(y) \right| = \frac{1}{2} \left| \| x \|^2_2 - \| y \|_2^2 \right| \leq \frac{1}{2} \| x - y \|_2^2 \leq \epsilon. $$
 			Behauptung: die Menge $M$ ist abgeschlossen bzw. das Komplement
 			$$ \R^m \setminus M = \{ w \in R^m \colon A w < e \}. $$
-			ist offen. Betrachte hierfür $w \in \R^m \setminus M$, dann gilt mit der Norm $\| w \|_{\infty } \coloneqq \max_{i=1,\dotsc ,m}|w_{i}|$ und dem Radius
-			$$ \epsilon \coloneqq \frac{1}{2} \| Aw - e \|_\infty > 0, $$ 
+			ist offen. Betrachte hierfür $w \in \R^m \setminus M$, dann gilt mit dem Radius
+			$$ \epsilon \coloneqq \min_{i = 1, \dotsc, d} \frac{1}{2} \left| (Aw - e)_i \right| > 0, $$ 
 			dass alle 
 			$$ x \in B_{\epsilon}(w) = \{ x \in \R^m \colon \| w - x \| < \epsilon \} $$
-			in $M$ liegen, da folgt
-			$$ \| e - Ax \|_{\infty} \leq \| e - Aw \|_\infty + \| Aw - Ax \|_\infty < \frac{1}{2} 	\epsilon + \frac{1}{2} \epsilon \Longrightarrow Ax \leq e. $$
-			Somit ist $M$ abgeschlossen, woraus folgt, dass die Funktion $f$ koerziv ist, denn nach Definition 1.2.37 müssen nur alle Folgen $(x^\nu) \subseteq M$ mit $\| x^\nu \| \rightarrow \infty$ betrachtet werden und für die gilt mit der Äquivalenz der Normen im $\R^m$:
+			in $M$ liegen, da für alle $i = 1, \dotsc, d$
+			$$ \left| (e - Ax)_i \right| \geq \big| \left| (e - Aw)_i \right| - \left| (Aw - Ax)_i \right| \big| > \frac{2 \epsilon - \epsilon}{2} = \frac{\epsilon}{2}, $$
+			womit $Ax < e$ bzw. $x \in \R^m \setminus M$. Somit ist $M$ abgeschlossen, woraus folgt, dass die Funktion $f$ koerziv ist, denn nach Definition 1.2.37 müssen nur alle Folgen $(x^\nu) \subseteq M$ mit $\| x^\nu \| \rightarrow \infty$ betrachtet werden und für die gilt mit der Äquivalenz der Normen im $\R^m$:
 			$$ f(x^\nu) = \frac{1}{2} \| x^\nu \|_2^2 \longrightarrow +\infty. $$
 			Damit sind alle Voraussetzungen von Korollar 1.2.40 erfüllt, $S$ ist somit nicht-leer und kompakt und somit $P$ lösbar.
 		\end{proof}
@@ -174,7 +174,12 @@ $$ A \tilde{w} \geq e. $$
 			ist $f$ insbesondere konvex und damit $P$ ein konvexes Optimierungsproblem.
 		\end{proof}
 	\item Stellen Sei das Wolfe-Dual $D$ zu $P$ auf.
-	\item Formulieren Sie, ausgeheen von Aufgabenteil b), ein duales Optimierungsproblem, das nur von der Dualvariabel $\lambda$ abhängt.
+		\begin{proof}
+			Die Lagrange Funktion zu $P$ lautet:
+			$$ L(w, \lambda, \mu) = f(w) + \sum_{i \in I} \lambda_i g_i(w) = \frac{1}{2} \| w \|_2^2 + \sum_{i \in I} \lambda_i g_i(w) $$
+			mit $\lambda = \left( \lambda_1, \dotsc, \lambda_d \right)^T$ heißt.
+		\end{proof}
+	\item Formulieren Sie, ausgehend von Aufgabenteil b), ein duales Optimierungsproblem, das nur von der Dualvariabel $\lambda$ abhängt.
 \end{enumerate}
 
 \end{document} 
