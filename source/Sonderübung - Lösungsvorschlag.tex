@@ -188,8 +188,8 @@ $$ A \tilde{w} \geq e. $$
 			& = \left(\begin{array}{c} w_1 -\sum_{i=1,\dotsc,d}  \lambda_i A_{i1}  \\ \vdots \\ w_m -\sum_{i=1,\dotsc,d}  \lambda_i A_{im} \end{array}\right) 
 			\end{align*}
 			Zusammengefasst also:
-			$$ D: \quad \max_{(w, \lambda) \in \R^m \times \R^d} \frac{1}{2} \sum_{i=1}^m w_i^2 + \sum_{i=1}^d \lambda_i \left(1 - a_i \cdot w \right) $$
-			$$ \text{ s.t. } \left(\begin{array}{c} w_1 -\sum_{i=1,\dotsc,d}  \lambda_i A_{i1}  \\ \vdots \\ w_m -\sum_{i=1,\dotsc,d}  \lambda_i A_{im} \end{array}\right) = 0 $$
+			$$ D: \quad \max_{(w, \lambda) \in \R^m \times \R^d} \frac{1}{2} \sum_{i=1}^m w_i^2 + \sum_{i=1}^d \lambda_i \left(1 - a_i \cdot w \right) \text{ s.t. } \lambda \geq 0, $$
+			$$ \text{ und } \left(\begin{array}{c} w_1 -\sum_{i=1,\dotsc,d}  \lambda_i A_{i1}  \\ \vdots \\ w_m -\sum_{i=1,\dotsc,d}  \lambda_i A_{im} \end{array}\right) = 0 $$
 		\end{proof}
 	\item Formulieren Sie, ausgehend von Aufgabenteil b), ein duales Optimierungsproblem, das nur von der Dualvariabel $\lambda$ abhängt.
 		\begin{proof}
@@ -197,7 +197,7 @@ $$ A \tilde{w} \geq e. $$
 			$$ \left(\begin{array}{c} w_1 -\sum_{i=1,\dotsc,d}  \lambda_i A_{i1}  \\ \vdots \\ w_m -\sum_{i=1,\dotsc,d}  \lambda_i A_{im} \end{array}\right)  = 0 $$
 			folgt $w_1 -\sum_{i=1,\dotsc,d}  \lambda_i A_{i1} = 0, ~ \dotsc, ~ w_m -\sum_{i=1,\dotsc,d}  \lambda_i A_{im} = 0$ und damit ist $$w_1 = \sum_{i=1,\dotsc,d}  \lambda_i A_{i1}, ~ \dotsc, ~ w_m = \sum_{i=1,\dotsc,d}  \lambda_i A_{im}. $$
 			Somit lassen sich die $w_i$ in $D$ ersetzen und das Dualproblem reduziert sich zu
-		 	$$ P_{red}: \quad \max_{\lambda \in \R^d} \sum_{i=1, \dotsc,m } \left( \sum_{j=1, \dotsc, d} \lambda_j A_{ji} \right)^2 + \sum_{i = 1, \dotsc, d} \lambda_i \left( 1 - \left(\sum_{k = 1, \dotsc, m} A_{ik}  \sum_{j=1, \dotsc, d} \lambda_j A_{jk} \right) \right) $$
+		 	$$ P_{red}: \quad \max_{\lambda \in \R^d} \sum_{i=1, \dotsc,m } \left( \sum_{j=1, \dotsc, d} \lambda_j A_{ji} \right)^2 + \sum_{i = 1, \dotsc, d} \lambda_i \left( 1 - \left(\sum_{k = 1, \dotsc, m} A_{ik}  \sum_{j=1, \dotsc, d} \lambda_j A_{jk} \right) \right) \text{ s.t. }\lambda \geq 0 $$
 		 	$$ \iff \max_{\lambda \in \R^d}\| \lambda^T A \|_2^2 +  \lambda^T \left( e - A A^T \lambda  \right)  \iff \max_{\lambda \in \R^d}\| \lambda^T A \|_2^2 +  \lambda^T e - \left( \lambda^T A \right) \left( \lambda^T A \right)^T  $$
 		\end{proof}
 \end{enumerate}
@@ -214,8 +214,8 @@ für einen Parameter $\alpha \in \R$.
 	\item Zeigen Sie, ohne $P$ explizit zu lösen, dass $P$ einen \textbf{eindeutigen} globalen Minimalpunkt besitzt.
 		\begin{proof}
 			 $M$ ist trivialerweise nicht-leer, da die Menge nur durch eine lineare Funktion 
-			 $$g(x) = x_1+x_2-\alpha \leq 0$$
-			  beschränkt ist. Außerdem ist $M$ aufgrund der Stetigkeit (analog zu 1. a) der Restriktionsfunktion als untere Niveaumenge von $g$ abgeschlossen\footnote{vgl 1. a kurz bzw. kurzer Beweis im Anhang}. Da lineare Funktionen insbesondere konvex sind, ist nach Übung 4.4 die Menge $M$ konvex. Als Polynom ist $f \in C^2(\R^2)$ und Ableiten der Zielfunktion ergibt: \\
+			 $$ g(x) = x_1+x_2-\alpha \leq 0 $$
+			  beschränkt ist. Außerdem ist $M$ aufgrund der Stetigkeit (analog zu S. 2.1 a) der Restriktionsfunktion als untere Niveaumenge von $g$ abgeschlossen\footnote{vgl. S. 2.1 a) kurz bzw. kurzer Beweis im Anhang}. Da lineare Funktionen insbesondere konvex sind, ist nach Übung 4.4 die Menge $M$ konvex. Als Polynom ist $f \in C^2(\R^2)$ und Ableiten der Zielfunktion ergibt: \\
 				$$ \nabla f(x) = \begin{pmatrix} 2x_1+1 \\ 4x_2 \end{pmatrix} \text{ und damit } D^2f(x) = \begin{pmatrix} 2 & 0 \\ 0 & 4 \end{pmatrix} \succ 0. $$
  			Nach 2.5.10 ist $f$ somit gleichmäßig konvex. Die eindeutige Lösbarkeit folgt nun mit Satz 2.3.3 c). 
 		\end{proof}
@@ -233,7 +233,7 @@ für einen Parameter $\alpha \in \R$.
 			Da $M$ nur durch eine Ungleichung beschrieben wird, lässt sich die Lagrange-Funktion schreiben als:
 				$$L(x, \lambda) = x_1^2+2x_2^2+x_1+\lambda (x_1+x_2-\alpha). $$
 			Damit ergibt sich für die erste KKT-Bedingung:
-				$$ \nabla_x L(x, \lambda)=\begin{pmatrix} 2x_1+1+\lambda \\ 4x_2+ \lambda \end{pmatrix} =0. \Leftrightarrow  \begin{pmatrix}	x_1 \\ x_2\end{pmatrix} =  \begin{pmatrix} \frac{-1-\lambda}{2} \\ \frac{-\lambda}{2} \end{pmatrix}. $$
+				$$ \nabla_x L(x, \lambda)=\begin{pmatrix} 2x_1+1+\lambda \\ 4x_2+ \lambda \end{pmatrix} =0. \Leftrightarrow  \begin{pmatrix}	x_1 \\ x_2\end{pmatrix} =  \begin{pmatrix} \frac{-1-\lambda}{2} \\ \frac{-\lambda}{4} \end{pmatrix}. $$
 			Für die Komplementärbedinungen betrachte man die beiden folgenden Fälle. 
 			\begin{description}
 				\item[1. Fall] $ I_0(x)= \emptyset\Rightarrow \lambda_1=0$. Einsetzen von $\lambda_1=0$ in die 1. Bedingung ergibt 
@@ -241,7 +241,7 @@ für einen Parameter $\alpha \in \R$.
 				Nach Konstruktion werden die ersten 3 KKT-Bedninungen erfüllt und da $ I_0(x)= \emptyset $ gilt, muss zudem 
 					$$x_1+x_2-\alpha < 0$$ 
 					erfüllt sein. Einsetzen von $x_1, x_2$ ergibt $\frac{-1}{2} < \alpha$.
-				\item[2. Fall] $ I_0(x)=\left\{1\right\} \Rightarrow x_1+x_2-\alpha= 0$. Einsetzen von $x_1$, $x_2$ ergibt: $$\frac{-1-\lambda}{2} + \frac{-\lambda}{2}-\alpha=0.$$
+				\item[2. Fall] $ I_0(x)=\left\{1\right\} \Rightarrow x_1+x_2-\alpha= 0$. Einsetzen von $x_1$, $x_2$ ergibt: $$\frac{-1-\lambda}{2} + \frac{-\lambda}{4}-\alpha=0.$$
 					$$ \iff \frac{-1}{2} -\frac{ 3}{4}\lambda=\alpha ~ \iff ~ \lambda= -\frac{4}{3}\alpha - \frac{2}{3} $$
 					Da zudem $\lambda \geq 0$ gelten muss, ergibt sich $\alpha \leq - \frac{1}{2}$. Einsetzen von $\lambda$ in die 1. Bedingung ergibt 
 			$$ \begin{pmatrix} x_1 \\ x_2\end{pmatrix} = \begin{pmatrix} \frac{-1}{2}+\frac{4}{6}\alpha+ \frac{2}{6} \\ \frac{4}{12}\alpha +\frac{2}{12}\end{pmatrix} = \begin{pmatrix} \frac{2}{3}\alpha- \frac{1}{6} \\ \frac{1}{3}\alpha +\frac{1}{6} \end{pmatrix}. $$
@@ -256,14 +256,22 @@ für einen Parameter $\alpha \in \R$.
 		\end{proof}
 	\item Es sei $v(\alpha)$ die Optimalwertfunktion von $P$ abhängig vom Parameter $\alpha$. Schreiben Sie $v$ explizit und zeigen Sie, dass $v$ eine konvexe Funktion ist.
 		\begin{proof}
-			Setzt man die obige Lösung nun in die Zielfunktion ein, so ergibt sich folgende von $\alpha$ abhängige Funktion für den Optimalwert von P:
+			Setzt man die obige Lösung für $\alpha \leq - 0.5$ nun in die Zielfunktion ein, so ergibt sich folgende von $\alpha$ abhängige Funktion für den Optimalwert von P:
 			\begin{align*}
 				v(\alpha) & = \left(\frac{2}{3}\alpha- \frac{1}{6} \right)^2 + 2 \cdot \left(\frac{1}{3}\alpha +\frac{1}{6} \right)^2+ \frac{2}{3} \alpha - \frac{1}{6} \\
 				& = \frac{2}{3}\alpha^2+\frac{2}{3}\alpha - \frac{1}{12} \\
-				& = \frac{2}{3} \left(\alpha^2 + \alpha \right) -\frac{1}{6} \\
-				& = \frac{2}{3} \left(\alpha +\frac{1}{2} \right)^2-\frac{3}{8}, % todo fehler
+				& = \frac{2}{3} \left(\alpha^2 + \alpha \right) -\frac{1}{12} \\
+				& = \frac{2}{3} \left(\alpha +\frac{1}{2} \right)^2-\frac{1}{4}.
 			\end{align*}
-			wobei $\alpha \in M = \left\{x \in \mathbb{R} | x \leq 0.5\right\}$. Als Parabel ist $v(\alpha)$ insbesondere konvex, denn $f''(x)=\frac{4}{3} > 0,  \forall x \in M$.
+			$v$ ist somit für $\alpha \leq - 0.5$ als Parabel insbesondere konvex, denn $v''(\alpha)=\frac{4}{3} > 0$. Für $\alpha > -0.5$ ist $v$ konstant und damit auch konvex. $v$ ist außerdem stetig, da 
+			$$ \lim_{\alpha \rightarrow -0.5_{-}} v(\alpha) = \lim_{\alpha \rightarrow -0.5_{-}} \frac{2}{3} \left(\alpha +\frac{1}{2} \right)^2-\frac{1}{4} = - 0.25 = \left(-0.5 \right)^2 - 0.5 = \lim_{\alpha \rightarrow -0.5_{+}} v(\alpha). $$
+			$v$ ist als Komposition stetig differenzierbarer Funktionen differenzierbar und es gilt
+			$$ v'(\alpha) = \begin{cases} \frac{4}{3} \alpha + \frac{2}{3}, & \alpha \leq -0.5 \\ 0, & \alpha > -0.5\end{cases}, $$
+			also 
+			$$\lim_{\alpha \rightarrow -0.5_{-}} v(\alpha) = \lim_{\alpha \rightarrow -0.5_{-}} \frac{4}{3} \alpha  + \frac{2}{3} = 0 = \lim_{\alpha \rightarrow -0.5_{+}} v(\alpha), $$
+			womit $v$ stetig differenzierbar ist. Nun ist $v'$ wegen 
+			$$ v''(\alpha)=\frac{4}{3} > 0 \text{ für } \alpha \leq - 0.5 \text{ und } v''(\alpha) = 0 \text{ für } \alpha > - 0.5 $$
+			auf der konvexen Menge $\R$ monoton und $v$ nach Satz 2.5.16 konvex.
 		\end{proof}
 \end{enumerate}
  
@@ -274,18 +282,16 @@ für einen Parameter $\alpha \in \R$.
 \begin{enumerate}
 	\item Implementieren Sie das Schnittebenenverfahren von Kelley (vgl. Algorithmus 2.1 im Skript), das eine Approximation eines globalen Minimalpunktes eines konvexen Optimierungsproblems
 		$$ P: \quad \min_{x \in \R^n} c^T x \text{ s.t. } g_i(x) \leq 0, ~ i \in I, ~Ax \leq b $$
-		mit der nicht-leeren kompakten Mengen $M	^0 \coloneqq \{ x \in \R^m | Ax \leq b \}$ berechnet. Die in jeder Iteration auftretenden linearen Optimierungsprobleme sollen mit dem Solver Gurobi geläst werden. Ihr Algorithmus erhält folgende Inputs:
-		\begin{itemize}
-			\item Das Gurobi-Modell zu Hilfsproblems
-				$$ LP^0: \quad \min_{x \in \R^n} c^T x \text{ s.t. } x \in M^0. $$
-			\item Die Restriktionsfunktionen $g_1(x), \dotsc, g_p(x)$.
-			\item Die Gradienten (bzw. Ableitungen) der Restriktionsfuntionen.
-			\item Eine Toleranz $\epsilon$.
-		\end{itemize}
-	\item Testen Sie Ihren Algorithmus an dem Optimierungsproblem
+		mit der nicht-leeren kompakten Mengen $M	^0 \coloneqq \{ x \in \R^m | Ax \leq b \}$ berechnet. Die in jeder Iteration auftretenden linearen Optimierungsprobleme sollen mit dem Solver Gurobi geläst werden.
+		\begin{proof} ~\\
+			\begin{figure}[h!] \centering \includegraphics[scale=0.45]{img/func} \label{fig:sub1}\end{figure} 
+		\end{proof} \newpage
+	\item Testen Sie Ihren Algorithmus an dem Optimierungsproblem für $\epsilon \coloneqq 10^{-7}$
 		$$ P: \quad \min_{x \in \R^2} x_2 ~ \text{ s.t. } $$
-		$$ x_1^2 + x_2^2 \leq 1, ~e^{x_1} - x_2 \leq 0, ~x_1 - x_2 \leq 0, ~ x_1 \in [-1, -\frac{1}{2}], ~ x_2 \in [-1, 1] $$
-		für $\epsilon \coloneqq 10^{-7}$.
+		$$ x_1^2 + x_2^2 \leq 1, ~e^{x_1} - x_2 \leq 0, ~x_1 - x_2 \leq 0, ~ x_1 \in [-1, -\frac{1}{2}], ~ x_2 \in [-1, 1]. $$
+		\begin{proof} ~\\
+			\begin{figure}[h!] \centering \includegraphics[scale=0.51]{img/scr} \label{fig:sub2}\end{figure} 
+		\end{proof}
 \end{enumerate} 
 
 \newpage
@@ -305,7 +311,7 @@ für einen Parameter $\alpha \in \R$.
  			$$ f(x^\nu) \leq \alpha \quad \forall \nu \in \N. $$
  		Aufgrund der Stetigkeit der Funktion $f$ folgt dann:
  			$$ f(x) = f(\lim_{\nu \rightarrow \infty} x^\nu) = \lim_{\nu \rightarrow \infty} f(x^\nu) \leq \alpha, $$
- 		also $f(x)  \leq \alpha$ bzw. $x \in f_\leq^\alpha$.
+ 		also $f(x) \leq \alpha$ bzw. $x \in f_\leq^\alpha$.
 	\end{proof}
 \end{theorem}
 
