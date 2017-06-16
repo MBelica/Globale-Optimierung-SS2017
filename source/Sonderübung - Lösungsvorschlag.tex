@@ -198,7 +198,8 @@ $$ A \tilde{w} \geq e. $$
 			folgt $w_1 -\sum_{i=1,\dotsc,d}  \lambda_i A_{i1} = 0, ~ \dotsc, ~ w_m -\sum_{i=1,\dotsc,d}  \lambda_i A_{im} = 0$ und damit ist $$w_1 = \sum_{i=1,\dotsc,d}  \lambda_i A_{i1}, ~ \dotsc, ~ w_m = \sum_{i=1,\dotsc,d}  \lambda_i A_{im}. $$
 			Somit lassen sich die $w_i$ in $D$ ersetzen und das Dualproblem reduziert sich zu
 		 	$$ P_{red}: \quad \max_{\lambda \in \R^d} \sum_{i=1, \dotsc,m } \left( \sum_{j=1, \dotsc, d} \lambda_j A_{ji} \right)^2 + \sum_{i = 1, \dotsc, d} \lambda_i \left( 1 - \left(\sum_{k = 1, \dotsc, m} A_{ik}  \sum_{j=1, \dotsc, d} \lambda_j A_{jk} \right) \right) \text{ s.t. }\lambda \geq 0 $$
-		 	$$ \iff \max_{\lambda \in \R^d}\| \lambda^T A \|_2^2 +  \lambda^T \left( e - A A^T \lambda  \right)  \iff \max_{\lambda \in \R^d}\| \lambda^T A \|_2^2 +  \lambda^T e - \left( \lambda^T A \right) \left( \lambda^T A \right)^T  $$
+		 	$$ \iff \max_{\lambda \in \R^d}\| \lambda^T A \|_2^2 +  \lambda^T \left( e - A A^T \lambda  \right)  \text{ s.t. }\lambda \geq 0$$
+		 	$$ \iff \max_{\lambda \in \R^d}\| \lambda^T A \|_2^2 +  \lambda^T e - \left( \lambda^T A \right) \left( \lambda^T A \right)^T  \text{ s.t. }\lambda \geq 0 $$
 		\end{proof}
 \end{enumerate}
 
@@ -268,7 +269,7 @@ für einen Parameter $\alpha \in \R$.
 			$v$ ist als Komposition stetig differenzierbarer Funktionen differenzierbar und es gilt
 			$$ v'(\alpha) = \begin{cases} \frac{4}{3} \alpha + \frac{2}{3}, & \alpha \leq -0.5 \\ 0, & \alpha > -0.5\end{cases}, $$
 			also 
-			$$\lim_{\alpha \rightarrow -0.5_{-}} v(\alpha) = \lim_{\alpha \rightarrow -0.5_{-}} \frac{4}{3} \alpha  + \frac{2}{3} = 0 = \lim_{\alpha \rightarrow -0.5_{+}} v(\alpha), $$
+			$$\lim_{\alpha \rightarrow -0.5_{-}} v'(\alpha) = \lim_{\alpha \rightarrow -0.5_{-}} \frac{4}{3} \alpha  + \frac{2}{3} = 0 = \lim_{\alpha \rightarrow -0.5_{+}} v'(\alpha), $$
 			womit $v$ stetig differenzierbar ist. Nun ist $v'$ wegen 
 			$$ v''(\alpha)=\frac{4}{3} > 0 \text{ für } \alpha \leq - 0.5 \text{ und } v''(\alpha) = 0 \text{ für } \alpha > - 0.5 $$
 			auf der konvexen Menge $\R$ monoton und $v$ nach Satz 2.5.16 konvex.
