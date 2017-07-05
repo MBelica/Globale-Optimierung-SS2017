@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.20)  6 JUL 2017 01:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.20)  6 JUL 2017 01:31
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1406,7 +1406,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
+ Make it at least 25.49321pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
@@ -1477,7 +1477,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  73i,12n,84p,10435b,658s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Sonderübung 2 - Lösungsvorschlag.pdf" (8 pages, 462125 bytes).
+Output written on "/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Sonderübung 2 - Lösungsvorschlag.pdf" (8 pages, 462642 bytes).
 PDF statistics:
  149 PDF objects out of 1000 (max. 8388607)
  105 compressed objects within 2 object streams
