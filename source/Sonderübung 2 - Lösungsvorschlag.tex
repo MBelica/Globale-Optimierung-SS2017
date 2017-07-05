@@ -218,37 +218,41 @@ Gegeben seien die Funktion $f \colon \R \rightarrow \R$, $f(x) \coloneqq x - x^2
 		\begin{proof}
 			Die Funktion $f(x)$ ist nach Definition stetig und differenzierbar. Außerdem ist wegen 
 					$$f'(x)=1-2x$$ 
-	die Funktion $f$ monoton steigend für $x<\frac{1}{2}$ und monoton fallend für $x>1/2$. Somit sind für die Intervalle innerhalb dieser Bereichen entsprechend die Funktionswerte der Grenzen des Intervalls X auch den Grenzen der Bildmenge bild(f,X) 
-
-für $xoben < 1/2$ ist dabei $bild(f,X) =[f(\underline{x}), f(x)]$
-für $\underline{x} >1/2$ ist dabei $bild(f,X) =[f(x), f(\underline{x})]$
-
-für $1/2 \in X$ ist $f(1/2)=1/4$ die Obergrenze der Bildmenge. 
-Die Untergrenze ergibt sich aus der Vereinigung der Bildmenge des Intervalls links von 1/2 und der Bildmenge rechts von 1/2, se ist also $min\{\underline{x} - \underline{x}^2, x\}$
+					die Funktion $f$ monoton steigend für $x<\frac{1}{2}$ und monoton fallend für $x>1/2$. Somit sind für die Intervalle innerhalb dieser Bereichen entsprechend die Funktionswerte der Grenzen des Intervalls X auch den Grenzen der Bildmenge bild(f,X)
+					\begin{itemize}
+						\item  für $xoben < 1/2$ ist dabei $bild(f,X) =[f(\underline{x}), f(x)]$
+						\item für $\underline{x} >1/2$ ist dabei $bild(f,X) =[f(x), f(\underline{x})]$
+						\item für $1/2 \in X$ ist $f(1/2)=1/4$ die Obergrenze der Bildmenge. Die Untergrenze ergibt sich aus der Vereinigung der Bildmenge des Intervalls links von 1/2 und der Bildmenge rechts von 1/2, se ist also $min\{\underline{x} - \underline{x}^2, x\}$
+					\end{itemize}
 		\end{proof}
 	\item Implementieren Sie die intervallwertigen Funktionen $F_1$, $F_2$ und $F_3$.
-		\begin{proof}
-			todo
+		\begin{proof} ~\
+			\begin{figure*}[h!] \centering
+				\includegraphics[scale=0.45]{img/su2iii-iii}
+			\end{figure*}
+		\end{proof}   \newpage
+	\item Berechnen Sie Boxweite und Boxmittelpunkt von $Y_i = F_i(X(\epsilon))$, $i = 1,2,3$, für das Intervall $X = [-10, -10 + \epsilon]$ für $\epsilon \in \{ 0.1, 0.2, \dotsc, 30\}$. Erstellen Sie zwei Plots, die Boxmittelpunkt und Boxweite der Funktionen über der Boxweite von $X(\epsilon)$ darstellen.
+		\begin{proof} ~\
+			\begin{figure*}[h!] \centering
+				\includegraphics[scale=0.45]{img/su2iii-iiii-11}
+				\includegraphics[scale=0.45]{img/su2iii-iiii-12}
+			\end{figure*}
 		\end{proof}
-	\item todo
-		\begin{proof}
-			todo
-		\end{proof}
-	\item todo
+	\item Erklären Sie: Woraus resultiert das Verhalten von Boxweite und Boxmittelpunkt für $F_3(X(\epsilon))$? Untersuchen Sie hierzu genau das Verhalten von Unter- und Obergrenze von $F_3(X(\epsilon))$ für $\epsilon \in [0, 30]$.Welche der beiden Funktionen $F_1$, $F_2$ approximiert $\operatorname{bild}(f, X)$ besser? Warum?
 		\begin{proof}
 			Verhalten der Boxweite: 
 			\begin{itemize}
-				\item für e <10.5 : Untergrenze bleibt konst. bei f(-10), Obergrenze steigt degressiv mit Funktionsgraph f(-10+e) bis Max=1/4 => Boxweite zeichnet degressiven Verlauf
-				\item für 10.5<=e<=21 bleiben Untergrenze  und Obergrenze von F3(X(e)) konstant und damit auch die Boxweite
-				\item für e>21 Obergrenze konst. (=1/4) und Untergrenze sinkt mit Funktionsgraph und damit steigt die Boxweite weiter degressiv an bis e=30
+				\item für $\epsilon < 10.5$ : Untergrenze bleibt konstant bei $f(-10)$, Obergrenze steigt degressiv mit Funktionsgraph $f(-10+\epsilon)$ bis Max=1/4 $\Rightarrow$ Boxweite zeichnet degressiven Verlauf
+				\item für $10.5 \leq \epsilon \leq 21$ bleiben Untergrenze  und Obergrenze von $F_3(X(\epsilon))$ konstant und damit auch die Boxweite
+				\item für $\epsilon>21$ Obergrenze konst. (=1/4) und Untergrenze sinkt mit Funktionsgraph und damit steigt die Boxweite weiter degressiv an bis $\epsilon=30$
 			\end{itemize}
 			Verhalten des Boxmittelpunktes:
 			\begin{itemize}
-				\item für e <10.5 : Untergrenze bleibt konst. bei f(-10), Obergrenze steigt degressiv mit Funktionsgraph f(-10+e) bis Max=1/4 => Boxmittelpunkt zeichnet degressiv steigenden Verlauf
-				\item für 10.5<=e<=21 bleiben Untergrenze  und Obergrenze von F3(X(e)) konstant und damit auch der Boxmittelpunkt
-				\item für e>21 Obergrenze konst. (=1/4) und Untergrenze sinkt mit Funktionsgraph => der Boxmittelpunkt verschiebt sich wieder nach unten bis e=30
+				\item für $\epsilon <10.5$ : Untergrenze bleibt konst. bei $f(-10)$, Obergrenze steigt degressiv mit Funktionsgraph $f(-10+\epsilon)$ bis Max=1/4 $\Rightarrow$ Boxmittelpunkt zeichnet degressiv steigenden Verlauf
+				\item für $10.5 \leq \epsilon \leq 21$ bleiben Untergrenze  und Obergrenze von $F_3(X(\epsilon))$ konstant und damit auch der Boxmittelpunkt
+				\item für $\epsilon>21$ Obergrenze konst. (=1/4) und Untergrenze sinkt mit Funktionsgraph $\Rightarrow$ der Boxmittelpunkt verschiebt sich wieder nach unten bis $\epsilon=30$
 			\end{itemize}
-			F2(X) approximiert die Bildmenge bild(f,X) am besten, da sie sie im Sinne des Abhängigketseffektes am wenigsten verzerrt. Ihre Funktionsvorschrift F2(X)=X(1-X) enthält offensichtlich nur 2 mal das Intervall X, F3(X)=X-XX dagegen 3 mal
+			$F_2(X)$ approximiert die Bildmenge $\operatorname{bild}(f,X)$ am Besten, da sie sie im Sinne des Abhängigketseffektes am wenigsten verzerrt. Ihre Funktionsvorschrift $F2(X)=X(1-X)$ enthält offensichtlich nur 2 mal das Intervall X, $F_3(X)=X-XX$ dagegen 3 mal.
 		\end{proof}
 \end{enumerate}
 \end{document}
