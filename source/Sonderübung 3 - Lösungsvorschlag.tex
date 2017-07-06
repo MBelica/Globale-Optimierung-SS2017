@@ -209,7 +209,7 @@ Gegeben sei die Funktion $f \colon \R \rightarrow \R$, $f(x) \coloneqq x - x^2 =
 			Ist hingegen $\frac{1}{2} \in X$, so folgt wegen
 				$$ f''(x) = 2 < 0 $$
 			 und der Monotonie auf den Teilintervallen, dass $f \left( \frac{1}{2} \right) = \frac{1}{4}$ die Obergrenze der Bildmenge ist. Die Untergrenze ergibt sich aus der Vereinigung der Bildmenge des Intervalls links von $\frac{1}{2}$, auf dem $f$ monoton steigend ist, und rechts von $\frac{1}{2}$, auf dem $f$ monoton fallend ist. Nach Obigem folgt somit:
-					$$ \operatorname{bild}(f,X) = \left[ \min \left\{ f(\underline{x}), f(\overline{x}) \right\}, f \left( \frac{1}{2} \right) \right] $$
+					$$ \operatorname{bild}(f,X) = \left[ \min \left\{ f(\underline{x}), f(\overline{x}) \right\}, f \left( \frac{1}{2} \right) \right] = \left[ \min \left\{ f(\underline{x}), f(\overline{x}) \right\},  \frac{1}{4} \right] $$
 		\end{proof}
 	\item Implementieren Sie die intervallwertigen Funktionen $F_1$, $F_2$ und $F_3$.
 		\begin{proof} ~\
@@ -228,17 +228,29 @@ Gegeben sei die Funktion $f \colon \R \rightarrow \R$, $f(x) \coloneqq x - x^2 =
 		\begin{proof}
 			Verhalten der Boxweite: 
 			\begin{itemize}
-				\item für $\epsilon < 10.5$ : Untergrenze bleibt konstant bei $f(-10)$, Obergrenze steigt degressiv mit Funktionsgraph $f(-10+\epsilon)$ bis Max=1/4 $\Rightarrow$ Boxweite zeichnet degressiven Verlauf
-				\item für $10.5 \leq \epsilon \leq 21$ bleiben Untergrenze  und Obergrenze von $F_3(X(\epsilon))$ konstant und damit auch die Boxweite
-				\item für $\epsilon>21$ Obergrenze konst. (=1/4) und Untergrenze sinkt mit Funktionsgraph und damit steigt die Boxweite weiter degressiv an bis $\epsilon=30$
+				\item für $\epsilon < 10.5$ gilt $\epsilon - 10 = \overline{x} < \frac{1}{2}$: nach b) ist die Funktion in diesem Intervall monoton steigend, d.h. $f(\underline{x})$ bestimmt die Untergrenze, und bleibt konstant bei $f(-10)$, die Obergrenze ist  aufgrund der Monotonie 
+					$$ f(-10+\epsilon) \leq \frac{1}{4} $$
+					$\Rightarrow$ die Boxweite ist streng monoton wachsend
+				\item für $\epsilon \geq 10.5$ ist $\frac{1}{2} \in X$. Nach b) ist damit 
+					 $$ \operatorname{bild}(f,X)  = \left[ \min \left\{ f(-10), f(-10 + \epsilon) \right\},  \frac{1}{4} \right]. $$
+					 Für alle $\epsilon$ für die $f(-10 + \epsilon) \geq f(-10)$ gilt, ist die untere Grenze des Intervalls und damit auch die Intervallbreite konstant. Die obige Bedingung bedeutet:
+					 $$ (-10 + \epsilon)(1 - (-10 + \epsilon)) > -110 \iff \epsilon \leq 21,  $$
+					 d.h.
+					 \begin{itemize}
+					 	\item für $10.5 \leq \epsilon \leq 21$ bleiben Untergrenze und Obergrenze von $F_3(X(\epsilon))$ konstant und damit auch die Boxweite;
+						\item für $21 < \epsilon \leq 30$ folgt mit b) und obigem, dass 
+							$$ \operatorname{bild}(f,X)  = \left[ f(-10 + \epsilon),  \frac{1}{4} \right] $$
+						Da nach b) $f$ in diesem Fall monoton fallend ist, vergrößert sich für wachsendes $\epsilon$ das Intervall aufgrund der kleiner werdenenden Untergrenze.
+					 \end{itemize}
+				 
 			\end{itemize}
 			Verhalten des Boxmittelpunktes:
 			\begin{itemize}
-				\item für $\epsilon <10.5$ : Untergrenze bleibt konst. bei $f(-10)$, Obergrenze steigt degressiv mit Funktionsgraph $f(-10+\epsilon)$ bis Max=1/4 $\Rightarrow$ Boxmittelpunkt zeichnet degressiv steigenden Verlauf
-				\item für $10.5 \leq \epsilon \leq 21$ bleiben Untergrenze  und Obergrenze von $F_3(X(\epsilon))$ konstant und damit auch der Boxmittelpunkt
-				\item für $\epsilon>21$ Obergrenze konst. (=1/4) und Untergrenze sinkt mit Funktionsgraph $\Rightarrow$ der Boxmittelpunkt verschiebt sich wieder nach unten bis $\epsilon=30$
+				\item für $\epsilon < 10.5$: Untergrenze ist konstant  $f(-10)$, Obergrenze steigt degressiv mit Funktionsgraph $f(-10+\epsilon) \leq \frac{1}{4} \Rightarrow$ Boxmittelpunkt zeichnet degressiv steigenden Verlauf
+				\item für $10.5 \leq \epsilon \leq 21$: Untergrenze und Obergrenze von $F_3(X(\epsilon))$ bleiben konstant und damit auch der Boxmittelpunkt
+				\item für $\epsilon>21$: Obergrenze ist konstant gleich $\frac{1}{4}$ und Untergrenze sinkt mit Funktionsgraph $\Rightarrow$ der Boxmittelpunkt verschiebt sich wieder nach unten bis $\epsilon=30$
 			\end{itemize}
-			$F_2(X)$ approximiert die Bildmenge $\operatorname{bild}(f,X)$ am Besten, da sie sie im Sinne des Abhängigketseffektes am wenigsten verzerrt. Ihre Funktionsvorschrift $F2(X)=X(1-X)$ enthält offensichtlich nur 2 mal das Intervall X, $F_3(X)=X-XX$ dagegen 3 mal.
+			$F_2(X)$ approximiert die Bildmenge $\operatorname{bild}(f,X)$ am Besten, da sie sie im Sinne des Abhängigketseffektes am wenigsten verzerrt. Ihre Funktionsvorschrift $$F_2(X)=X(1-X)$$ enthält offensichtlich nur 2 mal das Intervall X, dagegen $$F_1(X)=X-XX$$ 3 mal. Grafisch sieht man dies dadurch, dass der Graph von $F_2$ näher an dem von $F_3$ liegt.
 		\end{proof}
 \end{enumerate}
 

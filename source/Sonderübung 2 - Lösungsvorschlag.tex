@@ -1,0 +1,322 @@
+\documentclass[12pt]{extreport} % Schriftgröße: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt oder 20pt
+
+%% Packages
+\usepackage{scrextend}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{chngcntr}
+\usepackage{cmap}
+\usepackage{color}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{lmodern}
+\usepackage{makeidx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{xpatch}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.12}
+\usepgfplotslibrary{fillbetween}
+\usepackage{amsfonts}
+\usetikzlibrary{calc}	
+\usetikzlibrary{matrix}	
+\usepackage{fancyhdr}
+\usepackage{epstopdf}
+
+
+
+% Language Setup (English)
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc} 
+\usepackage[ngerman]{babel}
+
+% Options
+\makeatletter%%  
+  % Linkfarbe, {0,0.35,0.35} für Türkis, {0,0,0} für Schwarz, {1,0,0} für Rot, {0,0,0.85} für Blau
+  \definecolor{linkcolor}{rgb}{0,0.35,0.35}
+  % Zeilenabstand für bessere Leserlichkeit
+  \def\mystretch{1.2} 
+  % Publisher definieren
+  \newcommand\publishers[1]{\newcommand\@publishers{#1}} 
+  % Enumerate im 1. Level: \alph für a), b), ...
+  \renewcommand{\labelenumi}{\alph{enumi})} 
+  % Enumerate im 2. Level: \roman für (i), (ii), ...
+  \renewcommand{\labelenumii}{(\roman{enumii})}
+  % Zeileneinrückung am Anfang des Absatzes
+  \setlength{\parindent}{0pt} 
+  % Für das Proof-Environment: 'Beweis:' anstatt 'Beweis.'
+  \xpatchcmd{\proof}{\@addpunct{.}}{\@addpunct{:}}{}{} 
+  % Nummerierung der Bilder, z.B.: Abbildung 4.1
+  \@ifundefined{thechapter}{}{\def\thefigure{\thechapter.\arabic{figure}}} 
+  % Chapter-Nummerierung beginnen bei (0):
+  \setcounter{chapter}{0}
+  % Chapter-Nummerierung
+  \renewcommand\thechapter{\Roman{chapter}}
+\makeatother%
+
+% Meta Setup 
+\title{Globale Optimierung - Sonderübung I}
+\author{Kostorz, Belica}
+\date{Sommersemester 2017}
+\publishers{Karlsruher Institut für Technologie}
+
+%% Math. Definitiones
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\DO}[1]{\mathcal{D}\left( {#1} \right)}
+\newcommand{\RO}[1]{\mathcal{R}\left( {#1} \right)}
+
+\newtheoremstyle{named}{}{}{\normalfont}{}{\bfseries}{:}{0.25em}{#2 \thmnote{#3}}
+\newtheoremstyle{nnamed}{}{}{\normalfont}{}{\bfseries}{:}{0.25em}{\thmnote{#3}}
+\newtheoremstyle{itshape}{}{}{\itshape}{}{\bfseries}{:}{ }{}
+\newtheoremstyle{normal}{}{}{\normalfont}{}{\bfseries}{:}{ }{}
+\renewcommand*{\qed}{\hfill\ensuremath{\square}}
+
+\theoremstyle{named}
+\newtheorem{unnamedtheorem}{Theorem} \counterwithin{unnamedtheorem}{chapter}
+\theoremstyle{nnamed}
+\newtheorem*{unnamedtheorem*}{Theorem} 
+
+\theoremstyle{itshape}
+\newtheorem{definition}[unnamedtheorem]{Definition}
+
+\theoremstyle{normal}
+\newtheorem*{recall}{Recall}
+\newtheorem*{example}{Example}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{remark}{Remark}
+\newtheorem*{satz}{Satz}
+\newtheorem*{bemerkung}{Bemerkung}
+
+
+
+\fancypagestyle{firststyle}
+{
+   \fancyhf[C]{\small Globale Optimierung - Sonderübung II - Nadine Kostorz (1972005), Martin Belica (1775706)}
+   \fancyfoot[C]{}
+}
+%% Template
+\makeatletter%
+\DeclareUnicodeCharacter{00A0}{ } \pgfplotsset{compat=1.7} \hypersetup{colorlinks,breaklinks, urlcolor=linkcolor, linkcolor=linkcolor, pdftitle=\@title, pdfauthor=\@author, pdfsubject=\@title, pdfcreator=\@publishers}\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}} \ProcessOptions \def\baselinestretch{\mystretch} \setlength{\oddsidemargin}{0.125in} \setlength{\evensidemargin}{0.125in} \setlength{\topmargin}{0.5in} \setlength{\textwidth}{6.25in} \setlength{\textheight}{8in} \addtolength{\topmargin}{-\headheight} \addtolength{\topmargin}{-\headsep} \def\pulldownheader{ \addtolength{\topmargin}{\headheight} \addtolength{\topmargin}{\headsep} \addtolength{\textheight}{-\headheight} \addtolength{\textheight}{-\headsep} } \def\pullupfooter{ \addtolength{\textheight}{-\footskip} } \def\ps@headings{\let\@mkboth\markboth \def\@oddfoot{} \def\@evenfoot{} \def\@oddhead{\hbox {}\sl \rightmark \hfil \rm\thepage} \def\chaptermark##1{\markright {\uppercase{\ifnum \c@secnumdepth >\m@ne \@chapapp\ \thechapter. \ \fi ##1}}} \pulldownheader } \def\ps@myheadings{\let\@mkboth\@gobbletwo \def\@oddfoot{} \def\@evenfoot{} \def\sectionmark##1{} \def\subsectionmark##1{}  \def\@evenhead{\rm \thepage\hfil\sl\leftmark\hbox {}} \def\@oddhead{\hbox{}\sl\rightmark \hfil \rm\thepage} \pulldownheader }	\def\chapter{\cleardoublepage  \thispagestyle{plain} \global\@topnum\z@ \@afterindentfalse \secdef\@chapter\@schapter} \def\@makeschapterhead#1{ {\parindent \z@ \raggedright \normalfont \interlinepenalty\@M \Huge \bfseries  #1\par\nobreak \vskip 40\p@ }} \newcommand{\indexsection}{chapter} \patchcmd{\@makechapterhead}{\vspace*{50\p@}}{}{}{}\def\Xint#1{\mathchoice
+    {\XXint\displaystyle\textstyle{#1}} {\XXint\textstyle\scriptstyle{#1}} {\XXint\scriptstyle\scriptscriptstyle{#1}} {\XXint\scriptscriptstyle\scriptscriptstyle{#1}} \!\int} \def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \vcenter{\hbox{$#2#3$}}\kern-.5\wd0}} \def\dashint{\Xint-} \def\Yint#1{\mathchoice {\YYint\displaystyle\textstyle{#1}} {\YYYint\textstyle\scriptscriptstyle{#1}} {}{} \!\int} \def\YYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \lower1ex\hbox{$#2#3$}\kern-.46\wd0}} \def\YYYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}  \lower0.35ex\hbox{$#2#3$}\kern-.48\wd0}} \def\lowdashint{\Yint-} \def\Zint#1{\mathchoice {\ZZint\displaystyle\textstyle{#1}}{\ZZZint\textstyle\scriptscriptstyle{#1}} {}{} \!\int} \def\ZZint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}\raise1.15ex\hbox{$#2#3$}\kern-.57\wd0}} \def\ZZZint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \raise0.85ex\hbox{$#2#3$}\kern-.53\wd0}} \def\highdashint{\Zint-} \DeclareRobustCommand*{\onlyattoc}[1]{} \newcommand*{\activateonlyattoc}{ \DeclareRobustCommand*{\onlyattoc}[1]{##1} } \AtBeginDocument{\addtocontents{toc} {\protect\activateonlyattoc}} \newcommand{\RightArrow}{\xRightarrow[]{ ~ ~ }} \newcommand{\LeftArrow}{\xLeftarrow[]{ ~ ~ }} \newcommand{\rightArrow}{\xrightarrow[]{ ~ ~ }} \newcommand{\leftArrow}{\xleftarrow[]{ ~ ~ }}
+	% Titlepage
+	\def\maketitle{ \begin{titlepage} 
+			~\vspace{3cm} 
+		\begin{center} {\Huge \@title} \end{center} 
+	 		\vspace*{1cm} 
+	 	\begin{center} {\large \@author} \end{center} 
+	 	\vspace*{-0.5cm}
+	 	\begin{center} \@date \end{center} 
+	 		\vspace*{7cm} 
+	 	\begin{center} \@publishers \end{center} 
+	 		\vfill 
+	\end{titlepage} }
+\makeatother%
+
+% Create Index
+\makeindex 
+
+\begin{document}
+
+\thispagestyle{empty}
+
+
+\pagenumbering{arabic}\thispagestyle{firststyle}
+
+\subsubsection{Aufgabe S. 2.1 (\textit{$2 + 2 + 3 + 3$})} 
+
+Gegeben sei das Optimierungsproblem
+$$ P: \quad \min_{w \in \R^m} \frac{1}{2} \| w \|_2^2 \text{ s.t. } Aw \geq e $$
+mit einer $(d, m)$-Matrix $A$ und
+$$ e \coloneqq \left(\begin{array}{c} 1 \\ \vdots \\ 1 \end{array}\right) \in \R^d. $$
+Gehen Sie im Folgenden davon aus, dass ein $\tilde{w}$ existiert, für das gilt
+$$ A \tilde{w} \geq e. $$
+\begin{enumerate}
+	\item Zeigen Sie, dass $P$ lösbar ist.
+		\begin{proof}
+			Nach Korollar 1.2.40 gilt:
+				$$ \textit{Es sei } M \textit{ nicht-leer, und } f \colon M \rightarrow R \textit{ sei stetig und koerziv auf } M. $$
+				$$ \textit{ Dann ist } S \textit{ nicht-leer und kompakt.} $$ ~\\
+			Nach Aufgabenstellung ist mit $f(w) = \frac{1}{2} \| w \|_2^2$ und $g(w) = e - Aw$, sodass 
+				$$ M = \{ w \in \R^m \colon  g(w) \leq 0 \} $$ 
+			und damit:
+				$$ P: \quad \min_{w \in \R^m} f(w) \text{ s.t. } w \in M. $$
+			Nach Voraussetzung existiert ein $\tilde{w} \in M$, sodass $M$ nicht-leer ist. Weiter ist die Funktion $f$ stetig, da für $\| x - y \|_2 < \delta$ und $\epsilon \coloneqq \frac{\delta^2}{2}$ mit der umgekehrten Dreiecksungleichung gilt:	
+			$$ \left| f(x) - f(y) \right| = \frac{1}{2} \left| \| x \|^2_2 - \| y \|_2^2 \right| \leq \frac{1}{2} \| x - y \|_2^2 \leq \epsilon. $$
+			$M$ ist aufgrund der Stetigkeit der Restriktionsfunktion als untere Niveaumenge abgeschlosse\footnote{Dies wurde in der Übung (o. B.) kurz angesprochen; deshalb ist ein kurzer Beweis hinten angehängt} bzw. falls man anstatt $g$ komponentenweise $g_i$ als Restriktion betrachtet, so ist $M$ als Schnitt abgeschlossener Mengen ebenfalls abgeschlossen:
+			$$ M = \bigcap_{i \in I } \left\{ w \in \R^m \colon g_i(w) \leq 0 \right\}. $$
+			 Aus der Abgeschlossenheit der Menge $M$ folgt, dass die Funktion $f$ koerziv ist, denn nach Definition 1.2.37 müssen nur alle Folgen $(x^\nu) \subseteq M$ mit $\| x^\nu \| \rightarrow \infty$ betrachtet werden und für die gilt mittels der Äquivalenz der Normen im $\R^m$:
+			$$ f(x^\nu) = \frac{1}{2} \| x^\nu \|_2^2 \longrightarrow +\infty. $$
+			Damit sind alle Voraussetzungen von Korollar 1.2.40 erfüllt, $S$ ist somit nicht-leer und kompakt und somit $P$ lösbar.
+		\end{proof}
+	\item Zeigen Sie, dass $P$ ein konvexes Optimierungsproblem ist.
+		\begin{proof}
+		Nach Beispiel 2.1.9 gilt: ~\\
+			\textit{Falls $f$, $g_i$ für $i \in I$ auf $\R^m$ konvexe Funktionen sind, dann ist}
+			$$P: \quad \min f(x) \text{ s.t. } g_i (x) \leq 0, ~ i \in I $$
+			\textit{ein konvexes Optimierungsproblem.} ~\\
+			
+			Beim gegebenen Problem ist $g_i(w) = - (A w)_i + 1$ für alle $i \in \{1, \dotsc, d \}$ eine lineare und somit konvexe Funktion. Da $f \in C^2(\R^m)$ mit $f(w) = \frac{1}{2} \sum_{i=1,\dotsc, m} w_i^2$ folgt $\nabla_w f(w) = w$ und 
+			$$ D^2 f =  \left(\begin{array}{rrrrr} 1 & 0 & \dotsc & 0 \\ 0 & 1 & 0 & \vdots \\ \vdots & 0 & \ddots & 0\\ 0 &  \dotsc & 0 & 1 \end{array}\right) \succ 0, $$
+			womit nach 2.5.10 $f$ insbesondere konvex und $P$ ein konvexes Optimierungsproblem ist.
+		\end{proof}
+	\item Stellen Sei das Wolfe-Dual $D$ zu $P$ auf.
+		\begin{proof}
+			Die Lagrange Funktion zum restringierten, konvexen Optimierungsproblem $P$ lautet:
+			\begin{align*}
+				L(w, \lambda) = f(w) + \sum_{i \in I} \lambda_i g_i(w) & = \frac{1}{2} \| w \|_2^2 + \lambda^T \left( e - Aw \right) \\
+					& =\frac{1}{2} \sum_{i=1}^m w_i^2 + \sum_{i=1}^d \lambda_i \left(1 - a_i \cdot w \right)
+			\end{align*}
+			mit $a_i$ i-ter Zeilenvektor von $A$ und $\lambda = \left( \lambda_1, \dotsc, \lambda_d \right)^T$. Das Dualproblem lässt sich dadurch folgendermaßen umformulieren:
+			$$ D: \quad \max_{w,\lambda} L(w, \lambda) \text{ s.t. } \nabla_w L(w, \lambda) = 0, ~\lambda \geq 0, $$
+			mit der zulässigen Menge
+			$$ M_D = \left\{ (w, \lambda) \in \R^m \times \R^d \colon \nabla_w L(w, \lambda) = 0, \lambda \geq 0 \right\}. $$
+			Dabei ist 
+			\begin{align*}
+			 \nabla_w L(w, \lambda) & = w - \nabla_w \left( \sum_{i=1,\dotsc,d} \lambda_i \sum_{k=1, \dotsc, m} A_{ik}w_{k} \right) \\
+			& = w - \nabla_w \left( \sum_{k=1, \dotsc, m}  \sum_{i=1,\dotsc,d}  \lambda_i A_{ik}w_{k} \right) \\
+			& = \left(\begin{array}{c} w_1 -\sum_{i=1,\dotsc,d}  \lambda_i A_{i1}  \\ \vdots \\ w_m -\sum_{i=1,\dotsc,d}  \lambda_i A_{im} \end{array}\right) 
+			\end{align*}
+			Zusammengefasst also:
+			$$ D: \quad \max_{(w, \lambda) \in \R^m \times \R^d} \frac{1}{2} \sum_{i=1}^m w_i^2 + \sum_{i=1}^d \lambda_i \left(1 - a_i \cdot w \right) \text{ s.t. } \lambda \geq 0, $$
+			$$ \text{ und } \left(\begin{array}{c} w_1 -\sum_{i=1,\dotsc,d}  \lambda_i A_{i1}  \\ \vdots \\ w_m -\sum_{i=1,\dotsc,d}  \lambda_i A_{im} \end{array}\right) = 0 $$
+		\end{proof}
+	\item Formulieren Sie, ausgehend von Aufgabenteil b), ein duales Optimierungsproblem, das nur von der Dualvariabel $\lambda$ abhängt.
+		\begin{proof}
+			Aus der Forderung aus c)
+			$$ \left(\begin{array}{c} w_1 -\sum_{i=1,\dotsc,d}  \lambda_i A_{i1}  \\ \vdots \\ w_m -\sum_{i=1,\dotsc,d}  \lambda_i A_{im} \end{array}\right)  = 0 $$
+			folgt $w_1 -\sum_{i=1,\dotsc,d}  \lambda_i A_{i1} = 0, ~ \dotsc, ~ w_m -\sum_{i=1,\dotsc,d}  \lambda_i A_{im} = 0$ und damit ist $$w_1 = \sum_{i=1,\dotsc,d}  \lambda_i A_{i1}, ~ \dotsc, ~ w_m = \sum_{i=1,\dotsc,d}  \lambda_i A_{im}. $$
+			Somit lassen sich die $w_i$ in $D$ ersetzen und das Dualproblem reduziert sich zu
+		 	$$ P_{red}: \quad \max_{\lambda \in \R^d} \sum_{i=1, \dotsc,m } \left( \sum_{j=1, \dotsc, d} \lambda_j A_{ji} \right)^2 + \sum_{i = 1, \dotsc, d} \lambda_i \left( 1 - \left(\sum_{k = 1, \dotsc, m} A_{ik}  \sum_{j=1, \dotsc, d} \lambda_j A_{jk} \right) \right) \text{ s.t. }\lambda \geq 0 $$
+		 	$$ \iff \max_{\lambda \in \R^d}\| \lambda^T A \|_2^2 +  \lambda^T \left( e - A A^T \lambda  \right)  \text{ s.t. }\lambda \geq 0$$
+		 	$$ \iff \max_{\lambda \in \R^d}\| \lambda^T A \|_2^2 +  \lambda^T e - \left( \lambda^T A \right) \left( \lambda^T A \right)^T  \text{ s.t. }\lambda \geq 0 $$
+		\end{proof}
+\end{enumerate}
+
+\newpage
+
+\subsubsection{Aufgabe S. 2.2 (\textit{$3 + 4 + 5$})}
+
+Gegeben sei das Optimierungsproblem
+$$ P: \quad \min_{x \in \R^2} x_1^2 + 2 x_2^2 + x_1 \text{ s.t. } x_1 + x_2 \leq \alpha $$
+für einen Parameter $\alpha \in \R$.
+
+\begin{enumerate}
+	\item Zeigen Sie, ohne $P$ explizit zu lösen, dass $P$ einen \textbf{eindeutigen} globalen Minimalpunkt besitzt.
+		\begin{proof}
+			 $M$ ist trivialerweise nicht-leer, da die Menge nur durch eine lineare Funktion 
+			 $$ g(x) = x_1+x_2-\alpha \leq 0 $$
+			  beschränkt ist. Außerdem ist $M$ aufgrund der Stetigkeit (analog zu S. 2.1 a) der Restriktionsfunktion als untere Niveaumenge von $g$ abgeschlossen\footnote{vgl. S. 2.1 a) kurz bzw. kurzer Beweis im Anhang}. Da lineare Funktionen insbesondere konvex sind, ist nach Übung 4.4 die Menge $M$ konvex. Als Polynom ist $f \in C^2(\R^2)$ und Ableiten der Zielfunktion ergibt: \\
+				$$ \nabla f(x) = \begin{pmatrix} 2x_1+1 \\ 4x_2 \end{pmatrix} \text{ und damit } D^2f(x) = \begin{pmatrix} 2 & 0 \\ 0 & 4 \end{pmatrix} \succ 0. $$
+ 			Nach 2.5.10 ist $f$ somit gleichmäßig konvex. Die eindeutige Lösbarkeit folgt nun mit Satz 2.3.3 c). 
+		\end{proof}
+	\item Lösen Sie $P$ mit Hilfe der KKT-Bedingungen ~\\
+		(\textit{Hinweis: die Lösung ist abhängig von $\alpha$}).
+		\begin{proof}
+			Nach Definition ist 2.6.10 gilt:
+			$$\textit{Für ein $C^1$-Problem $P$ heißt ein Punkt $x \in \R^n$ KKT-Punkt mit Multiplikatoren $\lambda$}$$
+			$$\textit{und $\mu$ falls folgendes System von Gleichungen und Ungleichungen erfüllt ist:} $$
+			$$ \nabla_x L(\overline{x}, \overline{\lambda}, \overline{\mu}) = 0, ~ \overline{\lambda}_i g_i(\overline{x}) = 0, ~\overline{\lambda}_i \geq 0, ~g_i(\overline{x}) \leq 0, ~ h_j(\overline{x}) = 0  $$
+		
+			für $i \in I$ und $j \in J$. Nach Satz 2.6.12 gilt außerdem:			$$\textit{$P$ sei konvex und $C^1$, und $x$ sei KKT-Punkt (mit Multiplikatoren $\lambda$, $\mu$). }$$
+			$$ \textit{Dann ist $x$ globaler Minimalpunkt von $P$.} $$
+			
+			Da $M$ nur durch eine Ungleichung beschrieben wird, lässt sich die Lagrange-Funktion schreiben als:
+				$$L(x, \lambda) = x_1^2+2x_2^2+x_1+\lambda (x_1+x_2-\alpha). $$
+			Damit ergibt sich für die erste KKT-Bedingung:
+				$$ \nabla_x L(x, \lambda)=\begin{pmatrix} 2x_1+1+\lambda \\ 4x_2+ \lambda \end{pmatrix} =0. \Leftrightarrow  \begin{pmatrix}	x_1 \\ x_2\end{pmatrix} =  \begin{pmatrix} \frac{-1-\lambda}{2} \\ \frac{-\lambda}{4} \end{pmatrix}. $$
+			Für die Komplementärbedinungen betrachte man die beiden folgenden Fälle. 
+			\begin{description}
+				\item[1. Fall] $ I_0(x)= \emptyset\Rightarrow \lambda_1=0$. Einsetzen von $\lambda_1=0$ in die 1. Bedingung ergibt 
+					$$ \begin{pmatrix}	x_1 \\ x_2\end{pmatrix} =  \begin{pmatrix} \frac{-1}{2} \\ 0\end{pmatrix}. $$
+				Nach Konstruktion werden die ersten 3 KKT-Bedninungen erfüllt und da $ I_0(x)= \emptyset $ gilt, muss zudem 
+					$$x_1+x_2-\alpha < 0$$ 
+					erfüllt sein. Einsetzen von $x_1, x_2$ ergibt $\frac{-1}{2} < \alpha$.
+				\item[2. Fall] $ I_0(x)=\left\{1\right\} \Rightarrow x_1+x_2-\alpha= 0$. Einsetzen von $x_1$, $x_2$ ergibt: $$\frac{-1-\lambda}{2} + \frac{-\lambda}{4}-\alpha=0.$$
+					$$ \iff \frac{-1}{2} -\frac{ 3}{4}\lambda=\alpha ~ \iff ~ \lambda= -\frac{4}{3}\alpha - \frac{2}{3} $$
+					Da zudem $\lambda \geq 0$ gelten muss, ergibt sich $\alpha \leq - \frac{1}{2}$. Einsetzen von $\lambda$ in die 1. Bedingung ergibt 
+			$$ \begin{pmatrix} x_1 \\ x_2\end{pmatrix} = \begin{pmatrix} \frac{-1}{2}+\frac{4}{6}\alpha+ \frac{2}{6} \\ \frac{4}{12}\alpha +\frac{2}{12}\end{pmatrix} = \begin{pmatrix} \frac{2}{3}\alpha- \frac{1}{6} \\ \frac{1}{3}\alpha +\frac{1}{6} \end{pmatrix}. $$
+			d.h. $\lambda= -\frac{4}{3}\alpha - \frac{2}{3}$ mit $\begin{pmatrix} x_1 \\ x_2\end{pmatrix} = \begin{pmatrix} \frac{2}{3}\alpha- \frac{1}{6} \\ \frac{1}{3}\alpha +\frac{1}{6} \end{pmatrix}$ erfüllt nach Konstruktion alle KKT-Bedingungen. ~\\
+			
+			Unter Verwendung von Teilaufgabe a) und Satz 2.6.12 ist somit für $\alpha \leq - \frac{1}{2}$ 
+			$$ \begin{pmatrix} x_1 \\ x_2\end{pmatrix} = \begin{pmatrix} \frac{2}{3}\alpha- \frac{1}{6} \\ \frac{1}{3}\alpha +\frac{1}{6} \end{pmatrix} 
+			\text{ und für $\alpha > -\frac{1}{2}$ ist }
+			\begin{pmatrix} x_1 \\ x_2\end{pmatrix} = \begin{pmatrix} -0.5 \\ 0 \end{pmatrix} $$
+			globaler Minimalpunkt.
+			\end{description}
+		\end{proof}
+	\item Es sei $v(\alpha)$ die Optimalwertfunktion von $P$ abhängig vom Parameter $\alpha$. Schreiben Sie $v$ explizit und zeigen Sie, dass $v$ eine konvexe Funktion ist.
+		\begin{proof}
+			Setzt man die obige Lösung für $\alpha \leq - 0.5$ nun in die Zielfunktion ein, so ergibt sich folgende von $\alpha$ abhängige Funktion für den Optimalwert von P:
+			\begin{align*}
+				v(\alpha) & = \left(\frac{2}{3}\alpha- \frac{1}{6} \right)^2 + 2 \cdot \left(\frac{1}{3}\alpha +\frac{1}{6} \right)^2+ \frac{2}{3} \alpha - \frac{1}{6} \\
+				& = \frac{2}{3}\alpha^2+\frac{2}{3}\alpha - \frac{1}{12} \\
+				& = \frac{2}{3} \left(\alpha^2 + \alpha \right) -\frac{1}{12} \\
+				& = \frac{2}{3} \left(\alpha +\frac{1}{2} \right)^2-\frac{1}{4}.
+			\end{align*}
+			$v$ ist somit für $\alpha \leq - 0.5$ als Parabel insbesondere konvex, denn $v''(\alpha)=\frac{4}{3} > 0$. Für $\alpha > -0.5$ ist $v$ konstant und damit auch konvex. $v$ ist außerdem stetig, da 
+			$$ \lim_{\alpha \rightarrow -0.5_{-}} v(\alpha) = \lim_{\alpha \rightarrow -0.5_{-}} \frac{2}{3} \left(\alpha +\frac{1}{2} \right)^2-\frac{1}{4} = - 0.25 = \left(-0.5 \right)^2 - 0.5 = \lim_{\alpha \rightarrow -0.5_{+}} v(\alpha). $$
+			$v$ ist als Komposition stetig differenzierbarer Funktionen differenzierbar und es gilt
+			$$ v'(\alpha) = \begin{cases} \frac{4}{3} \alpha + \frac{2}{3}, & \alpha \leq -0.5 \\ 0, & \alpha > -0.5\end{cases}, $$
+			also 
+			$$\lim_{\alpha \rightarrow -0.5_{-}} v'(\alpha) = \lim_{\alpha \rightarrow -0.5_{-}} \frac{4}{3} \alpha  + \frac{2}{3} = 0 = \lim_{\alpha \rightarrow -0.5_{+}} v'(\alpha), $$
+			womit $v$ stetig differenzierbar ist. Nun ist $v'$ wegen 
+			$$ v''(\alpha)=\frac{4}{3} > 0 \text{ für } \alpha \leq - 0.5 \text{ und } v''(\alpha) = 0 \text{ für } \alpha > - 0.5 $$
+			auf der konvexen Menge $\R$ monoton und $v$ nach Satz 2.5.16 konvex.
+		\end{proof}
+\end{enumerate}
+ 
+\newpage
+
+\subsubsection{Aufgabe S. 2.3 (\textit{$13 + 4$})}
+
+\begin{enumerate}
+	\item Implementieren Sie das Schnittebenenverfahren von Kelley (vgl. Algorithmus 2.1 im Skript), das eine Approximation eines globalen Minimalpunktes eines konvexen Optimierungsproblems
+		$$ P: \quad \min_{x \in \R^n} c^T x \text{ s.t. } g_i(x) \leq 0, ~ i \in I, ~Ax \leq b $$
+		mit der nicht-leeren kompakten Mengen $M	^0 \coloneqq \{ x \in \R^m | Ax \leq b \}$ berechnet. Die in jeder Iteration auftretenden linearen Optimierungsprobleme sollen mit dem Solver Gurobi geläst werden.
+		\begin{proof} ~\\
+			\begin{figure}[h!] \centering \includegraphics[scale=0.45]{img/func} \label{fig:sub1}\end{figure} 
+		\end{proof} \newpage
+	\item Testen Sie Ihren Algorithmus an dem Optimierungsproblem für $\epsilon \coloneqq 10^{-7}$
+		$$ P: \quad \min_{x \in \R^2} x_2 ~ \text{ s.t. } $$
+		$$ x_1^2 + x_2^2 \leq 1, ~e^{x_1} - x_2 \leq 0, ~x_1 - x_2 \leq 0, ~ x_1 \in [-1, -\frac{1}{2}], ~ x_2 \in [-1, 1]. $$
+		\begin{proof} ~\\
+			\begin{figure}[h!] \centering \includegraphics[scale=0.51]{img/scr} \label{fig:sub2}\end{figure} 
+		\end{proof}
+\end{enumerate} 
+
+\newpage
+
+\subsubsection{Anhang}
+ 
+
+\begin{theorem}
+ 	 Die Funktion $f \colon \R^n \rightarrow \R$ sei stetig. Dann sind die Mengen 
+ 	 	$$ f^\alpha_\leq = \{ x \in \R^n \colon f(x) \leq \alpha\} $$
+ 	 für alle $\alpha \in \R$ abgeschlossen.
+ 	 
+	\begin{proof}
+ 		Sei $(x^\nu) \subseteq \R^n$ eine Folge in $f_\leq^\alpha$. Weiterhin sei
+ 			$$ \lim_{\nu \rightarrow \infty} f(x^\nu) \eqqcolon f(x), $$
+ 			für ein $x \in \R^n$. Zu zeigen ist, dass $x \in f_\leq^\alpha$, woraus die Abgeschlossenheit folgt. Es gilt:
+ 			$$ f(x^\nu) \leq \alpha \quad \forall \nu \in \N. $$
+ 		Aufgrund der Stetigkeit der Funktion $f$ folgt dann:
+ 			$$ f(x) = f(\lim_{\nu \rightarrow \infty} x^\nu) = \lim_{\nu \rightarrow \infty} f(x^\nu) \leq \alpha, $$
+ 		also $f(x) \leq \alpha$ bzw. $x \in f_\leq^\alpha$.
+	\end{proof}
+\end{theorem}
+
+ 
+ 
+ 
+\end{document} 
