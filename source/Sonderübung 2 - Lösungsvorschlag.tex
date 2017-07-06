@@ -199,17 +199,17 @@ Gegeben sei die Funktion $f \colon \R \rightarrow \R$, $f(x) \coloneqq x - x^2 =
 				\item monoton steigend für $x < \frac{1}{2}$, und
 				\item monoton fallend für $x > \frac{1}{2}$.
 			\end{itemize}
-			Damit ist für $X \subseteq \left(-\infty, \frac{1}{2} \right)$ oder $X \subseteq \left(\frac{1}{2}, \infty \right)$ das Bild von $f$ unter $X$,  ein Intevrall dessen Grenzen durch die Grenzen von $X$ unter $f$ gegeben ist. Somit ergibt sich das Bild in diesen Fällen zu
+			Damit ist für $X \subseteq \left(-\infty, \frac{1}{2} \right)$ oder $X \subseteq \left(\frac{1}{2}, \infty \right)$ das Bild von $f$ unter $X$, ein Intevrall dessen Grenzen durch die Grenzen von $X$ unter $f$ gegeben ist. Somit ist
 			\begin{itemize}
-				\item für $\overline{x} < 1/2$ ist, und damit $X \subseteq \left(-\infty, \frac{1}{2} \right)$, d.h.:
+				\item für $\overline{x} < 1/2$ (d.h. $X \subseteq \left(-\infty, \frac{1}{2} \right)$) $f(\underline{x}) < f(\overline{x})$, d.h.:
 					$$ \operatorname{bild}(f,X) = \left[f(\underline{x}), f(\overline{x}) \right]; $$
-				\item für $\underline{x} >1/2$ ist, und damit $X \subseteq \left(\frac{1}{2}, \infty \right)$, d.h.:
-					$$ \operatorname{bild}(f,X) = \left[f((\overline{x}), f(\underline{x})\right]; $$
+				\item für $\underline{x} >1/2$ (d.h. $X \subseteq \left(\frac{1}{2}, \infty \right)$) $f(\overline{x}) < f(\underline{x})$, d.h.:
+					$$ \operatorname{bild}(f,X) = \left[f(\overline{x}), f(\underline{x})\right]; $$
 			\end{itemize}
 			Ist hingegen $\frac{1}{2} \in X$, so folgt wegen
 				$$ f''(x) = 2 < 0 $$
-			 und der Monotonie auf den Teilintervallen, dass $f \left( \frac{1}{2} \right) = \frac{1}{4}$ die Obergrenze der Bildmenge ist. Die Untergrenze ergibt sich aus der Vereinigung der Bildmenge des Intervalls links von $\frac{1}{2}$ und der Bildmenge rechts von $\frac{1}{2}$. Nach Obigem folgt somit:
-					$$ \operatorname{bild}(f,X) = \left[ \min \left\{ f(\underline{x}), f(\overline{x}) \right\}, f \left( \frac{1}{2} \right) \right] . $$
+			 und der Monotonie auf den Teilintervallen, dass $f \left( \frac{1}{2} \right) = \frac{1}{4}$ die Obergrenze der Bildmenge ist. Die Untergrenze ergibt sich aus der Vereinigung der Bildmenge des Intervalls links von $\frac{1}{2}$, auf dem $f$ monoton steigend ist, und rechts von $\frac{1}{2}$, auf dem $f$ monoton fallend ist. Nach Obigem folgt somit:
+					$$ \operatorname{bild}(f,X) = \left[ \min \left\{ f(\underline{x}), f(\overline{x}) \right\}, f \left( \frac{1}{2} \right) \right] $$
 		\end{proof}
 	\item Implementieren Sie die intervallwertigen Funktionen $F_1$, $F_2$ und $F_3$.
 		\begin{proof} ~\
