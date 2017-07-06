@@ -65,6 +65,12 @@
 \date{Sommersemester 2017}
 \publishers{Karlsruher Institut für Technologie}
 
+\fancypagestyle{firststyle}
+{
+   \fancyhf[C]{\small Globale Optimierung - Sonderübung III ~\\ Nadine Kostorz (1972005), Martin Belica (1775706), Leon TBD (TBD)}
+   \fancyfoot[C]{}
+}
+
 %% Math. Definitiones
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
@@ -73,36 +79,6 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\DO}[1]{\mathcal{D}\left( {#1} \right)}
 \newcommand{\RO}[1]{\mathcal{R}\left( {#1} \right)}
-
-\newtheoremstyle{named}{}{}{\normalfont}{}{\bfseries}{:}{0.25em}{#2 \thmnote{#3}}
-\newtheoremstyle{nnamed}{}{}{\normalfont}{}{\bfseries}{:}{0.25em}{\thmnote{#3}}
-\newtheoremstyle{itshape}{}{}{\itshape}{}{\bfseries}{:}{ }{}
-\newtheoremstyle{normal}{}{}{\normalfont}{}{\bfseries}{:}{ }{}
-\renewcommand*{\qed}{\hfill\ensuremath{\square}}
-
-\theoremstyle{named}
-\newtheorem{unnamedtheorem}{Theorem} \counterwithin{unnamedtheorem}{chapter}
-\theoremstyle{nnamed}
-\newtheorem*{unnamedtheorem*}{Theorem} 
-
-\theoremstyle{itshape}
-\newtheorem{definition}[unnamedtheorem]{Definition}
-
-\theoremstyle{normal}
-\newtheorem*{recall}{Recall}
-\newtheorem*{example}{Example}
-\newtheorem*{theorem}{Theorem}
-\newtheorem*{remark}{Remark}
-\newtheorem*{satz}{Satz}
-\newtheorem*{bemerkung}{Bemerkung}
-
-
-\fancypagestyle{firststyle}
-{
-   \fancyhf[C]{\small Globale Optimierung - Sonderübung III ~\\ Nadine Kostorz (1972005), Martin Belica (1775706), Leon TBD (TBD)}
-   \fancyfoot[C]{}
-}
-
 
 %% Template
 \makeatletter%
