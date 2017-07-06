@@ -192,22 +192,24 @@ Gegeben sei die Funktion $f \colon \R \rightarrow \R$, $f(x) \coloneqq x - x^2 =
 		$$ F_3 \colon \mathbb{IR} \rightarrow \mathbb{IR}, ~ F_3(X) = \operatorname{bild}(f, X) $$
 		für ein beliebiges Intervall $X \subseteq \mathbb{IR}$ explizit. Zeigen Sie, dass die von Ihnen definierte intervallwertige Funktion $F_3$ für ein beliebiges Intervall tatsächlich die Bildmenge $\operatorname{bild}(f, X)$ liefert.
 		\begin{proof}
-			Die Funktion $f$ ist als Polynom in $C^1(\R)$. Außerdem ist wegen 
+			Die Funktion $f$ ist als Polynom in $C^1(\R)$ und das Bild somit ein  Intevrall. Außerdem ist wegen 
 				$$ f'(x) = 1 - 2x $$ 
 			die Funktion $f$ 
 			\begin{itemize}
 				\item monoton steigend für $x < \frac{1}{2}$, und
 				\item monoton fallend für $x > \frac{1}{2}$.
 			\end{itemize}
-			Somit sind für die Intervalle innerhalb dieser Bereichen entsprechend die Funktionswerte der Grenzen des Intervalls $X$ auch den Grenzen der Bildmenge $\operatorname{bild}(f,X)$
+			Damit ist für $X \subseteq \left(-\infty, \frac{1}{2} \right)$ oder $X \subseteq \left(\frac{1}{2}, \infty \right)$ das Bild von $f$ unter $X$,  ein Intevrall dessen Grenzen durch die Grenzen von $X$ unter $f$ gegeben ist. Somit ergibt sich das Bild in diesen Fällen zu
 			\begin{itemize}
-				\item für $\overline{x} < 1/2$ ist dabei:
-					$$ \operatorname{bild}(f,X) = \left[f(\underline{x}), f(x) \right]; $$
-				\item für $\underline{x} >1/2$ ist dabei:
-					$$ \operatorname{bild}(f,X) = \left[f(x), f(\underline{x})\right]; $$
-				\item für $\frac{1}{2} \in X$ ist $f \left( \frac{1}{2} \right) = \frac{1}{4}$ die Obergrenze der Bildmenge. Die Untergrenze ergibt sich aus der Vereinigung der Bildmenge des Intervalls links von $\frac{1}{2}$ und der Bildmenge rechts von $\frac{1}{2}$, es ist also;
-					$$ \min \left\{ \underline{x} - \underline{x}^2, x \right\}. $$
+				\item für $\overline{x} < 1/2$ ist, und damit $X \subseteq \left(-\infty, \frac{1}{2} \right)$, d.h.:
+					$$ \operatorname{bild}(f,X) = \left[f(\underline{x}), f(\overline{x}) \right]; $$
+				\item für $\underline{x} >1/2$ ist, und damit $X \subseteq \left(\frac{1}{2}, \infty \right)$, d.h.:
+					$$ \operatorname{bild}(f,X) = \left[f((\overline{x}), f(\underline{x})\right]; $$
 			\end{itemize}
+			Ist hingegen $\frac{1}{2} \in X$, so folgt wegen
+				$$ f''(x) = 2 < 0 $$
+			 und der Monotonie auf den Teilintervallen, dass $f \left( \frac{1}{2} \right) = \frac{1}{4}$ die Obergrenze der Bildmenge ist. Die Untergrenze ergibt sich aus der Vereinigung der Bildmenge des Intervalls links von $\frac{1}{2}$ und der Bildmenge rechts von $\frac{1}{2}$. Nach Obigem folgt somit:
+					$$ \operatorname{bild}(f,X) = \left[ \min \left\{ f(\underline{x}), f(\overline{x}) \right\}, f \left( \frac{1}{2} \right) \right] . $$
 		\end{proof}
 	\item Implementieren Sie die intervallwertigen Funktionen $F_1$, $F_2$ und $F_3$.
 		\begin{proof} ~\
