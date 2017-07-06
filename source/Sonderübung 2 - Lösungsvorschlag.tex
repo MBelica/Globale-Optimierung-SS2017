@@ -99,12 +99,13 @@
 \newtheorem*{bemerkung}{Bemerkung}
 
 
-
 \fancypagestyle{firststyle}
 {
    \fancyhf[C]{\small Globale Optimierung - Sonderübung III ~\\ Nadine Kostorz (1972005), Martin Belica (1775706), Leon TBD (TBD)}
    \fancyfoot[C]{}
 }
+
+
 %% Template
 \makeatletter%
 \DeclareUnicodeCharacter{00A0}{ } \pgfplotsset{compat=1.7} \hypersetup{colorlinks,breaklinks, urlcolor=linkcolor, linkcolor=linkcolor, pdftitle=\@title, pdfauthor=\@author, pdfsubject=\@title, pdfcreator=\@publishers}\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}} \ProcessOptions \def\baselinestretch{\mystretch} \setlength{\oddsidemargin}{0.125in} \setlength{\evensidemargin}{0.125in} \setlength{\topmargin}{0.5in} \setlength{\textwidth}{6.25in} \setlength{\textheight}{8in} \addtolength{\topmargin}{-\headheight} \addtolength{\topmargin}{-\headsep} \def\pulldownheader{ \addtolength{\topmargin}{\headheight} \addtolength{\topmargin}{\headsep} \addtolength{\textheight}{-\headheight} \addtolength{\textheight}{-\headsep} } \def\pullupfooter{ \addtolength{\textheight}{-\footskip} } \def\ps@headings{\let\@mkboth\markboth \def\@oddfoot{} \def\@evenfoot{} \def\@oddhead{\hbox {}\sl \rightmark \hfil \rm\thepage} \def\chaptermark##1{\markright {\uppercase{\ifnum \c@secnumdepth >\m@ne \@chapapp\ \thechapter. \ \fi ##1}}} \pulldownheader } \def\ps@myheadings{\let\@mkboth\@gobbletwo \def\@oddfoot{} \def\@evenfoot{} \def\sectionmark##1{} \def\subsectionmark##1{}  \def\@evenhead{\rm \thepage\hfil\sl\leftmark\hbox {}} \def\@oddhead{\hbox{}\sl\rightmark \hfil \rm\thepage} \pulldownheader }	\def\chapter{\cleardoublepage  \thispagestyle{plain} \global\@topnum\z@ \@afterindentfalse \secdef\@chapter\@schapter} \def\@makeschapterhead#1{ {\parindent \z@ \raggedright \normalfont \interlinepenalty\@M \Huge \bfseries  #1\par\nobreak \vskip 40\p@ }} \newcommand{\indexsection}{chapter} \patchcmd{\@makechapterhead}{\vspace*{50\p@}}{}{}{}\def\Xint#1{\mathchoice
@@ -205,25 +206,34 @@ den Durchmesser von $M$. Zeigen Sie, dass der Durchmesser einer Box $X$ mit ihre
 Gegeben sei die Funktion $f \colon \R \rightarrow \R$, $f(x) \coloneqq x - x^2 = x - x \cdot x = x \cdot \left( 1 - x \right)$ und die intervallwertigen Funktionen
 	$$ F_1 \colon \mathbb{IR} \rightarrow \mathbb{IR}, ~ F_1(X) = X - X X, \quad F_2 \colon \mathbb{IR} \rightarrow \mathbb{IR}, ~ F_2(X) = X(1- X) $$
 \begin{enumerate}
-	\item Zeigen Sie, dass sowohl $F_1$, als auch $F_2$ eine natürliche Intervallerweiterung von $f$ ist.
-		\begin{proof} ~\
-			\begin{itemize}
-				\item Zunächst gilt, dass $f(x)$ als Komposition von Grundrechenarten nach Definition 3.3.2 eine faktorisierbare Funktion ist. Mit $F_1(X)=X-XX=X-X^2=f(x)$ gilt nach Definition 3.3.4, $F_1$ ist natürliche Intervallerweiterung von $f$.
-				\item Zunächst gilt, dass $f(x)$ als Komposition von Grundrechenarten nach Definition 3.3.2 eine faktorisierbare Funktion ist. Mit $F_2(X)=X(1-X)=X-XX=X-X^2=f(X)$ gilt nach Definition 3.3.4, $F_2$ ist natürliche Intervallerweiterung von $f$.
-			\end{itemize}
+	\item Zeigen Sie, dass $F_1$, als auch $F_2$ eine natürliche Intervallerweiterung von $f$ ist.
+		\begin{proof} 
+			Zunächst gilt, dass $f(x)$ als Komposition von Grundrechenarten nach Definition 3.3.2 eine faktorisierbare Funktion ist. Mit 
+			$$ F_1(X) = X-XX = X-X^2 = f(x) $$
+			gilt nach Definition 3.3.4, dass $F_1$ die natürliche Intervallerweiterung von $f$ ist. Analog gilt mit 
+			$$ F_2(X)=X(1-X)=X-XX=X-X^2=f(X) $$
+			nach Definition 3.3.4, dass $F_2$ die natürliche Intervallerweiterung von $f$ ist.
 		\end{proof}
 	\item Bestimmen Sie durch geschickte Fallunterscheidung
 		$$ F_3 \colon \mathbb{IR} \rightarrow \mathbb{IR}, ~ F_3(X) = \operatorname{bild}(f, X) $$
 		für ein beliebiges Intervall $X \subseteq \mathbb{IR}$ explizit. Zeigen Sie, dass die von Ihnen definierte intervallwertige Funktion $F_3$ für ein beliebiges Intervall tatsächlich die Bildmenge $\operatorname{bild}(f, X)$ liefert.
 		\begin{proof}
-			Die Funktion $f(x)$ ist nach Definition stetig und differenzierbar. Außerdem ist wegen 
-					$$f'(x)=1-2x$$ 
-					die Funktion $f$ monoton steigend für $x<\frac{1}{2}$ und monoton fallend für $x>1/2$. Somit sind für die Intervalle innerhalb dieser Bereichen entsprechend die Funktionswerte der Grenzen des Intervalls X auch den Grenzen der Bildmenge bild(f,X)
-					\begin{itemize}
-						\item  für $xoben < 1/2$ ist dabei $bild(f,X) =[f(\underline{x}), f(x)]$
-						\item für $\underline{x} >1/2$ ist dabei $bild(f,X) =[f(x), f(\underline{x})]$
-						\item für $1/2 \in X$ ist $f(1/2)=1/4$ die Obergrenze der Bildmenge. Die Untergrenze ergibt sich aus der Vereinigung der Bildmenge des Intervalls links von 1/2 und der Bildmenge rechts von 1/2, se ist also $min\{\underline{x} - \underline{x}^2, x\}$
-					\end{itemize}
+			Die Funktion $f$ ist als Polynom in $C^1(\R)$. Außerdem ist wegen 
+				$$ f'(x) = 1 - 2x $$ 
+			die Funktion $f$ ($f$ hat ein Extremum in $x = \frac{1}{2}$)
+			\begin{itemize}
+				\item monoton steigend für $x < \frac{1}{2}$, 
+				\item monoton fallend für $x > \frac{1}{2}$, und
+			\end{itemize}
+			Somit sind für die Intervalle innerhalb dieser Bereichen entsprechend die Funktionswerte der Grenzen des Intervalls $X$ auch den Grenzen der Bildmenge $\operatorname{bild}(f,X)$
+			\begin{itemize}
+				\item für $\overline{x} < 1/2$ ist dabei:
+					$$ \operatorname{bild}(f,X) = \left[f(\underline{x}), f(x) \right]; $$
+				\item für $\underline{x} >1/2$ ist dabei:
+					$$ \operatorname{bild}(f,X) = \left[f(x), f(\underline{x})\right]; $$
+				\item für $\frac{1}{2} \in X$ ist $f \left( \frac{1}{2} \right) = \frac{1}{4}$ die Obergrenze der Bildmenge. Die Untergrenze ergibt sich aus der Vereinigung der Bildmenge des Intervalls links von $\frac{1}{2}$ und der Bildmenge rechts von $\frac{1}{2}$, es ist also;
+					$$ \min \left\{ \underline{x} - \underline{x}^2, x \right\}. $$
+			\end{itemize}
 		\end{proof}
 	\item Implementieren Sie die intervallwertigen Funktionen $F_1$, $F_2$ und $F_3$.
 		\begin{proof} ~\
