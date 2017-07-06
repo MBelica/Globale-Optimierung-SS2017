@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.20)  6 JUL 2017 19:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.20)  6 JUL 2017 19:35
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1470,13 +1470,13 @@ Package rerunfilecheck Info: File `"Sonderübung 3 - Lösungsvorschlag".out' h
 Here is how much of TeX's memory you used:
  38066 strings out of 493014
  861360 string characters out of 6133351
- 1028774 words of memory out of 5000000
+ 1029774 words of memory out of 5000000
  40946 multiletter control sequences out of 15000+600000
  39327 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,12n,84p,10435b,657s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Sonderübung 3 - Lösungsvorschlag.pdf" (8 pages, 457877 bytes).
+Output written on "/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Sonderübung 3 - Lösungsvorschlag.pdf" (8 pages, 457925 bytes).
 PDF statistics:
  145 PDF objects out of 1000 (max. 8388607)
  102 compressed objects within 2 object streams
