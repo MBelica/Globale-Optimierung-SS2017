@@ -176,7 +176,7 @@ auf der Box $X = [0, 1] \times [-1, 1]$.
 			\end{figure*}
 	\item Bestimmen Sie Optimalpunkte von $\hat{f}^1_{\alpha_1}$ auf $X^1$ und $\hat{f}^2_{\alpha_2}$ auf $X^2$ mit einem Solver Ihrer Wahl. Runden Sie das Ergebnis auf zwei Nachkommastellen. Bestimmen Sie $\tilde{v}$ und $\hat{v}^*$? Begründen Sie: Würde $X^1$ oder $X^2$ als $X^*$ für die nächste Iteration von Algorithmus 3.3 verwendet werden?
 		\begin{proof}
-			Es ist $\hat{x}^1 \approx (0.26, -0.47)$, $\hat{x}^2 \approx (0.38, 0.35)$
+			Es ist $\hat{x}^1 \approx (0.62, -0.47)$, $\hat{x}^2 \approx (0.38, 0.35)$
 			$$ \Rightarrow \tilde{x} = \hat{x}^1 $$
 			$\tilde{v} = f(\hat{x}^1) \approx -0.1982$, $\hat{v}^* = \hat{f}_{\alpha_1}(\hat{x}^1) \approx -1.4099$
 			$$ \Rightarrow x^* = x^1, \text{ da } \hat{v}^1 = \min_{l =1, 2} \hat{v}^l $$
@@ -211,7 +211,7 @@ Gegeben seien stetige Funktionen $f, g \colon X \rightarrow \R$, auf einer konve
 		\begin{proof}
 			Die gilt im Allgemeinen nicht. Betrachtet man den Fall $n = 2$ und $X = [-1, 1]^2$ (wodurch $X$ konvex ist), so folgt mit 
 			$$ f(x) = \frac{1}{2} \left( 3 x_1^2 -  x_2^2 \right) ~ \text{ und } ~ \tilde{g}(x) = \frac{1}{2} \left( -x_1^2 + 3 x_2^2 \right), $$
-			 dass $f$ und $g$ als Polynome in $C^1(X)$ liegen. Außerdem sind $f, g$ nicht konvex, was aus Satz 2.2.2 ($C^1$-Charakterisierung von Konvexität) folgt, da
+			 dass $f$ und $\tilde{g}$ als Polynome in $C^1(X)$ liegen. Außerdem sind $f, \tilde{g}$ nicht konvex, was aus Satz 2.2.2 ($C^1$-Charakterisierung von Konvexität) folgt, da
 			\begin{align*}
 				f \left(\begin{pmatrix} 1 \\ 1 \end{pmatrix} \right) = 1 \leq & 1 + 2 = f \left(\begin{pmatrix} 1 \\ -1 \end{pmatrix} \right) + \left\langle \begin{pmatrix} 3 \\ 1 \end{pmatrix} ,  \begin{pmatrix} 1 \\ 1 \end{pmatrix} -  \begin{pmatrix} 1 \\ -1 \end{pmatrix} \right\rangle \\
 				\tilde{g} \left(\begin{pmatrix} 1 \\ -1 \end{pmatrix} \right) = 1 \leq & 1 + 2 = \tilde{g} \left(\begin{pmatrix} -1 \\ -1 \end{pmatrix} \right) + \left\langle \begin{pmatrix} 1 \\ -3 \end{pmatrix} ,  \begin{pmatrix} 1 \\ -1 \end{pmatrix} -  \begin{pmatrix} -1 \\ -1 \end{pmatrix} \right\rangle \
@@ -222,7 +222,7 @@ Gegeben seien stetige Funktionen $f, g \colon X \rightarrow \R$, auf einer konve
 			$$ D^2 \hat{f} = \begin{pmatrix}
 				2 & 0 \\ 0 & 2
 			\end{pmatrix} \succ 0 $$
-			wodurch $\hat{f}$ nach Satz 2.5.3 ($C^2$-Charakterisierung von Konvexität) konvex ist. Insgesamt erhalten wir eine konvexe Funktion $\hat{f}$ für die $\hat{f}(x) \leq f(x)$ gilt, d.h. $\hat{f}$ ist eine konvexe Relaxierung.
+			wodurch $\hat{f}$ nach Satz 2.5.3 ($C^2$-Charakterisierung von Konvexität) konvex ist. Insgesamt erhalten wir eine konvexe Funktion $\hat{f}$ für die $\hat{f}(x) \leq f(x)$ gilt, d.h. $\hat{f}$ ist eine konvexe Relaxierung von $f$.
 		\end{proof}
 	\item Nun gelte $g(x) \geq -2$ für alle $x \in X$. Zeigen Sie, dass für die Minimalwerte $v$ bzw. $\hat{v}$ von $f$ bzw. $\hat{f}$ auf $X$ gilt:
 		$$ 0 \leq v - \hat{v} \leq 2. $$
