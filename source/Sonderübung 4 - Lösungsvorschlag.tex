@@ -248,7 +248,15 @@ Gegeben seien stetige Funktionen $f, g \colon X \rightarrow \R$, auf einer konve
 		\end{proof}
 	\item Geben Sie eine Funktion $f$, eine Box $X$ und ein $\alpha \geq 0$ an, sodass das die Voraussetzungen aus c) erfüllt und die Ungleichung aus c) mit Gleichheit erfüllt ist.
 		\begin{proof}
-			a
+			Sei für $X = [-1, 1]$ die Funktion $f(x) = - x^4 +  x^2$, dann ist 
+			$$ f(x) \geq 0, \text{ d a} - x^4 +  x^2 \geq 0 \iff x^2 \leq 1 $$
+			und $f$ ist nicht konvex da
+			$$ \frac{1}{2} f(-1) + \frac{1}{2} f(0) = 0 < \frac{3}{16} = f(-0.5) $$
+			Nach Sart 3.5.2 ($\alpha BB$-Methode) ist allerdings für $x \in X$
+			$$ \hat{f}(x) = f(x) + \alpha \psi(x) $$
+			die konvexe Relaxierung von $f$, und da $f(0) = 0 = \min_{x \in X} f(x)$ und da nach Übung 3.4.1 $\psi(0) = \psi(m(X)) = \min_{x \in X} \psi(x)$ gilt, ist
+			$$ \min_{x \in X} \hat{f}(x) = \min_{x \in X} \left( f(x) - \alpha \psi(x) \right) = \min_{x \in X} f(x) + \min_{x \in X} \psi(x)  $$
+			$$ \Rightarrow \min_{x \in X} f(x) - \min_{x \in X} \hat{f}(x) = - \min_{x in X} \psi(x) =  \frac{\alpha}{8} w(X)^2  $$
 		\end{proof}
 \end{enumerate}
 
