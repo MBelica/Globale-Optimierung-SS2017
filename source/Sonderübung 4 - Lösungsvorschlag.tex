@@ -250,11 +250,11 @@ Gegeben seien stetige Funktionen $f, g \colon X \rightarrow \R$, auf einer konve
 		\begin{proof}
 			Sei für $X = [-1, 1]$ die Funktion $f(x) = - x^4 +  x^2$, dann ist 
 			$$ f(x) \geq 0, \text{ d a} - x^4 +  x^2 \geq 0 \iff x^2 \leq 1 $$
-			und $f$ ist nicht konvex da
+			Außerdem ist $f$ nicht konvex, da
 			$$ \frac{1}{2} f(-1) + \frac{1}{2} f(0) = 0 < \frac{3}{16} = f(-0.5) $$
-			Nach Sart 3.5.2 ($\alpha BB$-Methode) ist allerdings für $x \in X$
+			Nach Satz 3.5.2 ($\alpha BB$-Methode) ist allerdings für $x \in X$ mit geeignetem $\alpha$
 			$$ \hat{f}(x) = f(x) + \alpha \psi(x) $$
-			die konvexe Relaxierung von $f$, und da $f(0) = 0 = \min_{x \in X} f(x)$ und da nach Übung 3.4.1 $\psi(0) = \psi(m(X)) = \min_{x \in X} \psi(x)$ gilt, ist
+		 die konvexe Relaxierung von $f$. Da $f(0) = 0 = \min_{x \in X} f(x)$ und nach Übung 3.4.1 $\psi(0) = \psi(m(X)) = \min_{x \in X} \psi(x)$ gilt, ist somit:
 			$$ \min_{x \in X} \hat{f}(x) = \min_{x \in X} \left( f(x) - \alpha \psi(x) \right) = \min_{x \in X} f(x) + \min_{x \in X} \psi(x)  $$
 			$$ \Rightarrow \min_{x \in X} f(x) - \min_{x \in X} \hat{f}(x) = - \min_{x in X} \psi(x) =  \frac{\alpha}{8} w(X)^2  $$
 		\end{proof}
