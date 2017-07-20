@@ -140,6 +140,61 @@
 
 \subsubsection*{Aufgabe 3}
 
+Betrachten Sie nun wieder die Funktion
+	$$ f(x) = x_12 x_2 + 2x_1 x_2^2 + x_1 x_2 $$
+auf der Box $X = [0, 1] \times [-1, 1]$.
+
+\begin{enumerate}
+	\item Nutzen Sie Ihre in Aufgabe S. 4.1. implementierte Funktion, um die Matrix $D^2 F(X)$ auszugeben. Verwenden Sie Ihre in Aufgabe 4.2 implementierte Fkt. $lambda$_$min$, um eine Unterschranke $\beta$ des kleinsten Eigenwertes der Hessematrix $D^2 f$ auf $X$ zu berechnen und geben Sie diese aus.
+		\begin{proof} ~\\
+			\begin{figure*}[h!] \centering
+				\includegraphics[scale=0.7]{img/su2iv-iii-1}
+			\end{figure*}
+		\end{proof} \newpage
+	\item Bestimmen Sie mit Hilfe von Aufgabenteil a) eine konvexe Relaxierung $\hat{f}_\alpha$ der Funktion $f$ auf $X$. Geben Sie diese auf der schriftlichen Abgabe an.
+		\begin{proof}
+			$$ \hat{f}_\alpha = x_1^2 x_2 + 2 x_1 x_2^2 + x_1 x_2 + \frac{9}{2} \left( - x_1 + x_1^2 + x_2^2 -1 \right) $$
+		\end{proof}
+	\item Plotten Sie die beiden Funktionen $\hat{f}_\alpha$ und $f$ auf $X$ in eine Grafik, sodass gut erkennbar ist, dass $\hat{f}_\alpha$ konvexe Relaxierung von $f$ auf $X$ ist.
+		\begin{proof} ~\\
+			\begin{figure*}[h!] \centering
+				\includegraphics[scale=0.46]{img/su2iv-iii-2}
+			\end{figure*}
+		\end{proof} \newpage
+	\item Welche Teilboxen $X^1$ und $X^2$ ergeben sich, wenn die Box entsprechend Algorithmus 3.3 halbiert wird? Mit der Notation von Algorithmus 3.3: Plotten Sie $f$ auf $X$, $\hat{f}_{\alpha}^1$ auf $X^1$ und $\hat{f}_{\alpha}^2$ auf $X^2$ in eine Grafik.
+		\begin{proof}
+			Nach Algorithmus 3.3 
+			$$ X^1 = [0, 1] \times [-1, 0], \quad X^2 = [0, 1] \times [0, 1] $$
+			
+			\begin{figure*}[h!] \centering
+				\includegraphics[scale=0.55]{img/su2iv-iii-3}
+			\end{figure*}
+		\end{proof}
+	\item Bestimmen Sie nun mit der Funktion $lambda$_$min$ individuelle Unterschranken des kleinsten Eigenwertes der Hessematrix $D^2 f$ auf $X^i$, $i \in \{1, 2 \}$ und geben Sie diese aus. Nutzen Sie diese, um (möglicherweise) bessere Relaxierungen $\hat{f}^1_{\alpha_1}$ und $\hat{f}^2_{\alpha_2}$  zu bestimmen. Plotten Sie $f$ auf $X$, $\hat{f}^1_{\alpha_1}$ auf $X^1$ und $\hat{f}^2_{\alpha_2}$ auf $X^2$ in eine Grafik. Vergleichen Sie Ihr Ergebnis mit Aufgabenteil d).
+			\begin{figure*}[h!] \centering
+				\includegraphics[scale=0.625]{img/su2iv-iii-4}
+			\end{figure*}
+	\item Bestimmen Sie Optimalpunkte von $\hat{f}^1_{\alpha_1}$ auf $X^1$ und $\hat{f}^2_{\alpha_2}$ auf $X^2$ mit einem Solver Ihrer Wahl. Runden Sie das Ergebnis auf zwei Nachkommastellen. Bestimmen Sie $\tilde{v}$ und $\hat{v}^*$? Begründen Sie: Würde $X^1$ oder $X^2$ als $X^*$ für die nächste Iteration von Algorithmus 3.3 verwendet werden?
+		\begin{proof}
+			Es ist $\hat{x}^1 \approx (0.26, -0.47)$, $\hat{x}^2 \approx (0.38, 0.35)$
+			$$ \Rightarrow \tilde{x} = \hat{x}^1 $$
+			$\tilde{v} = f(\hat{x}^1) \approx -0.1982$, $\hat{v}^* = \hat{f}_{\alpha_1}(\hat{x}^1) \approx -1.4099$
+			$$ \Rightarrow x^* = x^1, \text{ da } \hat{v}^1 = \min_{l =1, 2} \hat{v}^l $$
+			\begin{figure*}[h!] \centering
+				\includegraphics[scale=0.65]{img/su2iv-iii-5}
+			\end{figure*}
+		\end{proof} \newpage
+	\item Bestimmen Sie, aufbauend auf Aufgabenteil f), ein möglichst kleines Intervall, in dem der optimale Zielfunktionswert $v$ liegt.
+		\begin{proof}
+			Es ist
+			$$ -1.4099 \leq v \leq -0.1982 \iff v \in [-1.4099, -0.1982] $$
+		\end{proof}
+	\item Was passiert, wenn Sie versuchen mit dem in Aufgabenteil d) verwendeten Solver das Minimum von $f$ auf$ X$ mit Startpunkt $x_0 = (0,0)^T$ auszurechnen? Vergleichen Sie Ihr Ergebnis mit Aufgabenteil f) und g).
+		\begin{proof}
+			todo
+		\end{proof}
+\end{enumerate}
+
 \newpage
 
 \subsubsection*{Aufgabe 4}
@@ -152,18 +207,20 @@ Gegeben seien stetige Funktionen $f, g \colon X \rightarrow \R$, auf einer konve
 \begin{enumerate}
 	\item Folgt hieraus, dass $g$ eine konvexe Funktion ist? Beweisen Sie Ihre Behauptung.
 		\begin{proof}
-			Die gilt im Allgemeinen nicht. Betrachtet man den Fall $n = 2$ und $X = [-1, 1]^2$, so folgt mit 
-			$$ f(x) = \frac{1}{2} \left( 3 x_1^2 -  x_2^2 \right) ~ \text{ und } ~ g(x) = \frac{1}{2} \left( -x_1^2 + 3 x_2^2 \right), $$
-			dass $X$ konvex ist, und $f$ und $g$ als Polynome in $C^1(X)$. Außerdem sind $f, g$ nicht konvex, da mit Satz 2.2.2 ($C^1$-Charakterisierung von Konvexität) folgt
+			Die gilt im Allgemeinen nicht. Betrachtet man den Fall $n = 2$ und $X = [-1, 1]^2$ (wodurch $X$ konvex ist), so folgt mit 
+			$$ f(x) = \frac{1}{2} \left( 3 x_1^2 -  x_2^2 \right) ~ \text{ und } ~ \tilde{g}(x) = \frac{1}{2} \left( -x_1^2 + 3 x_2^2 \right), $$
+			 dass $f$ und $g$ als Polynome in $C^1(X)$ liegen. Außerdem sind $f, g$ nicht konvex, was aus Satz 2.2.2 ($C^1$-Charakterisierung von Konvexität) folgt, da
 			\begin{align*}
 				f \left(\begin{pmatrix} 1 \\ 1 \end{pmatrix} \right) = 1 \leq & 1 + 2 = f \left(\begin{pmatrix} 1 \\ -1 \end{pmatrix} \right) + \left\langle \begin{pmatrix} 3 \\ 1 \end{pmatrix} ,  \begin{pmatrix} 1 \\ 1 \end{pmatrix} -  \begin{pmatrix} 1 \\ -1 \end{pmatrix} \right\rangle \\
-				g \left(\begin{pmatrix} 1 \\ -1 \end{pmatrix} \right) = 1 \leq & 1 + 2 = g \left(\begin{pmatrix} -1 \\ -1 \end{pmatrix} \right) + \left\langle \begin{pmatrix} 1 \\ -3 \end{pmatrix} ,  \begin{pmatrix} 1 \\ -1 \end{pmatrix} -  \begin{pmatrix} -1 \\ -1 \end{pmatrix} \right\rangle \
+				\tilde{g} \left(\begin{pmatrix} 1 \\ -1 \end{pmatrix} \right) = 1 \leq & 1 + 2 = \tilde{g} \left(\begin{pmatrix} -1 \\ -1 \end{pmatrix} \right) + \left\langle \begin{pmatrix} 1 \\ -3 \end{pmatrix} ,  \begin{pmatrix} 1 \\ -1 \end{pmatrix} -  \begin{pmatrix} -1 \\ -1 \end{pmatrix} \right\rangle \
 			\end{align*} 
-			Allerdings hat $\hat{f}$ die Form $\hat{f}(x) = x_1^2 + x_2^2$, ist in $C^2(X)$ als Polynom und damit
+			Es gilt außerdem, dass
+			$$ \frac{3}{2} x_1^2 \geq f(x) \geq -\frac{1}{2} x_2^2 $$
+			für alle $x \in X$, sodass $f(x) \in [-0.5, 1.5]$ und analog $\tilde{g}(x) \in [-0.5, 1.5]$. Somit folgt mit $g \coloneqq g - 1.5$, dass als Verschiebung von $\tilde{g}$ die Funktion $g$ ebenfalls nicht konvex ist, $\hat{f}(x) = f(x) + g(x) = x_1^2 + x_2^2 - 1.5 \leq f(x)$ für alle $x \in X$. Außerdem ist $\hat{f}$ in $C^2(X)$ als Polynom und damit
 			$$ D^2 \hat{f} = \begin{pmatrix}
 				2 & 0 \\ 0 & 2
 			\end{pmatrix} \succ 0 $$
-			wodurch $\hat{f}$ nach Satz 2.5.3 ($C^2$-Charakterisierung von Konvexität) konvex ist. % todo Verschiebung
+			wodurch $\hat{f}$ nach Satz 2.5.3 ($C^2$-Charakterisierung von Konvexität) konvex ist. Insgesamt erhalten wir eine konvexe Funktion $\hat{f}$ für die $\hat{f}(x) \leq f(x)$ gilt, d.h. $\hat{f}$ ist eine konvexe Relaxierung.
 		\end{proof}
 	\item Nun gelte $g(x) \geq -2$ für alle $x \in X$. Zeigen Sie, dass für die Minimalwerte $v$ bzw. $\hat{v}$ von $f$ bzw. $\hat{f}$ auf $X$ gilt:
 		$$ 0 \leq v - \hat{v} \leq 2. $$
