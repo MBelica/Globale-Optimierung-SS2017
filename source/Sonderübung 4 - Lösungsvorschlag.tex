@@ -171,9 +171,12 @@ auf der Box $X = [0, 1] \times [-1, 1]$.
 			\end{figure*}
 		\end{proof}
 	\item Bestimmen Sie nun mit der Funktion $lambda$_$min$ individuelle Unterschranken des kleinsten Eigenwertes der Hessematrix $D^2 f$ auf $X^i$, $i \in \{1, 2 \}$ und geben Sie diese aus. Nutzen Sie diese, um (möglicherweise) bessere Relaxierungen $\hat{f}^1_{\alpha_1}$ und $\hat{f}^2_{\alpha_2}$  zu bestimmen. Plotten Sie $f$ auf $X$, $\hat{f}^1_{\alpha_1}$ auf $X^1$ und $\hat{f}^2_{\alpha_2}$ auf $X^2$ in eine Grafik. Vergleichen Sie Ihr Ergebnis mit Aufgabenteil d).
+		\begin{proof}
+			Im Vergleich zur d) liegt der Graph der Relaxierung etwas näher an dem der ursprünglichen Funktion.
 			\begin{figure*}[h!] \centering
-				\includegraphics[scale=0.625]{img/su2iv-iii-4}
+				\includegraphics[scale=0.55]{img/su2iv-iii-4}
 			\end{figure*}
+		\end{proof}		
 	\item Bestimmen Sie Optimalpunkte von $\hat{f}^1_{\alpha_1}$ auf $X^1$ und $\hat{f}^2_{\alpha_2}$ auf $X^2$ mit einem Solver Ihrer Wahl. Runden Sie das Ergebnis auf zwei Nachkommastellen. Bestimmen Sie $\tilde{v}$ und $\hat{v}^*$? Begründen Sie: Würde $X^1$ oder $X^2$ als $X^*$ für die nächste Iteration von Algorithmus 3.3 verwendet werden?
 		\begin{proof}
 			Es ist $\hat{x}^1 \approx (0.62, -0.47)$, $\hat{x}^2 \approx (0.38, 0.35)$
@@ -249,7 +252,7 @@ Gegeben seien stetige Funktionen $f, g \colon X \rightarrow \R$, auf einer konve
 	\item Geben Sie eine Funktion $f$, eine Box $X$ und ein $\alpha \geq 0$ an, sodass das die Voraussetzungen aus c) erfüllt und die Ungleichung aus c) mit Gleichheit erfüllt ist.
 		\begin{proof}
 			Sei für $X = [-1, 1]$ die Funktion $f(x) = - x^4 +  x^2$, dann ist 
-			$$ f(x) \geq 0, \text{ d a} - x^4 +  x^2 \geq 0 \iff x^2 \leq 1 $$
+			$$ f(x) \geq 0, ~\text{ da } - x^4 +  x^2 \geq 0 \iff x^2 \leq 1 $$
 			Außerdem ist $f$ nicht konvex, da
 			$$ \frac{1}{2} f(-1) + \frac{1}{2} f(0) = 0 < \frac{3}{16} = f(-0.5) $$
 			Nach Satz 3.5.2 ($\alpha BB$-Methode) ist allerdings für $x \in X$ mit geeignetem $\alpha$
