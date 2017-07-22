@@ -1,0 +1,8 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{MyPackage}
+\RequirePackage{environ}
+\newif\if@hidden% \@hiddenfalse
+\DeclareOption{hide}{\global\@hiddentrue}
+\ProcessOptions\relax
+\NewEnviron{beispiel}
+  {\if@hidden\else\begin{beispiels}\BODY\end{beispiels}\fi}

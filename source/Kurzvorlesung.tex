@@ -18,6 +18,7 @@
 \usepackage{mathtools}
 \usepackage{xpatch}
 \usepackage{pgfplots}
+\usepackage{stackengine}
 \pgfplotsset{compat=1.7}
 \usetikzlibrary{calc}	
 \usetikzlibrary{matrix}	
@@ -70,7 +71,7 @@
 
 \theoremstyle{normal}
 \newtheorem*{anwendung}{Anwendung}
-\newtheorem*{beispiel}{Beispiel}
+\newtheorem*{beispiels}{Beispiel}
 \newtheorem*{bemerkung}{Bemerkung} 
 \newtheorem*{bezeichnung}{Bezeichnung}
 \newtheorem*{eigenschaft}{Eigenschaft}
@@ -101,6 +102,18 @@
 	 	\begin{center} \@publishers \end{center} 
 	 		\vfill 
 	\end{titlepage} }
+\usepackage{filecontents}
+\begin{filecontents*}{MyPackage.sty}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{MyPackage}
+\RequirePackage{environ}
+\newif\if@hidden% \@hiddenfalse
+\DeclareOption{hide}{\global\@hiddentrue}
+\ProcessOptions\relax
+\NewEnviron{beispiel}
+  {\if@hidden\else\begin{beispiels}\BODY\end{beispiels}\fi}
+\end{filecontents*}
+\usepackage[hide]{MyPackage}
 \makeatother%
 
 
@@ -496,6 +509,8 @@ Sei $f \colon \R^n \rightarrow \R$ stetig und mit einem $\alpha \in \R$ sei $f_{
 	$f(x) = x_1 + x_2$, $g_1(x) = - x_1$ und $g_2(x) = -x_2$.
 \end{beispiel}
 
+\newpage
+
 \section{$C^1$-Charakterisierung}
 
 \begin{bemerkung}[Kettenregel] $D(f \circ g)(\overline{x}) = D f(g(\overline{x})) \cdot D g(\overline{x})$	
@@ -512,6 +527,8 @@ Sei $f \colon \R^n \rightarrow \R$ stetig und mit einem $\alpha \in \R$ sei $f_{
 	$$ \forall x, y \in M: \quad f(y) \geq f(x) + \langle \nabla f(x), y - x \rangle $$
 	Die $C^1$-Charakterisierung besagt, dass eine $C^1$-Funktion genau dann konvex auf $M$ ist, wenn ihr Graph über jeder seiner Tangentialebenen verläuft.
 \end{satz}
+
+\newpage
 
 \section{Lösbarkeit}
 
@@ -539,6 +556,8 @@ Für die Lösbarkeit von $P$ ist Konvexität alleine kein wesentlicher Vorteil: 
 	Angemerkt sei, dass die Stetigkeitsforderung an $f$ in Satz 2.3.3c) nach Lemma 2.3.2b) unnötig ist, falls die Menge $M$ mit ihrem Inneren übereinstimmt (z.B. für $M = \R^n$).
 \end{satz}
 
+\newpage
+
 \section{Optimalitätsbedingungen für unrestringierte Probleme}
 
 Wir betrachten im Folgenden das unrestringierte Problem 
@@ -552,7 +571,6 @@ Allgemeiner bezeichnet man auch Probleme mit offener zulässiger Menge $M$ als u
 \begin{satz}[2.4.2, Fermat'sche Regel, notwendige Optimalitätsbedingung]
 	Der Punkt $\overline{x} \in \R^n$ sei lokal minimal für $f \in C^1(\R^n, \R)$. Dann ist $\overline{x}$ kritischer Punkt von $f$. Achtung dies ist lediglich notwendig und nicht hinreichend.
 \end{satz}
-
 
 \begin{beispiel}[2.4.3, Fortsetzung von 1.1.5 - Zentrum einer Punktewolke] ~\\
 	Gegeben seien Punkte $x^1, x^2, \dotsc, x^m \in \R^n$. Gesucht ist ein Punkt $z \in \R^n$ \enquote{im Zentrum der Punkte}. Benutzt man die 2-Norm so führt dies auf das Optimierungsproblem
@@ -593,6 +611,8 @@ Zur Bestimmung globaler Minimalpunkte unrestringierter konvexer $C^1$-Probleme g
 
 Insbesondere erhält man auch diese Aussage: falls $f$ keinen kritischen Punkt besitzt, dann auch keinen globalen Minimalpunkt. Dazu muss allerdings bewiesen werden, dass $f$ keinen kritischen Punkt besitzen kann (ein einfaches Beispiel hierfür ist $f(x) = e^x$).
 
+\newpage
+
 \section{$C^2$-Charakterisierung von Konvexität}
 
 \begin{satz}[2.5.1, Quadratische Approximation per Satz von Taylor im $\R^n$]
@@ -615,7 +635,7 @@ Insbesondere erhält man auch diese Aussage: falls $f$ keinen kritischen Punkt b
 	Der Punkt $\overline{x}$ sei lokaler Minimalpunkt von $f \colon \R^n \rightarrow \R$, und $f$ sei an $\overline{x}$ zweimal differenzierbar. Dann gilt $\nabla f(\overline{x}) = 0$ und $D^2 f(\overline{x}) \succeq 0$.
 \end{satz}
 
-\section{$C^2$-Charakterisierung von Konvexität}
+\subsection*{$C^2$-Charakterisierung von Konvexität}
 
 \begin{satz}[2.5.3, $C^2$-Charakterisierung von Konvexität]
 	Auf einer konvexen Menge $M \subseteq \R^n$ sei die Funktion $f \in C^2(M, \R)$	gegeben. 
@@ -692,7 +712,7 @@ Die Funktion $f(x) = e^x$ erfüllt $f''(x) = e^x > 0$ für alle $x \in \R$ und i
 	Nach Beispiel 1.2.38 ist $f$ trotzdem koerziv. Dies zeigt, dass die Bedingung für Koerzivität aus Lemma 2.3.2 nur hinreichend, aber nicht notwendig ist.
 \end{beispiel}
 
-\section{Konvexität und Monotonie der ersten Ableitung}
+\subsection*{Konvexität und Monotonie der ersten Ableitung}
 
 Für $n = 1$, ein offenes Intervall $M \subseteq \R$ und eine Funktion $g \in C^1(M, \R)$ ist aus der Analysis bekannt, dass $g$ genau dann monoton wachsend auf $M$ ist, wenn $g'(x) \geq 0$ für alle $x \in M$ gilt. Nach Satz 2.5.3 gilt für $n = 1$, ein offenes Intervall $M \subseteq \R$ und $f \in C^2(M, \R)$ also, dass $f$ genau dann konvex auf $M$ ist, wenn $f'$ auf $M$ monoton wächst.  In $n = 1$ ist die Monotonie von $g$ äquivalent zur Gültigkeit der Ungleichung $(g(y) - g(x))(y - x) \geq 0$.. Die motiviert für das Mehrdimensionale die folgende Definition.
 
@@ -705,7 +725,410 @@ Für $n = 1$, ein offenes Intervall $M \subseteq \R$ und eine Funktion $g \in C^
 	Auf einer konvexen Menge $M \subseteq \R^n$ ist eine Funktion $f \in C^1(M, \R)$ genau dann konvex, wenn $\nabla f$ auf $M$ monoton ist.	
 \end{satz}
 
+\newpage
+
 \section{Dualität}
+
+Wir betrachten das restringierte Optimierungsproblem 
+	$$ P: \quad \min f(x) \text{ s.t. } g_i(x) \leq 0, i \in I, ~h_j(x) = 0, j \in J $$
+mit $f, g_i, h_j \colon \R^n \rightarrow \R$, $I = \{ 1, \dotsc, p \}$, $J = \{ 1, \dotsc, q \}$, $p, q \in \N_0$ und $q < n$ (wobei z.B. $p = 0$ dem Fall $I = \emptyset$ entspricht, also der Abwesenheit von Ungleichungsrestriktionen). Zunächst setzen wir weder Konvexität noch Differenzierbarkeit der beteiligten Funktionen voraus.
+
+\begin{definition}[2.6.1, Lagrang-Funktion]
+	Die Funktion 
+	$$ L(x, \lambda, \mu) = f(x) + \sum_{i \in I} \lambda_i g_i(x) + \sum_{j \in J} \mu_j h_j(x) $$
+	mit $\mu = (\mu_1, \dotsc, \mu_p)^T$ und $\mu = ( \mu_1, \dotsc, \mu_p)^T$ heißt \textbf{Lagrangefunktion} von $P$. 
+\end{definition}
+
+Es sei zunächst $p = 0$. Dann gilt $L(x, \mu) = f(x) + \sum_{j \in J} \mu_j h_j(x)$ und 
+	$$ \varphi(x) \coloneqq \sup_{\mu \in \R^q} L(x, \mu) = \begin{cases} f(x), & \forall j \in J: h_j(x) \text{ (d.h. falls } x \in M) \\ \infty, & x \notin M \end{cases} $$
+
+\begin{beispiel}
+	$J = \{ 1 \}$, $h_1(x) = x^2 - 1$, $f(x) = x$ führt zu der in Abbildung 2.9 skizzierten Funktion $\varphi$. Statt $P$ zu lösen kann man also formal auch die unrestringierte Funktion $\varphi(x)$ minimieren (\enquote{formal}, weil $\varphi$ nicht nach $\R$ abbildet, sondern nach $\overline{\R}$). Insbesondere gilt
+	$$ v = \inf_{x \in M} f(x) = \inf_{x \in \R^n} \varphi(x) = \inf_{x \in \R^n} \sup_{\mu \in \R^q} L(x, \mu) $$	
+\end{beispiel}
+
+Nun sei $q = 0$. Dann gilt $L(x, \mu) = f(x) + \sum_{i \in I} \lambda_i g_i(x)$,
+	$$ \varphi(x) \coloneqq \sup_{\lambda \geq 0} L(x, \lambda) = \begin{cases} f(x), & x \in M, \\ \infty, & x \notin M \end{cases} $$
+und 
+	$$ v = \inf_{x \in M} f(x) = \inf_{x \in \R^n} \varphi(x) = \inf_{x \in \R^n} \sup_{\lambda \geq 0} L(x, \lambda) $$
+
+\begin{beispiel}
+	$I = \{ 1 \}$, $g_(x) = x^2 - 1$, $f(x) = x$ führt zu der in Abbildung 2.10 skizzieren Funktion $\varphi$. Analog erhält man für beliebige $p, q \in \N_0$
+		$$ \varphi(x) \coloneqq \sup_{\lambda \geq 0, \mu \in \R^q} L(x, \lambda, \mu) = \begin{cases} f(x), & x \in M \\ \infty, & x \notin M \end{cases} $$	
+	und 
+		$$ v = \inf_{x \in M} f(x) = \inf_{x \in \R^n} \varphi(x) = \inf_{x \in \R^n} \sup_{\lambda \geq 0, \mu \in \R^q} L(x, \lambda, \mu). $$
+\end{beispiel}
+
+Die zentrale Frage der Dualitätstheorie lautet, ob man in obiger Formel \enquote{$\inf$} und \enquote{$\sup$} vertauschen darf, ob also auch die folgende Formel gilt
+	$$ v = \inf_{x \in M} f(x) = \sup_{\lambda \geq 0, \mu \in \R^q} \inf_{x \in \R^n} L(x, \lambda, \mu). $$
+	
+Das folgende Beispiel zeigt, dass diese Vertauschung nicht immer möglich ist.
+	
+\begin{beispiel}[2.6.2]
+	Für $n = 1$, $p = 1$, $q = 0$, $f(x) = x^2$ und $g(x) = 1 - x^4 \leq 0$ berechnet man leicht $v = 1$. Andererseits gilt
+		$$ L(x, \lambda) = x^2 + \lambda (1 - x^4) $$
+	und damit 
+		$$ \inf_{x \in \R} L(x, \lambda) = \begin{cases} - \infty, & \lambda > 0, \\ 0, & \lambda = 0 \end{cases} $$
+	sowie
+		$$ \sup_{\lambda \geq 0} \inf_{x \in \R} L(x, \lambda) = 0 < 1 = v $$
+\end{beispiel}
+
+Die Dualitätstheorie gibt Bedingungen an, unter denen solche Beispiele ausgeschlossen, sind, unter denen also Gleichheit gilt. Dazu fassen wir den Ausdruck 
+	$$ \sup_{\lambda \geq 0, \mu \in \R^q} \inf_{x \in \R^n} L(x,\lambda, \mu) $$
+	als Maximalwert eines Optimierungsproblem aus:
+	$$ D: \quad \max_{\lambda, \mu} \psi(\lambda, \mu) \text{ s.t. } \lambda \geq 0 $$
+	mit $\psi(\lambda, \mu) \coloneqq \inf_{x \in \R^n} L(x, \lambda, \mu)$.	
+	
+\begin{definition}[2.6.3, Lagrange-Dual]
+	Das Problem $D$ heißt \textbf{Lagrange-Dual} von $P$. Seinen Maximalwert bezeichnen wir mit
+	$$ v_D \coloneqq \sup_{\lambda \geq 0, \mu \in \R^q} \psi(\lambda, \mu) $$
+	und seine zulässige Menge mit
+	$$ M_D \coloneqq \{ (\lambda, \mu) \in \R^p \times \R^q ~|~\lambda \geq 0 \} $$
+	Analog bezeichnen wir $P$ als primales Problem mit Minimalwert $v_P \coloneqq v$ und zulässiger Menge $M_P \coloneqq M$.
+\end{definition}	
+
+Die zentrale Frage der Dualitätstheorie lautet in dieser Notation, wann die Gleichheit
+	$$ v_D = v_P $$
+erfüllt ist.
+
+\begin{satz}[2.6.4, Schwacher Dualitätssatz]
+	Es gilt $v_D \leq v_P$.	
+\end{satz}
+	
+Der Wert $v_P - v_D$ heißt Dualitätslücke. In Beispiel 2.6.2 beträgt die Dualitätslücke $v_P - v_D = 1$. In dieser Terminologie lautet die zentrale Frage der Dualitätstheorie, wann die Dualitätslücke verschwindet.	 ~\\
+
+Die übliche Umformulierung dieser unendlich vielen Ungleichungen per Supremums- bzw. Infimumsbildung führt zu
+	$$ \underbrace{\sup_{\overline{\lambda} \geq 0, \overline{\mu} \in \R^q} \inf_{x \in \R^n} L(x, \overline{\lambda}, \overline{\mu})}_{v_D} \leq \underbrace{\inf_{\overline{x} \in \R^n} \sup_{\lambda \geq 0, \mu \in \R^q} L(\overline{x}, \lambda, \mu)}_{v_P} $$
+	
+Im Folgenden sei $P$ ein konvexes Optimierungsproblem mit $f, g_i \in C^1(\R^n, \R)$, $i \in I$, und $h_j$, $j \in J$, linear. Kurz gesagt sei $P$ ab jetzt konvex und $C^1$. Dann ist die Lagrangefunktion
+	$$ L(x, \lambda, \mu) = f(x) + \sum_{i \in I} \lambda_i g_i(x) + \sum_{j \in J} \mu_j h_j(x) $$
+für beliebige fest vorgegebene $\lambda \geq 0$ und $\mu \in \R^q$ konvex und $C^1$ in der Variable $x$! \smallskip
+
+Folglich ist für alle $\lambda \geq 0$, $\mu \in \R^n$ der Wert $\psi(\lambda, \mu) = \inf_{x \in \R^n} L(x, \lambda, \mu)$ der Minimalwert eines unrestringierten konvexen $C^1$-Problems. Falls dieses Infimum für alle $\lambda \geq 0$, $\mu \in \R^n$ als Minimalwert angenommen wird, lässt es sich mit Korollar 2.4.6 berechnen als
+	$$ \psi(\lambda, \mu) = L(x^*, \lambda, \mu), $$
+wobei $x^*$ einen globalen Minimalpunkt von $L(\cdot, \lambda, \mu)$ auf $\R^n$ bezeichnet, also eine Lösung $x^*$ von
+$$ \nabla_x L(x, \lambda, \mu) = 0. $$
+
+Das Dualproblem lässt sich dadurch folgendermaßen umformulieren:
+	$$ D: \quad \max_{x, \lambda, \mu} L(x, \lambda, \mu) \text{ s.t. } \nabla_x L(x, \lambda, \mu) =0, ~ \lambda \geq 0 $$
+(das sogenannte \textbf{Wolfe-Dual} von $P$), was im Gegensatz zum Lagrange-Dual ein numerisch gut handhabbares Problem ist.	Seine zulässige Menge wird nun zu
+	$$ M_D = \{ (x, \lambda, \mu) \in \R^n \times \R^p \times \R^q ~|~\nabla_x L(x, \lambda, \mu) = 0, \lambda \geq 0 \}. $$
+Einen Punkt $x \in M_P = M$ nennen wir im Folgenden \textbf{primal zulässig}, und $(x, \lambda, \mu) \in M_D$ \textbf{dual zulässig}. Schwache Dualität bedeutet jetzt
+	$$ \sup_{(x, \lambda, \mu) \in M_D} L(x, \lambda, \mu) \leq \inf_{x \in M_P} f(x) $$
+	Aufgrund der formalen Definitionen für Suprema und Infima über leere Mengen ist diese Ungleichung bemerkenswerterweise sogar für $M_D = \emptyset$ und/oder $M_P = \emptyset$ sinnvoll.
+	
+\begin{satz}[2.6.5] ~\
+	\begin{enumerate}
+		\item $\overline{x}$ sei primal zulässig. Dann ist $f(\overline{x})$ eine Oberschranke für den globalen Minimalwert von $P$:
+			$$ v_P \leq f(\overline{x}) $$
+		\item $(\overline{x}, \overline{\lambda}, \overline{\mu})$ sei dual zulässig. Dann ist $L(\overline{x}, \overline{\lambda}, \overline{\mu})$ eine Unterschrank für $v_P$:
+			$$ v_P \geq L(\overline{x}, \overline{\lambda}, \overline{\mu}) $$
+	\end{enumerate}	
+\end{satz}
+	
+\begin{beispiel}[2.6.6, Abstand von einer Hyperebene]
+	Gesucht ist der Abstand von $z \in \R^n$ zu swe Hyperebene $H = \{ x \in \R^n ~|~ a^Tx = b \}$	 mit $a \in \R^n \setminus \{ 0 \}$ und $b \in \R$. Im Folgende werden wir sehen, welche Aussagen die Dualitätstheorie für das allgemeine Problem
+	$$ P: \quad \min_{x \in \R^n} \| x - z \|_2 \text{ s.t. } a^T x = b $$
+	zulässt und diese an obigem speziellen Beispiel mit $a = (1, 2)$, $b = 2$ und $z = 0$
+	$$ \min_{x \in \R^2} \| x\|_2 \text{ s.t. } x_1 + 2x_2 = 2 $$
+	verdeutlichen. $P$ ist durch Quadrieren der Zielfunktion nach Übung 1.3.5 äquivalent zu
+	$$ Q: \quad \min (x - z)^T(x - z) \text{ s. t. } a^T x = b $$
+	In $Q$ ist die Zielfunktion $f(x) \coloneqq x^T x - 2z^T x + z^T z$ offenbar konvex und $C^1$, und die Gleichungsrestriktion $h(x) = a^Tx - b$ ist linear. Also ist $Q$ konvex und $C^1$ und damit für Dualitätsaussagen geeignet.
+\end{beispiel}
+
+\begin{lemma}[2.6.7]
+	$P$ sei konvex und $C^1$, und es seien $\overline{x} \in \R^n$, $\overline{\lambda} \in \R^p$, $\overline{\mu} \in \R^q$ gegeben mit
+	\begin{enumerate}
+		\item $\overline{x}$ primal zulässig
+		\item $(\overline{x}, \overline{\lambda}, \overline{\mu})$ dual zulässig,
+		\item $f(\overline{x}) = L(\overline{x}, \overline{\lambda}, \overline{\mu})$.
+	\end{enumerate}
+	Dann ist $\overline{x}$ globaler Minimalpunkt von $P$.
+\end{lemma}	
+
+\begin{korollar}[2.6.9]
+	$P$ sei konvex und $C^1$, es gelte $I = \emptyset$, und es seien $\overline{x} \in \R^n$, $\overline{\mu} \in \R^q$ gegeben mit
+	\begin{enumerate}
+		\item $\overline{x}$ primal zulässig,
+		\item $(\overline{x}, \overline{\mu})$ dual zulässig
+	\end{enumerate}
+	Dann ist $\overline{x}$ globaler Minimalpunkt von $P$.
+\end{korollar}
+
+\begin{definition}[2.6.10, Karush-Kuhn-Tucker-Punkt]
+	Für ein $C^1$-Punkt $P$ heißt ein Punkt $\overline{x} \in \R^n$ Karush-Kuhn-Tucker-Punkt (KKT-Punkt) mit Multiplikatoren $\overline{\lambda}$ und $\overline{\mu}$, falls das folgende System von Gleichungen und Ungleichungen erfüllt ist:
+	\begin{align*}
+		\nabla_x L(\overline{x}, \overline{\lambda}, \overline{\mu}) & = 0 \tag*{(2.6.1)} \\
+		\overline{\lambda}_i g_i(\overline{x}) & = 0, ~ i \in I \tag*{(2.6.2)} \\
+		\overline{\lambda}_i & \geq 0, ~i \in I, \tag*{(2.6.3)} \\
+		g_i(\overline{x}) & \leq 0, ~ i \in I \tag*{(2.6.4)} \\
+		h_j(\overline{x}) & = 0, ~ j \in J \tag*{(2.6.5)} 
+	\end{align*}
+\end{definition}
+	
+\begin{lemma}[2.6.11]
+	Die Voraussetzungen von Lemma 2.6.7, d.h. $P$ sei konvex und $C^1$,
+	\begin{enumerate}
+		\item $\overline{x}$ primal zulässig
+		\item $(\overline{x}, \overline{\lambda}, \overline{\mu})$ dual zulässig,
+		\item $f(\overline{x}) = L(\overline{x}, \overline{\lambda}, \overline{\mu})$,
+	\end{enumerate}
+	sind für $(\overline{x}, \overline{\lambda}, \overline{\mu})$ genau dann erfüllt, wenn $\overline{x}$ KKT-Punkt von $P$ mit Multiplikatoren $\overline{\lambda}$, $\overline{\mu}$ ist, d.h. $\overline{x}$ ist globaler Minimalpunkt von $P$.	
+\end{lemma}
+	
+\begin{satz}[2.6.12, Hinreichende Optimalitätsbedingung für $P$ konvex, $C^1$]
+	$P$ sei konvex und $C^1$, und $\overline{x}$ sei KKT-Punkt (mit Multiplikatoren $\overline{\lambda}, \overline{\mu}$). Dann ist $\overline{x}$ globaler Minimalpunkt von $P$.	
+\end{satz}
+
+Angemerkt sei, dass in Satz 2.6.12 die Forderung, $\overline{x}$ sei ein KKT-Punkt, per Lemma 2.6.11 und Lemma 2.6.7c) insbesondere die Forderung nach einer verschwindenden Dualitätslücke impliziert. ~\\
+	
+Das Analogon zu Korollar 2.4.6, nämlich \enquote{jeder globale Minimalpunkt von $P$ ist KKT-Punkt} gilt für restringierte Probleme nicht. In negativer Formulierung bedeutet dies auch: es ist möglich, dass ein restringiertes Problem zwar keinen KKT-Punkt besitzt, aber trotzdem lösbar ist. Anders ausgedrückt: selbst wenn man beweisen kann, dass ein Problem keine KKT-Punkte besitzt, bedeutet dies noch nicht, dass das Problem auch unlösbar ist.	
+	
+\begin{uebung}[2.6.15]
+	Zeigen Sie, dass in Beispiel 2.6.14 starke Dualität im Sinne der Identität $v_P = v_D$ gilt. Warum lässt sich die Bedingung $f(\overline{x}) = L(\overline{x}, \overline{\lambda})$ aus Lemma 2.6.7c) hier trotzdem nicht erfüllen?
+\end{uebung}
+	
+Im Folgenden untersuchen wir, welche zusätzlichen Bedingungen garantieren, dass ein globaler Minimalpunkt KKT-Punkt ist.		
+	
+\subsection*{Komplementarität}
+
+Wie im Beweis zu Lemma 2.6.11 gesehen, ist unter den Bedingungen a) und b) aus Lemma 2.6.7 (primale und duale Zulässigkeit) die Bedingung c) (Gleichheit von primalem und dualen Zielfunktionswert) gleichbedeutend mit
+	$$ \overline{\lambda}_i \geq 0, ~g_i(\overline{x}) \leq 0, ~0 = \overline{\lambda}_i g_i(\overline{x}), ~i \in I $$
+Für jedes $i \in I$ heißt die Bedingung
+	$$ \overline{\lambda}_i \geq 0, ~g_i(\overline{x}) \leq 0, ~\overline{\lambda}_i g_i(\overline{x}) = 0 $$
+\textbf{Komplementaritätsbedingung}.	 \medskip
+
+Je nachdem, ob die Restriktion $g_i(x) \leq 0$ an $\overline{x}$ mit Gleichheit oder mit strikter Ungleichheit erfüllt ist, hat die Komplementaritätsbedingung unterschiedliche Konsequenzen:
+	
+\begin{description}
+	\item[1. Fall] für $g_i(\overline{x}) = 0$ ist $\overline{\lambda}_i g_i(\overline{x}) = 0$ für beliebige $\overline{\lambda}_i \geq 0$ erfüllt, d.h. die Komplementaritätsbedingung gilt automatisch.
+	\item[2. Fall] für $g_i(\overline{x} < 0$ impliziert die Bedingung $\overline{\lambda}_i g_i(\overline{x}) = 0$, dass $\overline{\lambda}_i = 0$ gilt.
+\end{description}	
+
+Der Begriff Komplementarität bezieht sich darauf, dass mindestens eine der Zahlen $\overline{\lambda}_i$ und $g_i(\overline{x})$ verschwindet. Die offensichtlich wichtige Unterscheidung, ob eine Ungleichung mit Gleichheit oder strikter Ungleichheit erfüllt ist, motiviert die folgende Definition.
+
+\begin{definition}[2.6.16, Aktive-Index-Menge]
+	Zu $\overline{x} \in M$ heißt
+	$$ I_0(\overline{x}) = \big\{ i \in I ~|~g_i(\overline{x}) = 0 \big\} $$	
+	\textbf{Menge der aktiven Indizes} oder auch \textbf{Aktive-Index-Menge} von $\overline{x}$.
+\end{definition}
+	
+\subsection*{Geometrische Interpretation der KKT-Bedingung}
+
+Da die Komplementaritätsbedingungen für alle $i \notin I_0(\overline{x})$ erzwingen, dass $\overline{\lambda}_i$ verschwindet, ist $\overline{x}$ KKT-Punkt mit Multiplikatoren $\overline{\lambda}$, $\overline{\mu}$ genau dann, wenn folgendes System erfüllt ist:
+	\begin{align*}
+		\nabla f(\overline{x}) + \sum_{i \in I_0(\overline{x})} \overline{\lambda}_i \nabla g_i(\overline{x}) + \sum_{j \in J} \overline{\mu}_j \nabla h_j(\overline{x}) & = 0 \\
+		g_i(\overline{x}) & = 0, ~i \in I_0(\overline{x}) \\
+		g_i(\overline{x}) & < 0, ~i \notin I_0(\overline{x}) \\
+		h_j(\overline{x}) & = 0, ~j \in J \\
+		\overline{\lambda}_i \geq 0, ~i \in I_0(\overline{x}) \\
+		\overline{\lambda}_i = 0, ~ i \notin I_0(\overline{x})
+	\end{align*}	
+	
+Um die geometrische Bedeutung dieser Bedingungen zu verstehen, setzen wir die Kenntnis der Tatsache voraus, dass Gradienten senkrecht auf Höhenlinien stehen und in die Richtung des steilsten Anstiegs zeigen. ~\\
+
+Wir betrachten zunächst den Fall ohne Ungleichungen, d.h. $I = \emptyset$. Dann reduziert sich das KKT-System zu	
+	
+\begin{align*}
+	\nabla f(\overline{x}) + \sum_{j=1}^q \overline{\mu}_j \nabla h_j (\overline{x}) & = 0 \\
+	h_j(\overline{x}) & = 0, ~ j \in J
+\end{align*}	
+	
+Da die KKT-Bedingungen (neben der Zulässigkeit von $\overline{x}$) besagen, das $\nabla f$ und $\nabla h$ an einem KKT-Punkt $\overline{x}$ linear abhängig sind, ist $x^1$ kein KKT-Punkt, während $x^2$ KKT-Punkt ist. ~\bigskip
+
+Bemerkenswert ist, dass zwar die Geometrie der zulässigen Menge $M$ sich nicht ändert, wenn man $h$ durch $-h$ ersetzt, aber $\nabla(-h) = -\nabla h$ in die zu $\nabla h$ entgegengesetzte Richtung zeigt. Obwohl sich also durch die Vorzeichenänderung von $h$ nichts daran ändert, ob $\overline{x}$ zum Beispiel ein lokaler Minimalpunkt ist, ändern sich die KKT-Bedingungen. Dies wird allerdings dadurch kompensiert, dass die Multiplikatoren $\mu_j$, $j \in J$ nicht vorzeichenbeschränkt sind. Die Ersetzung von $h_j$ durch $-h_j$ kann man in den KKT-Bedingungen also einfach dadurch kompensieren, dass man $\overline{\mu}_j$ durch $-\overline{\mu}_j$ ersetzt.~\bigskip
+
+Wir wenden uns nun dem Fall ohne Gleichungen zu, d.h. $J = \emptyset$. Dann lautet das KKT-System
+
+\begin{align*}
+	\nabla f(\overline{x}) + \sum_{i \in I_0(\overline{x})} \overline{\lambda}_i \nabla g_i(\overline{x}) & = 0 \\
+	g_i(\overline{x}) & = 0, ~i \in I_0(\overline{x}) \\
+	g_i(\overline{x}) & < 0, ~i \notin I_0(\overline{x}) \\	 
+	\overline{\lambda}_i & \geq 0, ~i \in I_0(\overline{x})
+\end{align*}
+	
+Dies bedeutet insbesondere, dass der Vektor $-\nabla f(\overline{x})$ in der Menge
+	$$ \operatorname{cone} \big\{ \nabla g_i(\overline{x}), ~i \in I_0(\overline{x}) \big\} \coloneqq \big\{ \sum_{i \in I_0(\overline{x})} \lambda_i \nabla g_i(\overline{x}) ~|~\lambda \geq 0 \big\} $$
+liegt, dem von den Vektoren $\nabla g_i(\overline{x})$, $i \in I_0(\overline{x})$, aufgespannten konvexen Kegel. ~\bigskip
+
+\subsection{Constraint Qualifications}
+	
+\begin{definition}[2.6.17] ~\
+	\begin{enumerate}
+		\item An $\overline{x} \in M$ gilt die Lineare-Unabhängigkeits-Bedingung (LUB), falls die Vektoren $\nabla g_i(\overline{x})$, $i \in I_0(\overline{x})$, $j \in J$, linear unabhängig sind (d.h. die Gleichung
+			$$ \sum_{i \in I_0(\overline{x})} \lambda_i \nabla g_i(\overline{x}) + \sum_{j \in J} \mu_j \nabla h_j(\overline{x}) = 0 $$
+			hat nur die Lösung $(\lambda, \mu)^T = (0, 9)^T$.
+		\item An $\overline{x} \in M$ gilt die Mangasarian-Fromowitz-Bedingung (MFB), falls die Vektoren $\nabla h_j(\overline{x})$, $j \in J$, linear unabhängig und das System
+			$$ \langle \nabla g_i(\overline{x}), d \rangle < 0, ~i \in I_0(\overline{x}), \quad \langle \nabla h_j(\overline{x}), d \rangle = 0, ~j \in J $$
+			eine Lösung $d$ besitzt (was dazu äquivalent ist, dass das System
+			\begin{align*}
+				\sum_{i \in I_0(\overline{x})} \lambda_i \nabla g_i(\overline{x}) + \sum_{j \in J} \mu_j \nabla h_j(\overline{x}) & = 0, \\
+				\lambda & \geq 0
+			\end{align*} 
+			nur die Lösung $(\lambda, \mu)^T = (0, 0)^T$ besitzt).
+		\item $M$ erfüllt die Slaterbedingung (SB), falls die Vektoren $\nabla h_j(x)$, $j \in J$ für alle $x \in M$ linear unabhängig sind, und falls ein $x^*$ existerit mit $g_i(x^*) < 0$, $i \in I$, $h_j(x^*) = 0$, $j \in J$.
+	\end{enumerate}
+\end{definition}
+	
+\begin{bemerkung} ~\
+	\begin{itemize}
+		\item LUB und MFB sind lokale Bedingungen an einem $\overline{x} \in M$, SB ist eine globale Bedingung für ganz $M$.
+		\item Für Constraint Qualifications spielt die Zielfunktion $f$ keine Rolle 
+	\end{itemize}	
+\end{bemerkung}
+
+\begin{uebung}[2.6.18]
+	LUB an $\overline{x} \in M$ impliziert MFB an $\overline{x} \in M$, aber die Umkehrung der Aussage gilt nicht.	
+\end{uebung}
+
+\begin{lemma}[2.6.19]
+	Die $h_j$, $j \in J$, seien linear, d.h. $h_j(x) = a^T_j x + b_j$, $j \in J$, und es seien $A = (a_1^T, \dotsc, a_q^T)^T$, $b = (b_1, \dotsc, b_q)^T$, also $h(x) = (h_1(x), \dotsc, h_q(x))^T = Ax + b$. Dann erfüllt $M$ genau dann SB, wenn $\operatorname{rang}A = q$ gilt und wenn ein $x^*$ existiert mit $g_i(x^*) < 0$, $i \in I$, $h_j(x^*) = 0$, $j \in J$.
+\end{lemma}
+
+\begin{satz}[2.6.20]
+	Die $g_i$, $i \in I$, seien konvex und $C^1$, die $h_j$, $j \in J$, seien linear, und es gelte $M \neq 0$. Dann sind die folgende Aussagen äquivalent:
+	\begin{enumerate}
+		\item MFB gilt irgendwo in $M$
+		\item MFB gilt überall in $M$.
+		\item $M$ erfüllt SB
+	\end{enumerate}
+\end{satz}
+
+\begin{satz}[2.6.21]
+	$P$ sei $C^1$, und $\overline{x} \in M$ sei ein lokaler Minimalpunkt von $P$, an dem MFB gilt. Dann ist $\overline{x}$ KKT-Punkt von $P$.	 ~\bigskip
+	
+	Wegen Übung 2.6.18 kann man in Satz 2.6.21 statt MFB auch die leichter überprüfbare, aber stärkere LUB voraussetzen.
+\end{satz}
+		
+\begin{satz}[2.6.22, Satz von KKT für konvexe Probleme]		
+	$P$ sei konvex und $C^1$, $M$ erfülle SB, und $\overline{x} \in M$ sei ein Minimalpunkt von $P$. Dann ist $\overline{x}$ KTT-Punkt von $O$.	 ~\bigskip
+	
+	Dies impliziert insbesondere, dass unter SB in $M$ im Falle der Lösbarkeit von $P$ die Dualitätslücke verschwindet.
+\end{satz}
+
+\newpage
+
+Zusammengefasst haben wir für konvexe Optimierungsprobleme $P$ folgende Zusammenhänge gezeigt für $f \in C^1(\R^n, \R)$
+\begin{description}
+	\item[1. Fall] $P$ unrestringiert.
+		\begin{align*}
+			\overline{x} \text{ kritischer Punkt}  \xRightarrow[f~konvex]{2.4.5} \overline{x} \text{ ist globaler Minimalpunkt} \\
+			\overline{x} \text{ kritischer Punkt}  \xLeftarrow[Fermat'sche]{2.4.2} \overline{x} \text{ ist globaler Minimalpunkt}
+		\end{align*}
+	\item[2. Fall] $P$ restringiert
+		\begin{align*}
+			\overline{x} \text{ KKT-Punkt}  \xRightarrow[]{2.6.12} \overline{x} \text{ ist globaler Minimalpunkt} \\
+			\overline{x} \text{ KKT-Punkt}  \xLeftarrow[SB]{2.6.22} \overline{x} \text{ ist globaler Minimalpunkt}
+		\end{align*}
+\end{description}
+
+Während man im unrestringierten Fall also die Charakterisierung globaler Minimalpunkte als kritische Punkte erhält (Kor. 2.4.6), benötigt man im restringierten Fall für einen Teil der Charakterisierung die Slaterbedingung.
+
+\begin{korollar}[2.6.23, Charakterisierung globaler Minimalpunkte unter SB]	
+	$P$ sei konvex und $C^1$, und $M$ erfülle die SB. Dann sind die globalen Minimalpunkte von $P$ genau die KKT-Punkte von $P$.	
+\end{korollar}
+
+Da die SB in Optimierungsproblemen sehr häufig erfüllt ist, ist sie keine besonders einschränkende Voraussetzung für die Charakterisierungsaussage in Korollar 2.6.23. ~\bigskip
+
+Die Situation vereinfacht sich, wenn sowohl die Gleichungs-, als auch die Ungleichungsrestriktionen sämtlich linear sind. In diesem Fall ist im Satz von Karush-Kuhn-Tucker keine Constraint Qualification nötig.
+
+\begin{satz}[2.6.24, Satz von KKT für lineare Nebenbedingungen]
+	$f$ sei $C^1$, die $g_i$, $i \in I$, $h_j$, $j \in J$, seien linear, und $\overline{x} \in M$ sei ein lokaler Minimalpunkt von $P$. Dann ist $\overline{x}$ KKT-Punkt von $P$.	
+\end{satz}
+
+\begin{korollar}[2.6.25, Charakterisierung globaler Minimalpunkte bei lin. NB'n]
+	$f$ sei konvex und $C^1$, und die $g_i$, $i \in I$, $h_j$, $j \in J$, seien linear. Dann sind die globalen Minimalpunkte von $P$ genau die KKT-Punkte von $P$.
+\end{korollar}
+
+\begin{korollar}[2.6.25, Charakterisierung globaler Minimalpunkte bei LP's]
+	$P$ sei ein lineares Optimierungsproblem. Dann sind die globalen Minimalpunkte von $P$ genau die KKT-Punkte von $P$.
+\end{korollar}	
+	
+\section{Numerische Verfahren}	
+
+Grundsätzlich lässt sich jedes Verfahren der nichtlinearen Optimierung auf konvexe Probleme anwenden, sofern die konvexen Probleme hinreichend glatt sind. Dabei gilt
+
+\begin{enumerate}
+	\item nach Satz 2.4.5 für jedes unrestringierte konvexe $C^1$-Problem $P$, dass jedes numerische Verfahren, das einen kritischen Punkt $x^*$ erzeugt (d.h. $\nabla f(x^*) = 0$), mit $x^*$ auch einen globalen Minimalpunkt identifiziert (z.B. Gradientenverfahren, (Quasi-)Newtonverfahren, CG-Verfahren, Trust-Region-Verfahren), und
+	\item nach Satz 2.6.12 für jedes restringierte konvexe $C^1$-Problem $P$, dass jedes numerische Verfahren, das einen KKT-Punkt $x^*$ erzeugt, mit $x^*$ auch einen globalen Minimalpunkt identifiziert (z.B. Strafterm-, Barriere-, SQP-Verfahren).
+\end{enumerate}
+
+Konvexität verbessert dabei oft die Eigenschaften der Verfahren gegenüber dem nichtkonvexen Fall, etwa beim Newtonverfahren (s.u.) (nicht allerdings den Zigzagging-Effekt des Gradientenverfahrens).
+
+\subsection*{Grundidee des Gradientenverfahrens}
+
+Wähle irgendeinen Startpunkt $x^0 \in \R^n$ sowie eine Toleranz $\epsilon > 0$. Falls $\| \nabla f(x^0) \| \leq \epsilon$, stopp ($x^0$ ist Approximation eines kritischen Punktes). ~\bigskip
+
+Andernfalls nutzt man, dass $\nabla f(x^0)$ senkrecht auf der Niveaufläche $\{ x \in \R^n ~|~f(x) = f(x^0) \}$ steht und in Richtung des steilsten Anstiegs von $f$ zeigt. Richtungen $d \in \R^n$ mit $\langle \nabla f(x^0) , d \rangle > 0$ (spitzer Winkel) sind \textit{Anstiegsrichtungen} (erster Ordnung) von $f$ in $x^0$, Richtungen $d \in \R^n$ mit $\langle \nabla f(x^0), d \rangle < 0$ (stumpfer Winkel) sind \textit{Abstiegsrichtungen} (erster Ordnung). Zum Minimieren von $f$ von $x^0$ aus kann man einen Schritt in die Richtung des steilsten Abstiegs, $d^0 = -\nabla f(x^0)$ unternehmen. Die Schrittweite $t^0 > 0$ wird zum Beispiel mit der Armijoregel bestimmt. Man setzt dann $x^1 = x^0 + t^0 d^0$ und prüft $\| \nabla f(x^1) \| \leq \epsilon$ usw. ~\bigskip
+	
+Unter schwachen Voraussetzungen bricht das Gradientenverfahren nach endlich vielen Schritten ab. Dies kann wegen des Zigzagging-Effekts allerdings lange dauern, woran sich auch bei konvexen Funktionen nichts ändert.
+
+\subsection*{Grundidee des Newtonverfahrens}	
+	
+Das Newtonverfahren ist zunächst ein Verfahren zur Nullstellensuche: zu lösen sei $g(x) = 0$ mit einer $C^1$-Funktion $g \colon \R^n \rightarrow \R^n$. Dazu wähle einen Startpunk $x^0 \in \R^n$ und eine Toleranz $\epsilon > 0$. Falls $\| g(x^0)\| \leq \epsilon$, stoppt ($x^0$ ist Approximation einer Nullstelle). ~\bigskip
+
+Ansonsten wird $g$ um $x^0$ linearisiert und das linearisierte Problem gelöst. Linearisieren von $g$ bedeutet, dass die Tangente an $g$ in $x^0$ berechnet wird, d.h. $g$ wird durch die Funktion $g(x^0) + g'(x^0) (x - x^0)$ approximiert. Lösen der Linearisierung bedeutet, dass eine Nullstelle der Tangente ermittelt wird: aus
+	$$ 0 = g(x^0) + g'(x^0) (x - x^0) $$
+	erhält man als neue Iterierte den Punkt
+	$$ x^1 = x^0 - \frac{g(x^0)}{g'(x^0)} $$
+	Dazu muss natürlich $g'(x^0) \neq 0$ gelten. Für allgemeines $n$ bedeutet die Nullstellensuche für die Linearisierung
+	$$ 0 = g(x^0) + D g(x^0) (x - x^0) $$
+	woraus
+	$$ x^1 = x^0 - \left( Dg(x^0) \right)^{-1} g(x^0) $$
+	folgt. Dazu muss $D g(x^0)$ invertierbar sein. Falls $\| g(x^1) \| \leq \epsilon$, stopp usw. ~\bigskip
+	
+	Optimierungsprobleme löst man per Newtonverfahren, indem man einen kritischen Punkt sucht, d.h. das Nullstellenproblem $g(x) \coloneqq \nabla f(x) = 0$ mit dem Newtonverfahren löst. In Iteration $\nu$ gilt dann
+	$$ x^{\nu + 1} = x^\nu - \left( D^2 f(x^\nu) \right)^{-1} \nabla f(x^\nu) $$
+	Zur Suchrichtung $d^\nu = - \left( D^2 f(x^\nu) \right)^{-1} \nabla f(x^\nu)$ kann man zusätzlich eine Schrittweite $t^\nu > 0$ bestimmen (z.B. per Armijoregel) und dann $x^{\nu + 1} = x^\nu + t^\nu d^\nu$ setzen (man spricht dann vom \textit{gedämpften} Newtonverfahren). Die Konvergenz dieses Verfahrens ist sehr schnell, falls $x^0$ nahe an einer Lösung liegt. ~\bigskip
+	
+	Nachteile des Newtonverfahrens sind im allgemeinen Fall:
+	\begin{itemize}
+		\item man weiß üblicherweise nicht, ob $x^0$ nahe genug an einem kritischen Punkt liegt.
+		\item $D^2 f(x^\nu)$ ist nicht notwendigerweise invertierbar, (d.h. $D^2 f(x^\nu) d^\nu = - \nabla f(x^\nu)$ ist nicht notwendigerweise lösbar),
+		\item $d^\nu$ ist nicht unbedingt eine Abstiegsrichtung, approximiert werden also beliebige kritische Punkte.
+		\item Der letzte Nachteil tritt bei konvexen Problemen nicht auf: für konvexes $f$ gilt $D^2 f(x^\nu) \succeq 0$. Falls $D^2 f(x^\nu)$ invertierbar ist, muss demnach $D^2 f(x^\nu) \succ 0$ gelten. In der Linearen Algebra wird gezeigt, dass dann auch ($\left(D^2 f(x^\nu) \right)^{-1} \succ 0$ erfüllt ist. Für $\nabla f(x^\nu) \neq 0$ folgt
+				$$ \langle \nabla f(x^\nu), d^\nu \rangle = - \nabla f(x^\nu)^T \left( D^2 f(x^\nu) \right)^{-1} \nabla f(x^\nu) < 0, $$
+			so dass $d^\nu$ Abstiegsrichtung erster Ordnung in $x^\nu$ ist. Damit kann man von der Konvergenz des Verfahrens gegen einen Minimalpunkt ausgehen. Ein alternatives Argument dafür ist, dass im konvexen Fall ohnehin alle kritischen Punkte globale Minimalpunkte sind, so dass die Konvergenz des Newtonverfahrens gegen einen kritischen Punkt die Konvergenz gegen einen globalen Minimalpunkt nach sich zieht.
+	\end{itemize}
+	
+Neben der Anwendung allgemeiner Verfahren der Nichtlinearen Optimierung auf konvexe Probleme existieren einige speziell auf Konvexität zugeschnittene Verfahren, die bis auf eine Ausnahme den allgemeinen Verfahren für kontinuierliche Optimierungsprobleme aber nicht überlegen sind. Für nicht-glatte konvexe Probleme gibt es eine Reihe von Verfahren (z.B. Subgradienten- und Bündelungsverfahren), auf die wir im Rahmen dieser Vorlesung nicht eingehen können.
+
+\subsection*{Schnittebenenverfahren}
+
+Wir betrachten die Grundidee von Schnittebenenverfahren zunächst für unrestringierte Probleme. ~\bigskip
+
+Historisch lag der Grund zur Einführung von Schnittebenenverfahren darin, dass lineare Optimierungsprobleme seit Einführung des Simplex-Algorithmus gut lösbar waren, man also versuchen konnte, konvexe Probleme durch LPs zu approximieren. ~\bigskip
+
+Die Grundidee dazu besteht darin, dass der Graph einer konvexen $C^1$-Funktion $f$ laut Satz 2.2.2 über jeder seiner Tangenten liegt (bzw. über jeder seiner Tangentialebenen, falls $n > 1$). ~\bigskip
+
+Zu zwei gegebenen Punkten $x^1, x^2 \in \R^n$ liegt der Graph von $f$ sowohl über dem Graphen der Tangente $T_1 (x) = f(x^1) + \langle \nabla f(x^1), x - x^1 \rangle$ als auch über dem von $T_2 (x) = f(x^2) + \langle \nabla f(x^2), x - x2 \rangle$. Für alle $x \in \R^n$ gilt also
+
+		$$ f(x) \geq \max \big\{ T_1(x), T_2(x) \big\} . $$
+
+Analog kann man so für $k$ Punkte $x^1, \dotsc, x^k$ vorgehen, so dass $f$ von unten stückweise linear approximiert wird. Statt f zu minimieren, löse jetzt das approximierende Hilfsproblem
+
+		$$ \min_x \max_{i = 1, \dotsc, k} T_i(x). $$
+		
+Falls die Lösung $x^{k+1}$ ein Abbruchkriterium (z.B. $\| \nabla f(x^{k+1})\| \leq \epsilon$) erfüllt, stopp, ansonsten füge die Tangente
+
+	$$ T_{k+1}(x) = f(x^{k+1}) + \langle \nabla f(x^{k+1}), x -x^{k+1} \rangle $$
+
+zur Maximumsbildung hinzu und löse erneut. ~\bigskip
+
+Die Lösung des eigentlich nicht-glatten Hilfsproblems gelingt per Epigraph-Umformulierung (vgl. Übung 1.3.7):
+
+	\begin{align*}
+		\min_x \max_{i=1, \dotsc, k} T_i(x) & \iff \min_{x, \alpha} \alpha \text{ s.t. } \max_{i=1, \dotsc, k} T_i(x) \leq \alpha \\
+		& \iff \min_{x, \alpha} \alpha \text{ s.t. } T_i(x) \leq \alpha, ~i=1, \dotsc, k \\
+		& \iff \min_{x, \alpha} \alpha \text{ s.t. } \underbrace{f(x^i) + \langle \nabla f(x^i), x - x^i \rangle - \alpha}_{\text{linear in } (x, \alpha)} \leq 0, ~i = 1, \dotsc, k
+	\end{align*}
+
+Damit ist das approximierende Hilfsproblem zu einem äquivalenten LP umformuliert worden, das sich beispielsweise per Simplex-Algorithmus lösen lässt. ~\bigskip
+
+Im Hinblick auf den späteren Satz 3.5.2a) für nichtkonvexe Probleme halten wir an dieser Stelle fest, dass ein Optimalpunkt $(x^{k+1}, \alpha^{k+1})$ des obigen LPs für den gesuchten Optimalwert $v = \min_{x \in \R^n} f(x)$ eine Einschließung liefert. Es gilt nämlich zum einen trivialerweise $v \leq f(x^{k+1})$, zum anderen aber auch
+	$$ \alpha^{k+1} = \max_{i=1, \dotsc, k} T_i(x^{k+1}) \leq f(x) $$
+für allen $x \in \R^n$, also $\alpha^{k+1} \leq v$. Der Optimalwert $v$ liegt also garantiert im Intervall $[\alpha^{k+1}, f(x^{k+1})]$.
+
 
 % Skript - Ende 			
 \end{document}
