@@ -411,9 +411,9 @@ Sei $f \colon \R^n \rightarrow \R$ stetig und mit einem $\alpha \in \R$ sei $f_{
 \end{lemma}
 
 \begin{korollar}[1.2.40]
-	Es sei $M$ nicht-leer, und $f \colon M \rightarrow \R$ seis tetig und koerziv auf $M$. Dann ist $S$ nicht-leer und kompakt.
+	Es sei $M$ nicht-leer, und $f \colon M \rightarrow \R$ sei stetig und koerziv auf $M$. Dann ist $S$ nicht-leer und kompakt.
 \end{korollar}
-
+% todo 1.2.40 Wichtiger satz für existence
 \begin{bemerkung}[Rechenregeln] ~\
 	\begin{itemize}
 		\item Skalare und Vielfache (1.3.1) $\alpha \geq 0: ~ \min_{x \in M} \left( \alpha f(x) + \beta \right) = \alpha \left( \min_{x \in M} f(x) \right) + \beta$,
@@ -546,12 +546,13 @@ Für die Lösbarkeit von $P$ ist Konvexität alleine kein wesentlicher Vorteil: 
 	\end{enumerate}
 \end{lemma}
 
+% todo 2.3.3 Wichtiger Eindeutigkeit
 \begin{satz}[2.3.3]
 	$P$ sei konvex. Dann gelten die folgenden Aussage:
 	\begin{enumerate}
 		\item Die Menge der Minimalpunkte ist konvex.
 		\item Falls $f$ strikt konvex auf $M$ ist, dann besitzt $S$ höchstens ein Element.
-		\item Es sei $M$ nicht-leer und abgeschlossen, und $f$ sei glechmäßig konvex und stetig auf $M$. DAnn besitzt $S$ genau ein Element (d.h. $P$ ist eindeutig lösbar).
+		\item Es sei $M$ nicht-leer und abgeschlossen, und $f$ sei gleichmäßig konvex und stetig auf $M$. Dann besitzt $S$ genau ein Element (d.h. $P$ ist eindeutig lösbar).
 	\end{enumerate}	
 	Angemerkt sei, dass die Stetigkeitsforderung an $f$ in Satz 2.3.3c) nach Lemma 2.3.2b) unnötig ist, falls die Menge $M$ mit ihrem Inneren übereinstimmt (z.B. für $M = \R^n$).
 \end{satz}
@@ -1129,6 +1130,183 @@ Im Hinblick auf den späteren Satz 3.5.2a) für nichtkonvexe Probleme halten wir
 	$$ \alpha^{k+1} = \max_{i=1, \dotsc, k} T_i(x^{k+1}) \leq f(x) $$
 für allen $x \in \R^n$, also $\alpha^{k+1} \leq v$. Der Optimalwert $v$ liegt also garantiert im Intervall $[\alpha^{k+1}, f(x^{k+1})]$.
 
+\subsection*{Schnittebenenverfahren von Kelley (1960)}
+
+Das Schnittebenenverfahren von Kelley bedient sich ähnlicher Ideen, allerdings für restringierte Probleme der Form
+	$$ P: \quad \min c^T x \text{ s.t. } g_i(x) \leq 0, ~i \in I, ~ Ax \leq b $$
+mit konvexen und stetig differenzierbaren Funktionen $g_i$, $i \in I$. ~\bigskip
+
+Jedes konvexe Optimierungsproblem lässt sich in diese Form bringen, denn
+\begin{itemize}
+	\item falls die Zielfunktion nichtlinear konvex ist, \enquote{verschiebe} sie per Epigraph-Umformulierung in die Nebenbedingungen,
+	\item falls Gleichungsnebenbedingungen vorliegen, sind diese linear und können daher als jeweils zwei lineare Ungleichungen geschrieben werden (Achtung: das macht man nur bei linearen Gleichungen, denn bei nichtlinearen Gleichungen zerstört diese Umformulierung wichtige Regularitätseigenschaften!).
+\end{itemize}
+
+Die Trennung zwischen linearen und nichtlinear konvexen Nebenbedingungen ist im Folgenden wichtig, da lineare Restriktionen nicht mehr linearisiert zu werden brauchen. Wir definieren daher
+	$$ K = \big\{ x \in \R^n ~|~ g_i(x) \leq 0, i \in I \big\}$$
+und
+	$$ L = \big\{ x \in \R^n ~|~ Ax \leq b \big\} $$
+
+Offenbar gilt $M = K \cap L$. Im weiteren sei $M$ nicht-leer und beschränkt (so dass $P$ einen globalen Minimalpunkt besitzt). ~\bigskip
+
+Bestimme dazu zunächst ein konvexes Polyeder (d.h. eine durch Ungleichungen beschriebene Menge) $B$ mit $K \subseteq B$ und setze $M^0 \coloneqq B \cap L$. Dann ist $M^0$ ein konvexes Polyeder mit $M \subseteq M^0$. Wegen der Beschränktheit von $M$ lässt sich $B$ so wählen, dass $M^0$ ein konvexes Polytop wird, d.h. ein nicht-leeres und beschränktes konvexes Polyeder. ~\bigskip
+
+$B$ darf eine sehr grobe Approximation von $K$ sein, am einfachsten ist oft ein Quader (auch Box genannt, vgl. Kap. 3.3). Auch ohne geometrische Anschauung der Menge $K$ lässt sich solch eine Box oft formal konstruieren. ~\bigskip
+
+Das Hilfproblem
+	$$ LP^0: \quad \min c^Tx \text{ s.t. } x \in M^0 $$
+lässt sich zum Beispiel per Simpley-Algorithmus lösen. $x^0$ sei ein Minimalpunkt von $LP^0$. Wegen:
+	$$ c^T x \geq c^T x^0 \quad \forall x \in M^0 $$
+und $M \subseteq M^0$ folgt daraus:
+	$$ c^T x \geq c^T x^0 \quad \forall x \in M $$
+\textit{Falls} also $x^0$ in $M$ liegt, dann lässt $x^0$ auch $P$. Im Fall $x^0 \notin M$ muss wegen $M^0 \subseteq L$ (mindestens) eine der der Ungleichungen in $K$ verletzt sein, d.h. es gilt $\max_{i \in I} g_i(x^0) > 0$. Wähle die (oder eine der) am meisten verletzten Ungleichungen, also ein $k \in I$ mit $g_k(x^0) = \max_{i \in I} g_i(x^0)$. ~\bigskip
+
+\underline{Schnitt}: Setze
+	$$ M^1 = M^0 \cap \big\{ x \in \R^n ~|~ \langle g_k(x^0), x - x^0 \rangle \leq 0 \big\}. $$
+Die neue Menge $M^1$ besitzt drei wichtige Eigenschaften:
+\begin{itemize}
+	\item $x^0 \notin M^1$, denn $g_k(x^0) + \langle \nabla g_k(x^0), x^0 - x^0 \rangle = g_k(x^0) > 0$, d.h. die alte Lösung wird \enquote{weggeschnitten} und kann nicht noch einmal auftreten.
+	\item $M \subseteq M^1$, denn $g_k(x^0) + \langle \nabla g_k(x^0), x - x^0 \rangle \leq g_k(x) \leq 0$
+	\item $M^1$ ist wieder konvexe Polytop
+\end{itemize}
+
+Löse nun
+$$ LP^1: \quad \min c^T x \text{ s.t. } x \in M^1 $$
+usw. bis die Lösung $x^\nu$ eines Hilfsproblems $LP^\nu$ in $M$ liegt. Wegen $M^\nu \supsetneqq  M$ für alle $\nu$ kann man allerdings nicht erwarten, dass irgendein $x^\nu$ tatsächlich in $M$ liegt (alle Iterierten sind üblicherweise unzulässig, d.h. nicht in $M$), so dass man das Abbruchkriterium zu 
+	$$ \max_{i \in I} g_i(x^\nu) \leq \epsilon $$
+ mit einer Toleranz $\epsilon > 0$ relaxiert und \enquote{fast zulässige} Punkte akzeptiert (s. dazu auch Kap. 3.9). Das vollständige Verfahren ist in Algorithmus 2.1 angegeben.
+
+\begin{figure*}[h!] \centering
+	\includegraphics[scale=0.55]{img/vl-alg-21}
+\end{figure*}
+
+Es ist klar, dass Algorithmus 2.1 eine Folge $(x^\nu)$ erzeugt, die sich $M$ von außen nähert. Damit das Verfahren für eine beliebige Toleranz $\epsilon > 0$ nach endlich vielen Schritten abbricht, muss man noch ausschließen, dass die Folge $(x^\nu)$ einen positiven Abstand zu $M$ behält.
+
+\begin{satz}[2.7.1]
+	Algorithmus 2.1 bricht nach endlich vielen Schritten ab.	
+\end{satz}
+
+\subsection*{Verfahren von Frank-Wolfe (1956)}
+
+Das folgende Verfahren basiert auf einer grundlegend anderen Idee als Schnittebenenverfahren: es erzeugt eine Folge von zulässigen Iterierten $(x^\nu)$, bis $x^\nu$ eine Optimalitätsbedingung ($\epsilon$-genau) erfüllt, während das Schnittebenenverfahren von Kelley aus der Optimalität im Hilfsproblem die Optimalität im Originalproblem schließt, falls die Iterierte $x^\nu$ ($\epsilon$-genau) zulässig ist. ~\bigskip
+
+Gegeben sei das Problem
+	$$ P: \quad \min f(x) \text{ s.t. } x \in M $$
+mit nicht-leerer und konvexer zulässiger Menge $M$ sowie konvexer Zielfunktion $f \in C^1(M, \R)$.
+
+\begin{satz}[2.7.2, Varationsformulierung konvexer Probleme]
+	Unter obigen Voraussetzungen an $f$ und $M$ gilt:
+	\begin{enumerate}
+		\item $\overline{x} \in \R^n$ ist genau dann globaler Minimalpunkt von $P$, wenn $\overline{x}$ globaler Minimalpunkt von folgendem ist
+			$$ Q(\overline{x}): \quad \min_x \langle \nabla f(\overline{x}), x - \overline{x} \rangle \text{ s.t. } x \in M $$
+		\item Es sei $\overline{x} \in M$. Dann besitzt $Q(\overline{x})$ den Optimalwert $v(\overline{x}) \leq 0$, und $\overline{x}$ ist globaler Minimalpunkt von $P$ genau dann, wenn $v(\overline{x}) = 0$ gilt.
+	\end{enumerate}	
+\end{satz}
+
+Das Verfahren von Frank-Wolfe basiert auf der Lösung von Hilfsproblemen der Form $Q(\overline{x})$. Damit diese überhaupt lösbar sind, fordern wir im Folgenden, dass $M$ nicht nur nicht-leer und konvex, sondern auch kompakt ist. Ferner wird das Verfahren nur dann numerisch interessant sein, wenn sich die Probleme $Q(\overline{x})$ schnell lösen lassen (also nicht z.B. durch Anwendung des Schnittebenenverfahrens von Kelley für jedes Hilfsproblem). Dies wird später auf weitere Voraussetzungen an $M$ führen. ~\bigskip
+
+Der algorithmische Ansatz ist nun wie folgt. Wähle zunächst einen Startpunkt $x^0 \in M$ und bestimme den Minimalwert $v^0$ von $Q^0 \coloneqq Q(x^0)$. Falls $v^0 = 0$, stopp, denn nach Satz 2.7.2b) ist $x^0$ globaler Minimalpunkt von $P$. Da es eher unwahrscheinlich ist, dass man mit $x^0$ sofort einen globalen Minimalpunkt gefunden hat, ist die entscheidende Frage, wie man im Fall $v^0 < 0$ weiter vorgeht. ~\bigskip
+
+Dazu sei zu $v^0$ auch ein Minimalpunkt $y^0$ von $Q^0$ bestimmt. Wie im Beweis zu Satz 2.7.2a) ist die Suchrichtung  $d^0 \coloneqq y^0 - x^0$ dann eine zulässige Abstiegsrichtung für $f$ in $x^0$, einen zulässigen Punkt mit kleinerem Zielfunktionswert findet man also auf jeden Fall in der Form $x^0 + t d^0$ mit einem passenden (d.h. nicht zu großen) $t \in [0, 1]$. ~\bigskip
+
+Zur \textbf{Schrittweitensteuerung} (also zur Wahl der Schrittweite $t$) geht man folgendermaßen vor: wähle $t^0$ als Minimalpunkt von $f(x^0 + t d^0)$ auf $[0, 1]$, d.h. löse das eindimensionale Problem
+
+	$$ S(x^0, d^0): \quad \min_t \underbrace{f(x^0 + t d^0)}_{konvex~in~t} \text{ s.t. } 0 \leq t \leq 1.$$
+
+Auch $S(x^0, d^0)$ muss zur numerischen Umsetzung schnell lösbar sein, oder man gibt sich mit einer Approximation an $t^0$ zufrieden. ~\bigskip
+
+Setze nun als neue Iterierte $x^1 \coloneqq x^0 + t^0 d^0$ und löse $Q^1$ usw. Das Abbruch-kriterium muss wieder relaxiert werden. Abbildung 2.25 zeigt die ersten zwei Iterationen des Verfahrens an einem Beispiel.
+
+\begin{figure*}[h!] \centering
+	\includegraphics[scale=0.55]{img/vl-alg-23}
+\end{figure*}
+
+
+Das vollständige Verfahren ist in Algorithmus 2.2 angegeben. Um es numerisch sinnvoll einsetzen zu können, müssen die Hilfsprobleme $Q^\nu$ und $S(x^\nu, d^\nu)$ schnell lösbar sein.
+
+\begin{figure*}[h!] \centering
+	\includegraphics[scale=0.55]{img/vl-alg-22}
+\end{figure*}
+
+Für $Q^\nu$ sind dazu beispielsweise folgende Voraussetzungen geeignet:
+
+\begin{itemize}
+	\item falls $M$ ein konvexes Polytop ist (d.h. nur durch lineare Gleichungen und Ungleichungen beschrieben), dann ist $Q^\nu$ ein $LP$ und damit etwa per Simplex-Algorithmus lösbar, % todo simplex algorithmus
+	\item falls $M$ eine Kugel ist, dann lässt sich $y^\nu$ sogar in geschlossener Form berechnen.
+\end{itemize} % todo über geschlossene form nachdenken
+
+Für $S(x^\nu, d^\nu)$ gilt: falls $f$ konvex-quadratisch ist, dann ist $t^\nu$ in geschlossener Form berechenbar. Daher wurde Algorithmus 2.2 im Jahr 1956 für konvex-quadratische Zielfunktionen mit linearen Nebenbedingungen formuliert.
+
+\begin{uebung}[2.7.3]
+	Mit $A = A^T \succ 0$ und $b \in \R^n$ sei $f(x) = \frac{1}{2} x^T A x + b^T x$. Geben Sie einen geschlossenen Ausdruck für den eindeutigen Minimalpunkt $t^\nu$ von $S(x^\nu, d^\nu)$ an.
+\end{uebung} % todo alle uebungen
+
+\begin{satz}[2.7.4]
+	$\nabla f$ sei Lipschitz-stetig auf der nicht-leeren, konvexen und kompakten Menge $M$ (vgl. Def. 3.9.1). Dann bricht Algorithmus 2.2 nach endlich vielen Schritten ab.
+\end{satz}
+
+Da im Beweis zu Satz 2.7.4 nur die Effizienz der Schrittweitenfolge $(t^\nu)$ benutzt wird und nicht die Tatsache, dass die $t^\nu$ exakte globale Minimalpunkte von $S(x^\nu, d^\nu)$ sind, gilt die Konvergenzaussage auch noch, wenn $S(x^\nu, d^\nu)$ nur inexakt (z.B. per Armijoregel) gelöst wird. % todo Armijoregel
+
+\subsection*{Primal-duale Innere-Punkte-Methoden}
+
+Gegeben sei das konvexe $C^1$-Problem
+	$$ P: \quad \min f(x) \text{ s.t. } g_i(x) \leq 0, ~ i \in I $$
+mit beschränkter zulässiger Menge $M$ sowie
+	$$ M_< \coloneqq \big\{ x \in \R^n ~|~g_i(x) < 0, ~ i \in I \big\} \neq 0 $$
+(d.h. $M$ besitzt Slaterpunkte). Der Fall $J \neq 0$ kann auch betrachtet werden, wird es hier der Übersichtlichkeit halber aber nicht. ~\bigskip
+
+Die primal-dualen Inneren-Punkte-Methoden basieren auf einem rein primalen Verfahren, nämlich dem \textbf{Barriereverfahren}. Seie Grundidee ist die Approximation von $P$ durch unrestringierte Probleme, wobei am Rand $bd M$ von $M$ eine \enquote{Barriere} errichtet wird, die die Zulässigkeit erzwingt. ~\bigskip
+
+Zum Beispiel für das Problem 
+	$$ \min -x \text{ s.t. } x \leq 0 $$
+	ist $\beta(x) = -\log(-x)$ eine Barrierefunktion, d.h. $\beta \colon M_< \rightarrow \R$ und $\lim_{x^\nu \rightarrow x \in dbM} \beta(x^\nu) = + \infty$. ~\bigskip
+	
+Die Strategie des Barriereverfahrens besteht darin, die Nähe zum Rand von $M$ sukzesive weniger zu bestrafen, d.h. den Barriereparameter $t$ gegen null streben zu lassen und dabei Lösungen von
+$$ \min_x B(t, x) \coloneqq -x -t\log(-x) $$
+zu verfolgen. Für allgemine Zulässige Mengen von $P$ ist
+$$ \beta(x) = -\sum_{i \in I} \log( -g_i(x)) $$
+Barrierefunktion, und die Hilfprobleme 
+$$ \min_x B(t, x) = f(x) - t\sum_{i \in I} \log(-g_i(x)) $$
+sind für $t \rightarrow 0$ zu lösen.
+
+\begin{satz}[2.7.5]
+	Für alle $t > 0$ ist $B(t, x)$ konvex in $x$ und besitzt einen eindeutigen Minimalpunkt.
+\end{satz}
+
+Zu $t > 0$ bezeichne $x(t)$ den eindeutigen Minimalpunkt von $B(t,x)$. Die Menge
+	$$ C_P = \big\{ x(t) ~|~t \in (0, \infty) \big\} $$
+heißt \textbf{primaler zentraler Pfad} von $P$. Abbildung 2.28 illustriert primale zentrale Pfad für zwei lineare Optimierungsprobleme.
+
+\begin{figure*}[h!] \centering
+	\includegraphics[scale=0.55]{img/vl-alg-24}
+\end{figure*}
+
+Unter schwachen Voraussetzungen ist $x^* = \lim_{t \rightarrow 0}x(t)$ ein globaler Minimalpunkt von $P$. Das Problem bei der numerischen Umsetzung dieses Ansatzes besteht darin, dass die Funktion $B(t, x)$ für $t \rightarrow 0+$ in der Nähe von $bdM$ stark gekrümmt, \enquote{numerisch geknickt} und damit schwer minimierbar ist. Dies spiegelt sich auch im Optimalitätskriterium wider: $x(t)$ ist die eindeutige Lösung von
+	$$ 0= \nabla f(x) + \sum \left( - \frac{t}{g_i(x)} \right) \nabla g_i(x) $$
+Für $x(t) \rightarrow x^* \in bdM$ gibt es mindestens ein $i \in I$ mit $g_i(x(t)) \rightarrow 0$, also ist $\lim_{t \rightarrow 0} \left( - \frac{t}{g_i(x(t))} \right)$ \enquote{vom Typ $\frac{0}{0}$} und die Optimalitätsbedingung damit für $t$ nahe null \enquote{schlecht konditioniert}. ~\bigskip
+
+Als Ausweg macht man sich die Ähnlichkeit der obigen Optimalitätsbedingung zu den KKT-Bedingungen zu nutze und setzt für alle $t > 0$
+$$ \lambda_i(t) \coloneqq - \frac{t}{g_i(x(t))}, ~ i \in I $$
+Wegen $x(t) \in M_<$ gilt $g_i(x(t)) < 0$ für alle $i \in I$ und wegen $t > 0$ folgt daraus $\lambda_i(t) > 0$. Also ist $x(t)$ genau dann Minimalpunkt von $B(t, x)$, wenn ein $\lambda(t)$ existiert, so dass $(x(t), \lambda(t))$ das folgende System von Gleichungen und Ungleichungen löst:
+	\begin{align*}
+		\nabla f(x) + \sum_{i \in I} \lambda_i \nabla g_i(x) & = 0 \\
+		\lambda_i g_i(x) & = -t \\
+		-\lambda_i & > 0 \\
+		g_i(x) & < 0, ~ i \in I
+	\end{align*}
+Dies ist gerade das KKT-System von $P$ mit durch $-t$ gestörter Komplementaritätsbedingung! Die Lösung $(x(t), \lambda(t))$ ist für alle $t > 0$ eindeutig, $x(t)$ ist \enquote{primal innerer Punkt}, und $\lambda(t)$ ist \enquote{dual innerer Punkt}. Die Menge
+$$ C_{PD} = \big\{ (x(t), \lambda(t)) ~|~t \in (0, \infty) \big\} $$
+heißt \textbf{primal-dualer zentraler Pfad} von $P$. ~\bigskip
+
+Für $t \rightarrow 0+$ geht das gestörte in das ungestörte KKT-System über, d.h. bei Konvergenz $\lim_{t\rightarrow 0+} \left( x(t), \lambda(t) \right) = \left( x^*, \lambda^* \right)$ ist $x^*$ KKT-Punkt von $P$ mit Multiplikator $\lambda^*$ und damit globaler Minimalpunkt. Entscheidender Vorteil gegenüber dem Barriereverfahren ist, dass nun für $t \rightarrow 0+$ keine numerischen Probleme auftreten. ~\bigskip
+
+Geschickte Implementierungen von primal-dualen Innere-Punkte-Methoden lösen die Hilfsprobleme für große $t$ nur grob, werden aber für $t \rightarrow 0+$ immer exakter. Außerdem bestimmen die Verfahren selbst die Anpassung von $t$. ~\bigskip
+
+Dies kann sogar so geschehen, dass der Rechenaufwand zur Identifizierung einer $\epsilon$-genauen Lösung selbst im worst case nur \textit{polynomial in der Problemdimension} anwächst. Da dies insbesondere für lineare Optimierungsprobleme gilt, sind Innere-Punkte-Methoden in dieser Hinsicht dem Simplex-Algorithmus überlegen, der im worst case \textit{exponentiellen Rechenaufwand} besitzt. Bei hochdimensionalen Problemen lässt sich diese Überlegenheit tatsächlich beobachten, so dass kommerzielle Softwarepakete solche Probleme nicht per Simplex-Algorithmus lösen, sondern mit primal-dualen Innere-Punkte-Methoden. ~\bigskip
+
+Von den in diesem Abschnitt behandelten speziell auf Konvexität zugeschnittenen Verfahren sind nur die primal-dualen Innere-Punkte-Methoden in der modernen Optimierung von praktischer Relevanz. Lösungsverfahren für allgemeine nichtlineare Optimierungsprobleme sind heute so weit entwickelt, dass sie dem Schnittebenenverfahren von Kelley und dem Verfahren von Frank-Wolfe im allgemeinen auch für konvexe Probleme überlegen sind. Es ist dennoch sinnvoll, diese Verfahren zu kennen, denn ihre Grundgedanken tauchen in veränderter Form zum Beispiel in der (gemischt-)ganzzahligen nichtlinearen Optimierung und bei der globalen Minimierung nicht-konvexer Funktionen wieder auf, dem Inhalt des nächsten Abschnitts.
+
+\chapter{Nichtkonvexe Optimierung}
 
 % Skript - Ende 			
 \end{document}
