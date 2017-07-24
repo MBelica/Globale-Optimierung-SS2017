@@ -46,7 +46,7 @@
 \makeatother%
 
 % Meta Setup (Für Titelblatt und Metadaten im PDF)
-\title{Globale Optimierung}
+\title{Globale Optimierung I}
 \author{Prof. Dr. Oliver Stein}
 \date{Sommersemester 2017}
 \publishers{Karlsruher Institut für Technologie}
@@ -922,8 +922,8 @@ Da die Komplementaritätsbedingungen für alle $i \notin I_0(\overline{x})$ erzw
 		g_i(\overline{x}) & = 0, ~i \in I_0(\overline{x}) \\
 		g_i(\overline{x}) & < 0, ~i \notin I_0(\overline{x}) \\
 		h_j(\overline{x}) & = 0, ~j \in J \\
-		\overline{\lambda}_i \geq 0, ~i \in I_0(\overline{x}) \\
-		\overline{\lambda}_i = 0, ~ i \notin I_0(\overline{x})
+		\overline{\lambda}_i & \geq 0, ~i \in I_0(\overline{x}) \\
+		\overline{\lambda}_i & = 0, ~ i \notin I_0(\overline{x})
 	\end{align*}	
 	
 Um die geometrische Bedeutung dieser Bedingungen zu verstehen, setzen wir die Kenntnis der Tatsache voraus, dass Gradienten senkrecht auf Höhenlinien stehen und in die Richtung des steilsten Anstiegs zeigen. ~\\
@@ -1305,8 +1305,6 @@ Geschickte Implementierungen von primal-dualen Innere-Punkte-Methoden lösen die
 Dies kann sogar so geschehen, dass der Rechenaufwand zur Identifizierung einer $\epsilon$-genauen Lösung selbst im worst case nur \textit{polynomial in der Problemdimension} anwächst. Da dies insbesondere für lineare Optimierungsprobleme gilt, sind Innere-Punkte-Methoden in dieser Hinsicht dem Simplex-Algorithmus überlegen, der im worst case \textit{exponentiellen Rechenaufwand} besitzt. Bei hochdimensionalen Problemen lässt sich diese Überlegenheit tatsächlich beobachten, so dass kommerzielle Softwarepakete solche Probleme nicht per Simplex-Algorithmus lösen, sondern mit primal-dualen Innere-Punkte-Methoden. ~\bigskip
 
 Von den in diesem Abschnitt behandelten speziell auf Konvexität zugeschnittenen Verfahren sind nur die primal-dualen Innere-Punkte-Methoden in der modernen Optimierung von praktischer Relevanz. Lösungsverfahren für allgemeine nichtlineare Optimierungsprobleme sind heute so weit entwickelt, dass sie dem Schnittebenenverfahren von Kelley und dem Verfahren von Frank-Wolfe im allgemeinen auch für konvexe Probleme überlegen sind. Es ist dennoch sinnvoll, diese Verfahren zu kennen, denn ihre Grundgedanken tauchen in veränderter Form zum Beispiel in der (gemischt-)ganzzahligen nichtlinearen Optimierung und bei der globalen Minimierung nicht-konvexer Funktionen wieder auf, dem Inhalt des nächsten Abschnitts.
-
-\chapter{Nichtkonvexe Optimierung}
 
 % Skript - Ende 			
 \end{document}

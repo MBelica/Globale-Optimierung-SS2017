@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.20)  23 JUL 2017 16:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.20)  24 JUL 2017 02:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1535,17 +1535,17 @@ Overfull \hbox (31.11647pt too wide) in paragraph at lines 1141--1142
 []\T1/lmr/m/n/12 falls die Ziel-funk-ti-on nicht-li-ne-ar kon-vex ist, ^^R   ver-schie-be^^P sie per Epigraph-Umformulierung
  []
 
-[31] [32] <img/vl-alg-21.png, id=277, 508.90125pt x 499.8675pt>
+[31] [32] <img/vl-alg-21.png, id=273, 508.90125pt x 499.8675pt>
 File: img/vl-alg-21.png Graphic file (type png)
  <use img/vl-alg-21.png>
 Package pdftex.def Info: img/vl-alg-21.png used on input line 1180.
 (pdftex.def)             Requested size: 279.89655pt x 274.92796pt.
- [33 <./img/vl-alg-21.png>] [34] <img/vl-alg-23.png, id=292, 386.44376pt x 207.77625pt>
+ [33 <./img/vl-alg-21.png>] [34] <img/vl-alg-23.png, id=288, 386.44376pt x 207.77625pt>
 File: img/vl-alg-23.png Graphic file (type png)
  <use img/vl-alg-23.png>
 Package pdftex.def Info: img/vl-alg-23.png used on input line 1221.
 (pdftex.def)             Requested size: 212.54472pt x 114.27728pt.
- <img/vl-alg-22.png, id=293, 501.875pt x 533.995pt>
+ <img/vl-alg-22.png, id=289, 501.875pt x 533.995pt>
 File: img/vl-alg-22.png Graphic file (type png)
  <use img/vl-alg-22.png>
 Package pdftex.def Info: img/vl-alg-22.png used on input line 1228.
@@ -1554,7 +1554,7 @@ Package pdftex.def Info: img/vl-alg-22.png used on input line 1228.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[35 <./img/vl-alg-23.png>] [36 <./img/vl-alg-22.png>] [37] <img/vl-alg-24.png, id=310, 358.33875pt x 171.64125pt>
+[35 <./img/vl-alg-23.png>] [36 <./img/vl-alg-22.png>] [37] <img/vl-alg-24.png, id=306, 358.33875pt x 171.64125pt>
 File: img/vl-alg-24.png Graphic file (type png)
  <use img/vl-alg-24.png>
 Package pdftex.def Info: img/vl-alg-24.png used on input line 1281.
@@ -1570,33 +1570,28 @@ Overfull \hbox (6.00536pt too wide) in paragraph at lines 1303--1304
  []
 
 [39] [40]
-Kapitel 3.
-[41
-
-
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1312.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1312.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1310.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1310.
  (/Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Kurzvorlesung.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1312.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1312.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1310.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1310.
 Package rerunfilecheck Info: File `Kurzvorlesung.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1312.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1310.
  ) 
 Here is how much of TeX's memory you used:
- 36503 strings out of 493014
- 825085 string characters out of 6133351
- 983795 words of memory out of 5000000
- 39290 multiletter control sequences out of 15000+600000
+ 36500 strings out of 493014
+ 825058 string characters out of 6133351
+ 983794 words of memory out of 5000000
+ 39289 multiletter control sequences out of 15000+600000
  80214 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,15n,81p,10410b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Kurzvorlesung.pdf (42 pages, 550737 bytes).
+Output written on /Users/martin/Dropbox/Skripte/Globale-Optimierung-SS2017/source/.texpadtmp/Kurzvorlesung.pdf (41 pages, 550535 bytes).
 PDF statistics:
- 415 PDF objects out of 1000 (max. 8388607)
- 338 compressed objects within 4 object streams
- 110 named destinations out of 1000 (max. 500000)
- 173 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 405 PDF objects out of 1000 (max. 8388607)
+ 329 compressed objects within 4 object streams
+ 108 named destinations out of 1000 (max. 500000)
+ 165 words of extra memory for PDF output out of 10000 (max. 10000000)
 
