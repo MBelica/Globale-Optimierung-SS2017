@@ -192,7 +192,7 @@ auf der Box $X = [0, 1] \times [-1, 1]$.
 			Es ist
 			$$ -1.4099 \leq v \leq -0.1982 \iff v \in [-1.4099, -0.1982] $$
 		\end{proof}
-	\item Was passiert, wenn Sie versuchen mit dem in Aufgabenteil d) verwendeten Solver das Minimum von $f$ auf$ X$ mit Startpunkt $x_0 = (0,0)^T$ auszurechnen? Vergleichen Sie Ihr Ergebnis mit Aufgabenteil f) und g).
+	\item Was passiert, wenn Sie versuchen mit dem in Aufgabenteil d) verwendeten Solver das Minimum von $f$ auf $X$ mit Startpunkt $x_0 = (0,0)^T$ auszurechnen? Vergleichen Sie Ihr Ergebnis mit Aufgabenteil f) und g).
 		\begin{proof}
 			Mit dem Solver kommt als Minimalpunkt $x^* = (0, 0)$ raus, da 
 			$$ f( (0,0) ) = 0 \notin [-1.4099, -0.1982], $$
@@ -258,8 +258,8 @@ Gegeben seien stetige Funktionen $f, g \colon X \rightarrow \R$, auf einer konve
 			Nach Satz 3.5.2 ($\alpha BB$-Methode) ist allerdings für $x \in X$ mit geeignetem $\alpha$
 			$$ \hat{f}(x) = f(x) + \alpha \psi(x) $$
 		 die konvexe Relaxierung von $f$. Da $f(0) = 0 = \min_{x \in X} f(x)$ und nach Übung 3.4.1 $\psi(0) = \psi(m(X)) = \min_{x \in X} \psi(x)$ gilt, ist somit:
-			$$ \min_{x \in X} \hat{f}(x) = \min_{x \in X} \left( f(x) - \alpha \psi(x) \right) = \min_{x \in X} f(x) + \min_{x \in X} \psi(x)  $$
-			$$ \Rightarrow \min_{x \in X} f(x) - \min_{x \in X} \hat{f}(x) = - \min_{x in X} \psi(x) =  \frac{\alpha}{8} w(X)^2  $$
+			$$ \min_{x \in X} \hat{f}(x) = \min_{x \in X} \left( f(x) + \alpha \psi(x) \right) = \min_{x \in X} f(x) + \alpha \min_{x \in X} \psi(x)  $$
+			$$ \Rightarrow \min_{x \in X} f(x) - \min_{x \in X} \hat{f}(x) = - \alpha \min_{x \in X} \psi(x) =  \frac{\alpha}{8} w(X)^2  $$
 		\end{proof}
 \end{enumerate}
 
